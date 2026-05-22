@@ -1,11 +1,40 @@
 {
   "sources": [
-    {"school": "南京大学", "source_name": "南京大学研究生招生网-夏令营/推免栏目", "list_url": "https://yzb.nju.edu.cn/xlyxx/listm1.htm", "keywords": ["夏令营", "推免", "预推免", "推荐免试", "优秀大学生"]},
-    {"school": "北京大学", "source_name": "北京大学研究生招生网", "list_url": "https://admission.pku.edu.cn/", "keywords": ["夏令营", "推免", "预推免", "推荐免试", "优秀大学生"]},
-    {"school": "北京大学医学部", "source_name": "北京大学研究生院医学部分院招生动态", "list_url": "https://yjsy.bjmu.edu.cn/zslq/zsdt/index2.htm", "keywords": ["夏令营", "推免", "预推免", "推荐免试", "优秀大学生"]},
-    {"school": "复旦大学", "source_name": "复旦大学研究生招生网-招生动态", "list_url": "https://gsao.fudan.edu.cn/15160/list.htm", "keywords": ["夏令营", "推免", "预选拔", "预推免", "优秀大学生"]},
-    {"school": "南京中医药大学", "source_name": "南京中医药大学研究生院招生公告", "list_url": "https://gra.njucm.edu.cn/2902/list.htm", "keywords": ["夏令营", "推免", "预推免", "推荐免试", "拟录取"]},
-    {"school": "南京农业大学", "source_name": "南京农业大学研究生招生网录取公示", "list_url": "https://zsgz.njau.edu.cn/info/1011/1671.htm", "keywords": ["夏令营", "推免", "推荐免试", "优秀大学生", "拟录取"]},
-    {"school": "深圳大学", "source_name": "深圳大学研究生招生网录取公示", "list_url": "https://yz.szu.edu.cn/sszs/lqgs.htm", "keywords": ["夏令营", "推免", "推荐免试", "优秀大学生", "拟录取"]}
+    {
+      "school": "北京大学",
+      "source_name": "北京大学研究生招生网-夏令营栏目",
+      "list_url": "https://admission.pku.edu.cn/xly/index.htm",
+      "keywords": ["夏令营", "优秀大学生", "推免", "预推免", "推荐免试"]
+    },
+    {
+      "school": "中国科学院大学",
+      "source_name": "中国科学院大学公共政策与管理学院-夏令营公告",
+      "list_url": "https://sppm.ucas.ac.cn/index.php/zh-CN/zsgl/zsxx/3367-2014",
+      "keywords": ["夏令营", "优秀大学生", "推免", "推荐免试"]
+    },
+    {
+      "school": "南京大学",
+      "source_name": "南京大学研究生招生网-夏令营/推免栏目",
+      "list_url": "https://yzb.nju.edu.cn/xlyxx/listm.htm",
+      "keywords": ["夏令营", "优秀大学生", "推免", "预推免", "推荐免试"]
+    },
+    {
+      "school": "复旦大学",
+      "source_name": "复旦大学研究生招生网-首页/招生动态",
+      "list_url": "https://gsao.fudan.edu.cn/",
+      "keywords": ["夏令营", "优秀大学生", "推免", "预推免", "推荐免试"]
+    },
+    {
+      "school": "上海交通大学",
+      "source_name": "上海交通大学研究生招生网-夏令营公告",
+      "list_url": "https://yzb.sjtu.edu.cn/post/3218",
+      "keywords": ["夏令营", "优秀大学生", "推免", "推荐免试"]
+    },
+    {
+      "school": "南京中医药大学",
+      "source_name": "南京中医药大学研究生院招生公告",
+      "list_url": "https://gra.njucm.edu.cn/2902/list.htm",
+      "keywords": ["夏令营", "优秀大学生", "推免", "推荐免试"]
+    }
   ]
 }
