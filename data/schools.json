@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-22T08:10:15Z",
-  "note": "推免名额、推免率由爬虫自动抓取官网来源；未抓到真实来源的不在前台展示。",
+  "updated_at": "2026-05-22 16:38:17",
+  "note": "推免名额/推免率只写入官网可核验数据；未抓到真实来源的不在前台显示。",
   "sources": {
     "研招网2018推免资格基础名单": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
     "研招网2025新增推免资格高校备案名单": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250912/2293411123.html"
@@ -1865,23 +1865,25 @@
       "is_211": "否",
       "is_double_first_class": "是",
       "school_type": "医药",
-      "recommendation_quota": "202人",
+      "recommendation_quota": "381",
       "graduate_count": "",
       "recommendation_rate": "",
       "recommendation_year": "2026届",
-      "recommendation_source_name": "关于做好推荐2026届优秀应届本科毕业生免试攻读研究生工作的通知",
+      "recommendation_source_name": "南京中医药大学教务处：关于做好推荐2026届优秀应届本科毕业生免试攻读研究生工作的通知",
       "recommendation_source_url": "https://jwc.njucm.edu.cn/2025/0901/c3868a159946/page.htm",
       "city_score": "91",
       "school_level_score": "78",
-      "heat_score": "76",
+      "heat_score": "79",
       "heat_level": "B级",
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22",
+      "last_checked": "2026-05-22 16:38:16",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
-      "level_display": "双一流"
+      "level_display": "79",
+      "recommendation_note": "学院推荐计划合计374人，研究生支教团7个名额不在以上名额中，合计按381人记录；如学校后续公示口径变化，以官网最新公告为准。",
+      "recommendation_verify_status": "官网已核验"
     },
     {
       "school_name": "上海中医药大学",
@@ -7829,23 +7831,25 @@
       "is_211": "否",
       "is_double_first_class": "否",
       "school_type": "理工",
-      "recommendation_quota": "42人",
+      "recommendation_quota": "242",
       "graduate_count": "",
       "recommendation_rate": "",
       "recommendation_year": "2026届",
-      "recommendation_source_name": "关于做好2026届优秀应届本科毕业生免试攻读硕士学位研究生遴选工作的通知-东北石油大学教务处",
+      "recommendation_source_name": "东北石油大学教务处：关于做好2026届优秀应届本科毕业生免试攻读硕士学位研究生工作通知",
       "recommendation_source_url": "https://jwc.nepu.edu.cn/info/1164/12852.htm",
       "city_score": "84",
       "school_level_score": "65",
-      "heat_score": "63",
+      "heat_score": "66",
       "heat_level": "C级",
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22",
+      "last_checked": "2026-05-22 16:38:17",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "石油工程/化工/地质/机械",
-      "level_display": "普通"
+      "level_display": "66",
+      "recommendation_note": "官网正文明确写明教育部下达该校2026届推免生名额。",
+      "recommendation_verify_status": "官网已核验"
     },
     {
       "school_name": "齐齐哈尔大学",
@@ -12159,5 +12163,8 @@
       "hot_majors": "计算机/电子信息/材料/机械",
       "level_display": "普通"
     }
-  ]
+  ],
+  "quota_source_count": 2,
+  "quota_updated_count": 2,
+  "quota_failed_samples": []
 }
