@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-05-22T17:32:53.816019+00:00",
+  "run_at": "2026-05-22T20:11:33.345474+00:00",
   "current_year": 2026,
   "schools_loaded": 434,
   "seed_summer_found": 0,
@@ -9,7 +9,7 @@
   "receive_candidates_saved": 0,
   "stats": {
     "queries": 254,
-    "results_seen": 20,
+    "results_seen": 0,
     "summer_candidates": 0,
     "receive_candidates": 0,
     "official_summer": 0,
