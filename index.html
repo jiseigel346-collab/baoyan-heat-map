@@ -1,320 +1,125 @@
-# -*- coding: utf-8 -*-
-"""
-保研地图 v7：增加“接收推免人数 + 各专业人数”自动抓取
-核心原则：
-1. 本校推荐名额：来自本科教务处/本科生院推免名额通知；
-2. 接收推免人数：来自研究生院/研招办拟录取名单；
-3. 只有官网来源能访问并能解析到专业名单，才写入前台数据；
-4. 阶段性名单只标记为“已抓取接收推免人数”，不冒充全校最终总数；
-5. 没有来源的数据不显示，不写“待核验”。
-"""
-from __future__ import annotations
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="referrer" content="no-referrer" />
+<title>全国保研院校热度地图</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;background:#06101f;color:#e9f7ff;overflow-x:hidden}.bg{position:fixed;inset:0;background:radial-gradient(circle at 25% 15%,rgba(56,189,248,.22),transparent 30%),radial-gradient(circle at 85% 10%,rgba(244,63,94,.14),transparent 24%),linear-gradient(135deg,#050b17,#07172a 50%,#08111f);z-index:-1}.wrap{max-width:1680px;margin:0 auto;padding:18px}.header{border:1px solid rgba(103,232,249,.2);background:linear-gradient(135deg,rgba(15,23,42,.92),rgba(8,47,73,.64));border-radius:28px;padding:22px 26px;box-shadow:0 18px 70px rgba(8,145,178,.12);display:flex;justify-content:space-between;gap:18px;align-items:center}.kicker{color:#67e8f9;font-size:13px;margin-bottom:8px;letter-spacing:.08em}.title{font-size:36px;font-weight:800;letter-spacing:.02em}.desc{margin-top:8px;color:#a7c7d9;font-size:14px;line-height:1.8}.metrics{display:grid;grid-template-columns:repeat(3,120px);gap:12px}.metric{padding:13px 12px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);text-align:center}.metric .label{font-size:12px;color:#8fb7c7}.metric .num{font-size:25px;font-weight:800;margin-top:4px}.layout{display:grid;grid-template-columns:320px minmax(560px,1fr) 420px;gap:18px;margin-top:18px}.panel{border:1px solid rgba(103,232,249,.16);background:rgba(15,23,42,.78);border-radius:26px;padding:18px;box-shadow:0 18px 60px rgba(2,6,23,.28);backdrop-filter:blur(12px)}.panel h3{margin:0 0 15px;font-size:16px;display:flex;gap:8px;align-items:center}.control{display:flex;flex-direction:column;gap:10px}.control input,.control select{width:100%;height:42px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07);color:#e9f7ff;padding:0 12px;outline:none}.control input::placeholder{color:#6b8ca0}.control select option{color:#111}.btn{height:42px;border:0;border-radius:14px;background:linear-gradient(135deg,#22d3ee,#a7f3d0);font-weight:800;color:#06101f;cursor:pointer}.btn.secondary{background:rgba(255,255,255,.08);color:#dff7ff;border:1px solid rgba(255,255,255,.14)}.btn.warn{background:linear-gradient(135deg,#fbbf24,#fb7185);color:#111827}.small{font-size:12px;color:#8fb7c7;line-height:1.7}.status-row{margin:12px 0}.row-title{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px}.bar{height:7px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}.bar>span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#22d3ee,#fde68a,#fb7185)}.map-panel{position:relative;height:calc(100vh - 158px);min-height:680px;overflow:hidden}.map{height:100%;width:100%;}.legend{position:absolute;left:18px;bottom:18px;right:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;z-index:5}.legend-card{padding:12px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:12px}.legend-card b{display:block;font-size:16px;margin-bottom:6px}.rank-list{height:490px;overflow:hidden;position:relative}.school-card{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);border-radius:18px;padding:13px;margin-bottom:10px}.school-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.school-name{font-weight:800}.school-meta{margin-top:4px;font-size:12px;color:#8fb7c7}.heat{font-size:24px;font-weight:900;color:#fecdd3;text-align:right}.trend{font-size:12px;color:#a7f3d0;text-align:right}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.tag{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.18);color:#cffafe}.city-detail{max-height:500px;overflow:auto;padding-right:4px}.pill{display:inline-flex;padding:3px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:12px;color:#dff7ff}.log{white-space:pre-wrap;max-height:260px;overflow:auto;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:12px;color:#b7e7f3;font-size:12px;line-height:1.6}.notice{padding:12px;border-radius:16px;background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.18);color:#fde68a;font-size:12px;line-height:1.7}.footer{margin-top:18px;border:1px solid rgba(103,232,249,.16);background:rgba(15,23,42,.72);border-radius:24px;padding:16px;color:#aac5d4;font-size:13px;line-height:1.8}.data-line{margin-top:10px;padding:9px 10px;border-radius:12px;background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.12);font-size:12px;color:#cfefff;line-height:1.7}.data-line a{color:#67e8f9;text-decoration:none}.major-box{margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:8px}.major-row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;color:#dff7ff}.major-row span:first-child{max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.muted{color:#8fb7c7}
+.ticker{margin-top:14px;border:1px solid rgba(103,232,249,.16);background:rgba(15,23,42,.76);border-radius:18px;padding:10px 14px;display:flex;gap:12px;align-items:center;overflow:hidden}.ticker b{white-space:nowrap;color:#fde68a}.ticker-window{overflow:hidden;flex:1}.ticker-track{display:inline-flex;gap:34px;white-space:nowrap;animation:tickerMove 38s linear infinite}.ticker-item{color:#dff7ff;font-size:13px}.ticker-item a{color:#67e8f9;text-decoration:none}.ticker-item .time{color:#8fb7c7;margin-left:8px}.ticker:hover .ticker-track{animation-play-state:paused}@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.receive-feed{height:355px;overflow:hidden;position:relative;padding-right:4px}.receive-track{animation:receiveMove 28s linear infinite}.receive-feed:hover .receive-track{animation-play-state:paused}@keyframes receiveMove{from{transform:translateY(0)}to{transform:translateY(-50%)}}.receive-card{border:1px solid rgba(34,211,238,.16);background:rgba(34,211,238,.055);border-radius:18px;padding:12px;margin-bottom:10px}.receive-title{display:flex;justify-content:space-between;gap:10px;font-weight:800}.receive-total{color:#fde68a;font-size:18px;font-weight:900}.receive-note{font-size:12px;color:#8fb7c7;margin-top:4px}.receive-major{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px solid rgba(255,255,255,.06);font-size:12px}.receive-major:first-child{border-top:0}.receive-major span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.receive-major b{color:#cffafe}.receive-source{margin-top:8px;font-size:12px}.receive-source a{color:#67e8f9;text-decoration:none}
 
-import io
-import json
-import re
-from collections import Counter
-from datetime import datetime, timezone, timedelta
-from pathlib import Path
-from typing import Dict, Any, List, Tuple
+@media(max-width:1180px){.layout{grid-template-columns:1fr}.map-panel{height:680px}.metrics{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="wrap">
+<header class="header"><div><div class="kicker">BAOYAN DATA SCREEN · GITHUB PAGES · REAL CHINA MAP</div><div class="title">全国保研院校热度地图</div><div class="desc">推免资格院校分布 / 城市保研资源 / 院校热度 / 相关专业动态查询</div></div><div class="metrics"><div class="metric"><div class="label">院校数</div><div class="num" id="mSchools">-</div></div><div class="metric"><div class="label">城市点位</div><div class="num" id="mCities">-</div></div><div class="metric"><div class="label">当前城市</div><div class="num" id="mActive">-</div></div></div></header>
+<div class="ticker" id="summerTickerBox"><b>📢 夏令营公告</b><div class="ticker-window"><div id="summerTicker" class="ticker-track"><span class="ticker-item">正在加载最新公告...</span></div></div></div>
+<main class="layout">
+<section><div class="panel"><h3>🔍 筛选条件</h3><div class="control"><input id="search" placeholder="搜学校 / 城市 / 专业，例如：南京、计算机、南信大"/><select id="province"><option value="全部">全部省份</option></select><select id="level"><option value="全部">全部层次</option><option value="985">985</option><option value="211">211</option><option value="双一流">双一流</option><option value="普通">普通/新增</option></select><button class="btn" id="applyBtn">刷新地图</button></div><p class="small">云端自动更新已开启；页面只展示已核验的推免名额/推免率，未核验数据不显示。</p></div><div class="panel" style="margin-top:18px"><h3>🏙️ 城市热度 TOP</h3><div id="cityTop"></div></div></section>
+<section class="panel map-panel"><div id="map" class="map"></div><div class="legend" id="legendCards"></div></section>
+<section><div class="panel"><h3>🎓 接收推免专业动态</h3><div class="receive-feed" id="receiveFeed"></div></div><div class="panel" style="margin-top:18px"><h3>🔥 院校热度动态榜</h3><div class="rank-list" style="height:360px"><div id="rankList"></div></div></div><div class="panel" style="margin-top:18px"><h3 id="cityTitle">📍 城市院校与相关专业</h3><div class="city-detail" id="cityDetail"></div></div></section>
+</main><div class="footer"><b>口径说明：</b>基础库按推免资格名单和新增资格名单整理；推免名额、推免率只显示已核验来源，未核验数据不展示。</div></div>
+<script>
+let RAW_SCHOOLS = [];
+const CITY_COORDS = [{"city": "北京", "province": "北京市", "lng": "116.4074", "lat": "39.9042"}, {"city": "上海", "province": "上海市", "lng": "121.4737", "lat": "31.2304"}, {"city": "天津", "province": "天津市", "lng": "117.2000", "lat": "39.1333"}, {"city": "重庆", "province": "重庆市", "lng": "106.5516", "lat": "29.5630"}, {"city": "南京", "province": "江苏省", "lng": "118.7969", "lat": "32.0603"}, {"city": "苏州", "province": "江苏省", "lng": "120.5853", "lat": "31.2989"}, {"city": "无锡", "province": "江苏省", "lng": "120.3119", "lat": "31.4912"}, {"city": "常州", "province": "江苏省", "lng": "119.9741", "lat": "31.8112"}, {"city": "镇江", "province": "江苏省", "lng": "119.4528", "lat": "32.2044"}, {"city": "扬州", "province": "江苏省", "lng": "119.4210", "lat": "32.3932"}, {"city": "徐州", "province": "江苏省", "lng": "117.1848", "lat": "34.2618"}, {"city": "南通", "province": "江苏省", "lng": "120.8943", "lat": "31.9802"}, {"city": "连云港", "province": "江苏省", "lng": "119.2216", "lat": "34.5967"}, {"city": "淮安", "province": "江苏省", "lng": "119.0153", "lat": "33.6104"}, {"city": "盐城", "province": "江苏省", "lng": "120.1636", "lat": "33.3475"}, {"city": "泰州", "province": "江苏省", "lng": "119.9229", "lat": "32.4555"}, {"city": "宿迁", "province": "江苏省", "lng": "118.2752", "lat": "33.9630"}, {"city": "杭州", "province": "浙江省", "lng": "120.1551", "lat": "30.2741"}, {"city": "宁波", "province": "浙江省", "lng": "121.5504", "lat": "29.8746"}, {"city": "温州", "province": "浙江省", "lng": "120.6994", "lat": "27.9949"}, {"city": "金华", "province": "浙江省", "lng": "119.6495", "lat": "29.0895"}, {"city": "绍兴", "province": "浙江省", "lng": "120.5821", "lat": "29.9971"}, {"city": "合肥", "province": "安徽省", "lng": "117.2272", "lat": "31.8206"}, {"city": "芜湖", "province": "安徽省", "lng": "118.4331", "lat": "31.3525"}, {"city": "马鞍山", "province": "安徽省", "lng": "118.5068", "lat": "31.6705"}, {"city": "厦门", "province": "福建省", "lng": "118.0894", "lat": "24.4798"}, {"city": "福州", "province": "福建省", "lng": "119.2965", "lat": "26.0745"}, {"city": "泉州", "province": "福建省", "lng": "118.6759", "lat": "24.8741"}, {"city": "南昌", "province": "江西省", "lng": "115.8582", "lat": "28.6829"}, {"city": "赣州", "province": "江西省", "lng": "114.9350", "lat": "25.8311"}, {"city": "济南", "province": "山东省", "lng": "117.1201", "lat": "36.6512"}, {"city": "青岛", "province": "山东省", "lng": "120.3826", "lat": "36.0671"}, {"city": "烟台", "province": "山东省", "lng": "121.4479", "lat": "37.4638"}, {"city": "威海", "province": "山东省", "lng": "122.1204", "lat": "37.5131"}, {"city": "潍坊", "province": "山东省", "lng": "119.1618", "lat": "36.7069"}, {"city": "郑州", "province": "河南省", "lng": "113.6254", "lat": "34.7466"}, {"city": "洛阳", "province": "河南省", "lng": "112.4536", "lat": "34.6197"}, {"city": "开封", "province": "河南省", "lng": "114.3076", "lat": "34.7972"}, {"city": "新乡", "province": "河南省", "lng": "113.9268", "lat": "35.3030"}, {"city": "武汉", "province": "湖北省", "lng": "114.3054", "lat": "30.5931"}, {"city": "宜昌", "province": "湖北省", "lng": "111.2864", "lat": "30.6919"}, {"city": "襄阳", "province": "湖北省", "lng": "112.1224", "lat": "32.0090"}, {"city": "长沙", "province": "湖南省", "lng": "112.9388", "lat": "28.2282"}, {"city": "湘潭", "province": "湖南省", "lng": "112.9441", "lat": "27.8297"}, {"city": "株洲", "province": "湖南省", "lng": "113.1339", "lat": "27.8278"}, {"city": "广州", "province": "广东省", "lng": "113.2644", "lat": "23.1291"}, {"city": "深圳", "province": "广东省", "lng": "114.0579", "lat": "22.5431"}, {"city": "珠海", "province": "广东省", "lng": "113.5767", "lat": "22.2707"}, {"city": "汕头", "province": "广东省", "lng": "116.6819", "lat": "23.3541"}, {"city": "佛山", "province": "广东省", "lng": "113.1214", "lat": "23.0215"}, {"city": "南宁", "province": "广西壮族自治区", "lng": "108.3669", "lat": "22.8170"}, {"city": "桂林", "province": "广西壮族自治区", "lng": "110.2900", "lat": "25.2736"}, {"city": "海口", "province": "海南省", "lng": "110.1999", "lat": "20.0442"}, {"city": "成都", "province": "四川省", "lng": "104.0665", "lat": "30.5723"}, {"city": "绵阳", "province": "四川省", "lng": "104.6796", "lat": "31.4675"}, {"city": "雅安", "province": "四川省", "lng": "103.0131", "lat": "29.9805"}, {"city": "贵阳", "province": "贵州省", "lng": "106.6302", "lat": "26.6470"}, {"city": "昆明", "province": "云南省", "lng": "102.8329", "lat": "24.8801"}, {"city": "大理", "province": "云南省", "lng": "100.2676", "lat": "25.6065"}, {"city": "拉萨", "province": "西藏自治区", "lng": "91.1409", "lat": "29.6456"}, {"city": "西安", "province": "陕西省", "lng": "108.9402", "lat": "34.3416"}, {"city": "咸阳", "province": "陕西省", "lng": "108.7088", "lat": "34.3296"}, {"city": "杨凌", "province": "陕西省", "lng": "108.0846", "lat": "34.2727"}, {"city": "兰州", "province": "甘肃省", "lng": "103.8343", "lat": "36.0611"}, {"city": "西宁", "province": "青海省", "lng": "101.7782", "lat": "36.6171"}, {"city": "银川", "province": "宁夏回族自治区", "lng": "106.2309", "lat": "38.4872"}, {"city": "乌鲁木齐", "province": "新疆维吾尔自治区", "lng": "87.6168", "lat": "43.8256"}, {"city": "石河子", "province": "新疆维吾尔自治区", "lng": "86.0806", "lat": "44.3059"}, {"city": "呼和浩特", "province": "内蒙古自治区", "lng": "111.7492", "lat": "40.8426"}, {"city": "包头", "province": "内蒙古自治区", "lng": "109.8404", "lat": "40.6574"}, {"city": "沈阳", "province": "辽宁省", "lng": "123.4315", "lat": "41.8057"}, {"city": "大连", "province": "辽宁省", "lng": "121.6147", "lat": "38.9140"}, {"city": "长春", "province": "吉林省", "lng": "125.3235", "lat": "43.8171"}, {"city": "吉林", "province": "吉林省", "lng": "126.5496", "lat": "43.8378"}, {"city": "哈尔滨", "province": "黑龙江省", "lng": "126.5349", "lat": "45.8038"}, {"city": "大庆", "province": "黑龙江省", "lng": "125.1038", "lat": "46.5893"}, {"city": "齐齐哈尔", "province": "黑龙江省", "lng": "123.9182", "lat": "47.3543"}, {"city": "牡丹江", "province": "黑龙江省", "lng": "129.6332", "lat": "44.5517"}, {"city": "佳木斯", "province": "黑龙江省", "lng": "130.3189", "lat": "46.7999"}, {"city": "石家庄", "province": "河北省", "lng": "114.5149", "lat": "38.0428"}, {"city": "秦皇岛", "province": "河北省", "lng": "119.6005", "lat": "39.9354"}, {"city": "保定", "province": "河北省", "lng": "115.4646", "lat": "38.8739"}, {"city": "唐山", "province": "河北省", "lng": "118.1802", "lat": "39.6309"}, {"city": "太原", "province": "山西省", "lng": "112.5489", "lat": "37.8706"}, {"city": "晋中", "province": "山西省", "lng": "112.7527", "lat": "37.6870"}];
+let allSchools = [], filteredSchools=[], filteredCities=[], activeCity='', chart, rankStart=0, rankTimer;
+const $=id=>document.getElementById(id);
+function esc(s){return String(s||'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+function heatColor(v){v=+v||0;if(v>=92)return '#fb7185';if(v>=84)return '#fbbf24';if(v>=74)return '#22d3ee';return '#94a3b8';}
+function levelOf(s){if(s.is_985==='是')return'985';if(s.is_211==='是')return'211';if(s.is_double_first_class==='是')return'双一流';return'普通';}
+const coordMap = Object.fromEntries(CITY_COORDS.map(c=>[c.city,{lng:+c.lng,lat:+c.lat}]));
+function prepare(){let ps=[...new Set(allSchools.map(s=>s.province).filter(Boolean))].sort();$('province').innerHTML='<option value="全部">全部省份</option>'+ps.map(p=>`<option value="${esc(p)}">${esc(p)}</option>`).join('');applyFilter();}
+function applyFilter(){const q=$('search').value.trim(),p=$('province').value,l=$('level').value;filteredSchools=allSchools.filter(s=>(p==='全部'||s.province===p)&&(l==='全部'||levelOf(s)===l)&&(!q||(`${s.school_name}${s.city}${s.province}${s.hot_majors}`).includes(q)));
+filteredSchools.forEach(s=>{s.heat_score=+(s.heat_score||0);s.majors_list=String(s.hot_majors||'').split(/[\/、，,]/).filter(Boolean);});filteredSchools.sort((a,b)=>b.heat_score-a.heat_score);filteredCities=groupCities(filteredSchools);activeCity=filteredCities[0]?.city||'';$('mSchools').textContent=filteredSchools.length;$('mCities').textContent=filteredCities.length;$('mActive').textContent=activeCity;renderCityTop();renderLegend();renderReceiveFeed();renderRank();renderCityDetail();renderMap();}
+function groupCities(arr){let m={};arr.forEach(s=>{let city=s.city||'';let co=coordMap[city];if(!city||!co)return;let it=m[city]||(m[city]={city, lng:co.lng, lat:co.lat, count:0, total:0, max_heat:0, top_school:''});it.count++;it.total+=s.heat_score; if(s.heat_score>it.max_heat){it.max_heat=s.heat_score;it.top_school=s.school_name;}});return Object.values(m).map(c=>({...c, avg_heat:Math.round(c.total/c.count)})).sort((a,b)=>b.max_heat-a.max_heat||b.count-a.count);}
+async function renderMap(){if(!window.echarts){$('map').innerHTML='<div style="padding:80px;color:#fecaca">ECharts 没加载出来。请确认电脑能联网访问 cdn.jsdelivr.net。</div>';return;}if(!chart){chart=echarts.init($('map'));window.addEventListener('resize',()=>chart.resize());}
+let geo;try{let res=await fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json',{referrerPolicy:'no-referrer'});geo=await res.json();}catch(e){$('map').innerHTML='<div style="padding:80px;color:#fecaca">真实中国地图 GeoJSON 加载失败。<br>请确认联网，或换成云端版。<br>错误：'+esc(e.message)+'</div>';return;}
+echarts.registerMap('china',geo);let pts=filteredCities.map(c=>({name:c.city,value:[c.lng,c.lat,c.max_heat,c.count,c.avg_heat],city:c,itemStyle:{color:heatColor(c.max_heat)}}));chart.setOption({backgroundColor:'transparent',tooltip:{trigger:'item',backgroundColor:'rgba(2,6,23,.92)',borderColor:'rgba(103,232,249,.28)',textStyle:{color:'#e9f7ff'},formatter:p=>p.seriesType==='effectScatter'?`<b>${p.data.city.city}</b><br/>院校数：${p.data.city.count}<br/>最高热度：${p.data.city.max_heat}<br/>代表院校：${p.data.city.top_school}`:p.name},geo:{map:'china',roam:true,zoom:1.12,center:[104,36],label:{show:false},itemStyle:{areaColor:'rgba(8,47,73,.76)',borderColor:'rgba(103,232,249,.55)',borderWidth:1},emphasis:{itemStyle:{areaColor:'rgba(14,116,144,.86)'}}},series:[{type:'map',map:'china',geoIndex:0,data:[]},{name:'城市热度',type:'effectScatter',coordinateSystem:'geo',data:pts,rippleEffect:{scale:3.2,brushType:'stroke'},symbolSize:d=>Math.max(9,Math.min(34,8+d[2]/6+d[3]*1.2)),label:{show:true,formatter:'{b}',position:'right',color:'#dff7ff',fontSize:11},emphasis:{scale:true}}]},true);chart.off('click');chart.on('click',p=>{if(p.seriesType==='effectScatter'){activeCity=p.name;$('mActive').textContent=activeCity;renderCityDetail();}});}
+function renderCityTop(){$('cityTop').innerHTML=filteredCities.slice(0,8).map((c,i)=>`<div class="status-row" style="cursor:pointer" onclick="activeCity='${c.city}';$('mActive').textContent=activeCity;renderCityDetail();"><div class="row-title"><span>${i+1}. ${esc(c.city)} <small style="color:#8fb7c7">${c.count}校</small></span><span>${c.max_heat}</span></div><div class="bar"><span style="width:${c.max_heat}%;background:${heatColor(c.max_heat)}"></span></div></div>`).join('');}
+function renderLegend(){$('legendCards').innerHTML=filteredCities.slice(0,4).map(c=>`<div class="legend-card"><b>${esc(c.city)}</b>${c.count}所院校 · 最高热度${c.max_heat}<div class="bar" style="margin-top:8px"><span style="width:${c.max_heat}%;background:${heatColor(c.max_heat)}"></span></div></div>`).join('');}
+function renderRank(){clearInterval(rankTimer);rankStart=0;function draw(){let arr=filteredSchools;let take=arr.slice(rankStart,rankStart+10).concat(arr.slice(0,Math.max(0,rankStart+10-arr.length)));$('rankList').innerHTML=take.map((s,i)=>card(s,i+1)).join('')||'<div class="small">暂无数据</div>';if(arr.length)rankStart=(rankStart+1)%arr.length;}draw();rankTimer=setInterval(draw,2300);}
+function receiveBlock(s,limit=5){
+  let recvTotal=String(s.receive_recommend_total||'').trim();
+  let recvYear=String(s.receive_recommend_year||'').trim();
+  let recvSrc=String(s.receive_recommend_source_url||'').trim();
+  let recvName=String(s.receive_recommend_source_name||'').trim();
+  let complete=String(s.receive_recommend_is_complete||'').trim()==='是';
+  let byMajor=Array.isArray(s.receive_recommend_by_major)?s.receive_recommend_by_major:[];
+  if(!recvTotal && !byMajor.length)return '';
+  let total=recvTotal||String(byMajor.reduce((a,m)=>a+(parseInt(m.count)||0),0));
+  let title=complete?'接收推免总人数':'接收推免人数';
+  let majors=byMajor.slice(0,limit).map(m=>`<div class="receive-major"><span>${esc(m.major_name||m.major||'专业')}</span><b>${esc(m.count||'')}人</b></div>`).join('');
+  let source=recvSrc?`<div class="receive-source"><a href="${esc(recvSrc)}" target="_blank">查看来源</a>${recvName?` · ${esc(recvName)}`:''}</div>`:(recvName?`<div class="receive-source">来源：${esc(recvName)}</div>`:'');
+  return `<div class="data-line"><b>${title}：${esc(total)}人</b>${recvYear?`　年份：${esc(recvYear)}`:''}<div class="major-box">${majors||'<span class="muted">暂未解析到专业分布</span>'}</div>${source}</div>`;
+}
+function card(s,i){let majors=(s.majors_list||[]).slice(0,4).map(m=>`<span class="tag">${esc(m)}</span>`).join('');let recv=receiveBlock(s,3);return `<div class="school-card"><div class="school-top"><div><div class="school-name">${i}. ${esc(s.school_name)}</div><div class="school-meta">${esc(s.province)} · ${esc(s.city)} · ${levelOf(s)} · ${esc(s.heat_level)}</div></div><div><div class="heat">${s.heat_score}</div><div class="trend">热度指数</div></div></div><div class="bar" style="margin-top:10px"><span style="width:${s.heat_score}%;background:${heatColor(s.heat_score)}"></span></div><div class="tags">${majors}</div>${recv}</div>`;}
 
-import requests
-from urllib.parse import urljoin
-from bs4 import BeautifulSoup
-from pypdf import PdfReader
+function hasReceive(s){return String(s.receive_recommend_total||'').trim() || (Array.isArray(s.receive_recommend_by_major)&&s.receive_recommend_by_major.length);}
+function renderReceiveFeed(){
+  let arr=allSchools.filter(hasReceive).sort((a,b)=>(parseInt(b.receive_recommend_total)||0)-(parseInt(a.receive_recommend_total)||0));
+  if(!arr.length){$('receiveFeed').innerHTML='<div class="small">暂无已核验接收推免专业数据。</div>';return;}
+  let cards=arr.slice(0,16).map((s,i)=>{
+    let byMajor=Array.isArray(s.receive_recommend_by_major)?s.receive_recommend_by_major:[];
+    let total=String(s.receive_recommend_total||'').trim()||String(byMajor.reduce((a,m)=>a+(parseInt(m.count)||0),0));
+    let src=String(s.receive_recommend_source_url||'').trim();
+    let majors=byMajor.slice(0,6).map(m=>`<div class="receive-major"><span>${esc(m.major_name||m.major||'专业')}</span><b>${esc(m.count||'')}人</b></div>`).join('');
+    return `<div class="receive-card"><div class="receive-title"><span>${i+1}. ${esc(s.school_name)}</span><span class="receive-total">${esc(total)}人</span></div>${majors?`<div style="margin-top:8px">${majors}</div>`:''}${src?`<div class="receive-source"><a href="${esc(src)}" target="_blank">查看官网来源</a></div>`:''}</div>`;
+  });
+  let html=cards.join('');
+  $('receiveFeed').innerHTML=`<div class="receive-track">${html}${html}</div>`;
+}
+async function renderSummerTicker(){
+  let notices=[];
+  try{let r=await fetch('data/summer_camp_notices.json?ts='+Date.now());let j=await r.json();notices=(j.notices||[]).filter(n=>n && n.school!=='系统提示' && (n.title||n.url));}catch(e){notices=[];}
+  if(!notices.length){$('summerTickerBox').style.display='none';return;}
+  $('summerTickerBox').style.display='flex';
+  let items=notices.slice(0,24).map(n=>`<span class="ticker-item">${esc(n.school||'')}：${n.url?`<a href="${esc(n.url)}" target="_blank">${esc(n.title||'')}</a>`:esc(n.title||'')}${n.date?`<span class="time">${esc(n.date)}</span>`:''}</span>`).join('');
+  $('summerTicker').innerHTML=items+items;
+}
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data"
-SCHOOLS_JSON = DATA / "schools.json"
-SEED_JSON = DATA / "schools_seed.json"
-SCHOOL_SOURCES_JSON = DATA / "school_sources.json"
-RECEIVE_SOURCES_JSON = DATA / "receive_sources.json"
-SUMMER_SOURCES_JSON = DATA / "summer_camp_sources.json"
-SUMMER_NOTICES_JSON = DATA / "summer_camp_notices.json"
+function renderCityDetail(){
+  $('cityTitle').textContent=`📍 ${activeCity||'城市'} · 院校与相关专业`;
+  let arr=filteredSchools.filter(s=>s.city===activeCity).sort((a,b)=>b.heat_score-a.heat_score);
+  $('cityDetail').innerHTML=arr.map((s,i)=>{
+    let majors=(s.majors_list||[]).slice(0,6).map(m=>`<span class="tag">${esc(m)}</span>`).join('');
+    let quota=String(s.recommendation_quota||'').trim();
+    let rate=String(s.recommendation_rate||'').trim();
+    let year=String(s.recommendation_year||'').trim();
+    let src=String(s.recommendation_source_url||s.quota_source_url||'').trim();
+    let sourceName=String(s.recommendation_source_name||s.source_name||'').trim();
+    let info='';
+    if(quota||rate){
+      let parts=[];
+      if(quota)parts.push(`本校推荐名额：${esc(quota)}人`);
+      if(rate)parts.push(`推免率：${esc(rate)}`);
+      if(year)parts.push(`年份：${esc(year)}`);
+      let source=src?`　<a href="${esc(src)}" target="_blank">来源</a>`:(sourceName?`　来源：${esc(sourceName)}`:'');
+      info+=`<div class="data-line">${parts.join('　')}${source}</div>`;
+    }
 
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
-
-# 医学类、工学类、管理类等专业名称常见结束词。用于从 PDF 文本中截断专业名，避免把研究方向也算进去。
-MAJOR_END_WORDS = [
-    "中医内科学","中医外科学","中医骨伤科学","中医妇科学","中医儿科学","中医五官科学",
-    "针灸推拿学","中西医结合临床","中药学","药学","护理","护理学","公共卫生","全科医学",
-    "内科学","外科学","妇产科学","儿科学","影像医学与核医学","临床检验诊断学",
-    "计算机科学与技术","软件工程","电子信息","机械","材料","土木工程","交通运输",
-    "金融","法学","教育学","心理学","数学","物理学","化学","生物学","生态学",
-]
-
-def now_cn() -> str:
-    return datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
-
-def load_json(path: Path, default: Any) -> Any:
-    if not path.exists():
-        return default
-    return json.loads(path.read_text(encoding="utf-8"))
-
-def save_json(path: Path, obj: Any) -> None:
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
-
-def fetch(url: str) -> requests.Response:
-    r = requests.get(url, timeout=30, headers={"User-Agent": UA})
-    r.raise_for_status()
-    return r
-
-def get_html_text(url: str) -> str:
-    r = fetch(url)
-    if not r.encoding or r.encoding.lower() == "iso-8859-1":
-        r.encoding = r.apparent_encoding
-    soup = BeautifulSoup(r.text, "html.parser")
-    return re.sub(r"\s+", " ", soup.get_text("\n", strip=True))
-
-def get_pdf_text(url: str) -> str:
-    r = fetch(url)
-    reader = PdfReader(io.BytesIO(r.content))
-    parts = []
-    for page in reader.pages:
-        try:
-            parts.append(page.extract_text() or "")
-        except Exception:
-            pass
-    return "\n".join(parts)
-
-def find_school_item(schools: List[Dict[str, Any]], name: str) -> Dict[str, Any] | None:
-    target = re.sub(r"\s+", "", name)
-    for s in schools:
-        if re.sub(r"\s+", "", s.get("school_name", "")) == target:
-            return s
-    return None
-
-def ensure_common_fields(s: Dict[str, Any]) -> None:
-    for k in [
-        "recommendation_quota","graduate_count","recommendation_rate","recommendation_year",
-        "recommendation_source_name","recommendation_source_url","recommendation_note","recommendation_verify_status",
-        "receive_recommend_total","receive_recommend_year","receive_recommend_source_name","receive_recommend_source_url",
-        "receive_recommend_verify_status","receive_recommend_by_major","receive_recommend_is_complete","receive_recommend_note",
-        "last_checked",
-    ]:
-        if k not in s:
-            s[k] = [] if k == "receive_recommend_by_major" else ""
-
-def calc_rate(quota: int, graduate_count: Any) -> str:
-    try:
-        g = int(str(graduate_count).replace(",", "").strip())
-        if g > 0:
-            return f"{quota / g * 100:.2f}%"
-    except Exception:
-        pass
-    return ""
-
-def parse_recommend_quota(src: Dict[str, Any], text: str) -> int | None:
-    stype = src.get("source_type")
-    if stype == "allocation_sum_with_extra":
-        values = src.get("allocation_values") or []
-        if values:
-            return int(sum(int(x) for x in values) + int(src.get("extra_quota") or 0))
-    if stype == "regex_quota":
-        pattern = src.get("quota_regex")
-        if pattern:
-            m = re.search(pattern, text)
-            if m:
-                return int(m.group(1))
-    return None
-
-def update_recommend_quota(schools: List[Dict[str, Any]]) -> Tuple[int, List[Dict[str, Any]]]:
-    sources_db = load_json(SCHOOL_SOURCES_JSON, {"sources": []})
-    updated, failed = 0, []
-    for src in sources_db.get("sources", []):
-        name, url = src.get("school_name"), src.get("source_url")
-        if not name or not url:
-            continue
-        item = find_school_item(schools, name)
-        if not item:
-            failed.append({"school_name": name, "reason": "院校库未找到该学校"})
-            continue
-        ensure_common_fields(item)
-        try:
-            text = get_html_text(url)
-            missing = [kw for kw in src.get("verify_keywords", []) if kw not in text]
-            if missing:
-                failed.append({"school_name": name, "reason": "关键词未匹配", "missing": missing[:3]})
-                continue
-            quota = parse_recommend_quota(src, text)
-            if quota:
-                item["recommendation_quota"] = str(quota)
-                item["recommendation_year"] = src.get("year", "")
-                item["recommendation_source_name"] = src.get("source_name", "")
-                item["recommendation_source_url"] = url
-                item["recommendation_note"] = src.get("quota_note", "")
-                item["recommendation_verify_status"] = "官网已核验"
-                item["last_checked"] = now_cn()
-                rate = calc_rate(quota, item.get("graduate_count", ""))
-                if rate:
-                    item["recommendation_rate"] = rate
-                updated += 1
-        except Exception as e:
-            failed.append({"school_name": name, "reason": repr(e)})
-    return updated, failed
-
-def clean_major_name(code: str, raw: str) -> str:
-    raw = re.sub(r"\s+", "", raw)
-    raw = re.sub(r"^(拟录取专业|专业名称|专业)", "", raw)
-    # 优先按常见专业词截断
-    for w in sorted(MAJOR_END_WORDS, key=len, reverse=True):
-        if raw.startswith(w):
-            return w
-    # 通用截断：最多取 12 个中文字符，避免带入研究方向
-    m = re.match(r"([\u4e00-\u9fa5]{2,12})", raw)
-    return m.group(1) if m else raw[:20]
-
-def parse_major_counts_from_text(text: str) -> List[Dict[str, Any]]:
-    # 将 PDF 断行统一为空格，按“专业代码 + 专业名”提取。
-    t = re.sub(r"\s+", " ", text)
-    # 常见硕士专业代码：学硕/专硕均覆盖。后面抓取一段中文，再清洗成专业名。
-    pattern = re.compile(r"(?<!\d)((?:0[1-9]|1[0-3])\d{4}|(?:025|035|045|055|085|095|105|125)\d{3})\s*([\u4e00-\u9fa5]{2,30})")
-    counter = Counter()
-    for code, raw_major in pattern.findall(t):
-        major = clean_major_name(code, raw_major)
-        if not major or "拟录取" in major or "研究方向" in major:
-            continue
-        counter[(code, major)] += 1
-    rows = [
-        {"major_code": code, "major_name": major, "count": count}
-        for (code, major), count in counter.items()
-    ]
-    rows.sort(key=lambda x: x["count"], reverse=True)
-    return rows
-
-def update_receive_recommend(schools: List[Dict[str, Any]]) -> Tuple[int, List[Dict[str, Any]]]:
-    sources_db = load_json(RECEIVE_SOURCES_JSON, {"sources": []})
-    updated, failed = 0, []
-    for src in sources_db.get("sources", []):
-        name, url = src.get("school_name"), src.get("source_url")
-        if not name or not url:
-            continue
-        item = find_school_item(schools, name)
-        if not item:
-            failed.append({"school_name": name, "reason": "院校库未找到该学校"})
-            continue
-        ensure_common_fields(item)
-        try:
-            if url.lower().split("?")[0].endswith(".pdf"):
-                text = get_pdf_text(url)
-            else:
-                text = get_html_text(url)
-            rows = parse_major_counts_from_text(text)
-            total = sum(int(r["count"]) for r in rows)
-            if total > 0:
-                item["receive_recommend_total"] = str(total)
-                item["receive_recommend_year"] = src.get("year", "")
-                item["receive_recommend_source_name"] = src.get("source_name", "")
-                item["receive_recommend_source_url"] = url
-                item["receive_recommend_verify_status"] = "官网已核验"
-                item["receive_recommend_by_major"] = rows
-                item["receive_recommend_is_complete"] = src.get("is_complete_total", "否")
-                item["receive_recommend_note"] = src.get("note", "")
-                item["last_checked"] = now_cn()
-                updated += 1
-            else:
-                failed.append({"school_name": name, "reason": "未解析到专业人数"})
-        except Exception as e:
-            failed.append({"school_name": name, "reason": repr(e)})
-    return updated, failed
-
-
-def parse_date_from_text(text: str) -> str:
-    m = re.search(r"(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})", text or "")
-    if m:
-        y, mo, d = m.groups()
-        return f"{y}-{int(mo):02d}-{int(d):02d}"
-    m = re.search(r"(20\d{2})[-/.年](\d{1,2})", text or "")
-    if m:
-        y, mo = m.groups()
-        return f"{y}-{int(mo):02d}"
-    return ""
-
-def scrape_summer_camp_notices() -> Tuple[int, List[Dict[str, Any]]]:
-    """抓取夏令营/推免公告栏目。只抓标题、链接、日期，不生成未经来源确认的数据。"""
-    sources_db = load_json(SUMMER_SOURCES_JSON, {"sources": []})
-    existing = load_json(SUMMER_NOTICES_JSON, {"notices": []}).get("notices", [])
-    notices: List[Dict[str, Any]] = []
-    seen = set()
-    for n in existing:
-        if n.get("school") == "系统提示":
-            continue
-        key = (n.get("school", ""), n.get("title", ""), n.get("url", ""))
-        if key not in seen and (n.get("title") or n.get("url")):
-            seen.add(key)
-            notices.append(n)
-    for src in sources_db.get("sources", []):
-        school = src.get("school") or src.get("school_name") or ""
-        url = src.get("list_url") or src.get("source_url") or ""
-        keywords = src.get("keywords") or ["夏令营", "推免", "预推免", "推荐免试", "优秀大学生"]
-        if not url:
-            continue
-        try:
-            r = fetch(url)
-            if not r.encoding or r.encoding.lower() == "iso-8859-1":
-                r.encoding = r.apparent_encoding
-            soup = BeautifulSoup(r.text, "html.parser")
-            for a in soup.find_all("a"):
-                title = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
-                href = a.get("href") or ""
-                if not title or len(title) < 4:
-                    continue
-                if not any(k in title for k in keywords):
-                    continue
-                full_url = urljoin(url, href)
-                context = title + " " + re.sub(r"\s+", " ", a.parent.get_text(" ", strip=True) if a.parent else "")
-                date = parse_date_from_text(context)
-                item = {
-                    "school": school,
-                    "title": title,
-                    "date": date,
-                    "url": full_url,
-                    "source_name": src.get("source_name", ""),
-                    "last_checked": now_cn(),
-                }
-                key = (item["school"], item["title"], item["url"])
-                if key not in seen:
-                    seen.add(key)
-                    notices.append(item)
-        except Exception as e:
-            # 源页面失败时不清空原公告，避免前台空白
-            continue
-    def date_key(n: Dict[str, Any]) -> str:
-        d = n.get("date") or "0000-00-00"
-        return d
-    notices.sort(key=date_key, reverse=True)
-    save_json(SUMMER_NOTICES_JSON, {"updated_at": now_cn(), "notices": notices[:60]})
-    return len(notices[:60]), notices[:5]
-
-def main() -> None:
-    DATA.mkdir(exist_ok=True)
-    db = load_json(SCHOOLS_JSON, None)
-    if db is None:
-        db = load_json(SEED_JSON, {"schools": []})
-    if isinstance(db, list):
-        db = {"schools": db}
-    schools = db.get("schools", [])
-    for s in schools:
-        ensure_common_fields(s)
-
-    quota_updated, quota_failed = update_recommend_quota(schools)
-    receive_updated, receive_failed = update_receive_recommend(schools)
-    summer_notice_count, summer_notice_samples = scrape_summer_camp_notices()
-
-    db["schools"] = schools
-    db["updated_at"] = now_cn()
-    db["quota_updated_count"] = quota_updated
-    db["receive_updated_count"] = receive_updated
-    db["summer_notice_count"] = summer_notice_count
-    db["quota_failed_samples"] = quota_failed[:10]
-    db["receive_failed_samples"] = receive_failed[:10]
-    db["note"] = "本校推荐名额与接收推免人数为不同口径；仅显示官网可核验数据。"
-    save_json(SCHOOLS_JSON, db)
-    print(f"recommendation quota updated: {quota_updated}, receive recommend updated: {receive_updated}, summer notices: {summer_notice_count}")
-    if quota_failed:
-        print("quota failed samples:", quota_failed[:3])
-    if receive_failed:
-        print("receive failed samples:", receive_failed[:3])
-
-if __name__ == "__main__":
-    main()
+    let recvTotal=String(s.receive_recommend_total||'').trim();
+    let recvYear=String(s.receive_recommend_year||'').trim();
+    let recvSrc=String(s.receive_recommend_source_url||'').trim();
+    let recvName=String(s.receive_recommend_source_name||'').trim();
+    let recvComplete=String(s.receive_recommend_is_complete||'').trim()==='是';
+    let byMajor=Array.isArray(s.receive_recommend_by_major)?s.receive_recommend_by_major:[];
+    if(recvTotal || byMajor.length){
+      let title=recvComplete?'接收推免总人数':'接收推免人数';
+      let source=recvSrc?`　<a href="${esc(recvSrc)}" target="_blank">来源</a>`:(recvName?`　来源：${esc(recvName)}`:'');
+      let majorHtml='';
+      if(byMajor.length){
+        majorHtml='<div class="major-box"><div class="muted">专业分布 TOP</div>'+byMajor.slice(0,8).map(m=>`<div class="major-row"><span>${esc(m.major_name||m.major||'')}</span><b>${esc(m.count||'')}人</b></div>`).join('')+'</div>';
+      }
+      info+=`<div class="data-line"><b>${title}：${esc(recvTotal||byMajor.reduce((a,m)=>a+(parseInt(m.count)||0),0))}人</b>${recvYear?`　年份：${esc(recvYear)}`:''}${source}${majorHtml}</div>`;
+    }
+    return `<div class="school-card"><div class="school-top"><div><div class="school-name">${i+1}. ${esc(s.school_name)}</div><div class="school-meta">${esc(s.province)} · ${levelOf(s)} · ${esc(s.school_type)}</div></div><span class="pill">${s.heat_score}</span></div><div class="tags">${majors}</div>${info}</div>`;
+  }).join('')||'<div class="small">当前筛选条件下，该城市暂无院校。</div>';
+}
+$('applyBtn').onclick=applyFilter;$('search').addEventListener('keydown',e=>{if(e.key==='Enter')applyFilter();});$('province').onchange=applyFilter;$('level').onchange=applyFilter;
+async function start(){renderSummerTicker();try{let r=await fetch('data/schools.json?ts='+Date.now()); let j=await r.json(); allSchools=j.schools||j;}catch(e){allSchools=[]; console.error('data/schools.json 加载失败：'+e.message);} prepare();}
+start();
+</script></body></html>
