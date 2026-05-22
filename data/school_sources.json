@@ -1,0 +1,48 @@
+{
+  "version": "v6_quota_sources",
+  "updated_at": "2026-05-22",
+  "note": "只写入官网/学校页面能够核验的推免名额。没有来源的学校保持空值，前台不显示。",
+  "sources": [
+    {
+      "school_name": "南京中医药大学",
+      "year": "2026届",
+      "source_name": "南京中医药大学教务处：关于做好推荐2026届优秀应届本科毕业生免试攻读研究生工作的通知",
+      "source_url": "https://jwc.njucm.edu.cn/2025/0901/c3868a159946/page.htm",
+      "source_type": "allocation_sum_with_extra",
+      "verify_keywords": [
+        "2026 届推免生计划",
+        "各学院 2026 届推荐计划数名额分配",
+        "研究生支教团的 7 个推免名额不在以上名额中"
+      ],
+      "allocation_values": [
+        21,
+        93,
+        24,
+        31,
+        28,
+        12,
+        15,
+        11,
+        29,
+        110
+      ],
+      "extra_quota": 7,
+      "quota_note": "学院推荐计划合计374人，研究生支教团7个名额不在以上名额中，合计按381人记录；如学校后续公示口径变化，以官网最新公告为准。",
+      "confidence": "official_verified"
+    },
+    {
+      "school_name": "东北石油大学",
+      "year": "2026届",
+      "source_name": "东北石油大学教务处：关于做好2026届优秀应届本科毕业生免试攻读硕士学位研究生工作通知",
+      "source_url": "https://jwc.nepu.edu.cn/info/1164/12852.htm",
+      "source_type": "regex_quota",
+      "verify_keywords": [
+        "教育部下达我校推免生名额为",
+        "2026届推免生"
+      ],
+      "quota_regex": "教育部下达我校推免生名额为\\s*(\\d+)\\s*人",
+      "quota_note": "官网正文明确写明教育部下达该校2026届推免生名额。",
+      "confidence": "official_verified"
+    }
+  ]
+}
