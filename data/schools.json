@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-22 17:28:47",
+  "updated_at": "2026-05-22 17:44:11",
   "note": "本校推荐名额与接收推免人数为不同口径；仅显示官网可核验数据。",
   "sources": {
     "研招网2018推免资格基础名单": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
@@ -1702,19 +1702,140 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22",
+      "last_checked": "2026-05-22 17:43:35",
       "verify_status": "基础资格已自动更新；推免率/名额待核验",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "211",
       "recommendation_note": "",
       "recommendation_verify_status": "",
-      "receive_recommend_total": "",
-      "receive_recommend_year": "",
-      "receive_recommend_source_name": "",
-      "receive_recommend_source_url": "",
-      "receive_recommend_verify_status": "",
-      "receive_recommend_by_major": [],
-      "receive_recommend_is_complete": "",
+      "receive_recommend_total": "364",
+      "receive_recommend_year": "2026级",
+      "receive_recommend_source_name": "北京中医药大学2026年推荐免试研究生拟录取名单公示",
+      "receive_recommend_source_url": "https://yanjiusheng.bucm.edu.cn/zsjy/sszs/1d88d3cb7bfe445a9017608f6e793db9.htm",
+      "receive_recommend_verify_status": "官网已核验",
+      "receive_recommend_by_major": [
+        {
+          "major_code": "105701",
+          "major_name": "中医内科学",
+          "count": 89
+        },
+        {
+          "major_code": "105709",
+          "major_name": "中西医结合临床",
+          "count": 83
+        },
+        {
+          "major_code": "100800",
+          "major_name": "中药学",
+          "count": 65
+        },
+        {
+          "major_code": "105702",
+          "major_name": "中医外科学",
+          "count": 20
+        },
+        {
+          "major_code": "105707",
+          "major_name": "针灸推拿学",
+          "count": 17
+        },
+        {
+          "major_code": "120400",
+          "major_name": "公共管理学",
+          "count": 14
+        },
+        {
+          "major_code": "100502",
+          "major_name": "中医临床基础",
+          "count": 10
+        },
+        {
+          "major_code": "100700",
+          "major_name": "药学",
+          "count": 8
+        },
+        {
+          "major_code": "100512",
+          "major_name": "针灸推拿学",
+          "count": 8
+        },
+        {
+          "major_code": "105703",
+          "major_name": "中医骨伤科学",
+          "count": 7
+        },
+        {
+          "major_code": "105704",
+          "major_name": "中医妇科学",
+          "count": 6
+        },
+        {
+          "major_code": "105705",
+          "major_name": "中医儿科学",
+          "count": 5
+        },
+        {
+          "major_code": "105900",
+          "major_name": "针灸",
+          "count": 5
+        },
+        {
+          "major_code": "101100",
+          "major_name": "护理学",
+          "count": 5
+        },
+        {
+          "major_code": "100601",
+          "major_name": "中西医结合基础",
+          "count": 4
+        },
+        {
+          "major_code": "100506",
+          "major_name": "中医内科学",
+          "count": 4
+        },
+        {
+          "major_code": "105400",
+          "major_name": "护理",
+          "count": 4
+        },
+        {
+          "major_code": "100503",
+          "major_name": "中医医史文献",
+          "count": 2
+        },
+        {
+          "major_code": "100602",
+          "major_name": "中西医结合临床",
+          "count": 2
+        },
+        {
+          "major_code": "045300",
+          "major_name": "国际中文教育",
+          "count": 2
+        },
+        {
+          "major_code": "100501",
+          "major_name": "中医基础理论",
+          "count": 1
+        },
+        {
+          "major_code": "100505",
+          "major_name": "中医诊断学",
+          "count": 1
+        },
+        {
+          "major_code": "105710",
+          "major_name": "全科医学",
+          "count": 1
+        },
+        {
+          "major_code": "105600",
+          "major_name": "中药",
+          "count": 1
+        }
+      ],
+      "receive_recommend_is_complete": "是",
       "receive_recommend_note": ""
     },
     {
@@ -2538,81 +2659,26 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 17:28:43",
+      "last_checked": "2026-05-22 17:43:25",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "79",
       "recommendation_note": "学院推荐计划合计374人，研究生支教团7个名额不在以上名额中，合计按381人记录；如学校后续公示口径变化，以官网最新公告为准。",
       "recommendation_verify_status": "官网已核验",
-      "receive_recommend_total": "29",
+      "receive_recommend_total": "1",
       "receive_recommend_year": "2026级",
-      "receive_recommend_source_name": "南京中医药大学2026年推荐免试硕士研究生第二、三阶段拟录取名单",
-      "receive_recommend_source_url": "https://gra.njucm.edu.cn/_upload/article/files/5e/34/a05724314f528a8ac2ecacd7be85/4afc406a-9491-40f1-afe4-188494bcd473.pdf",
+      "receive_recommend_source_name": "南京中医药大学研究生院：2026年推荐免试硕士研究生阶段拟录取名单",
+      "receive_recommend_source_url": "https://gra.njucm.edu.cn/2025/1020/c7320a162570/page.htm",
       "receive_recommend_verify_status": "官网已核验",
       "receive_recommend_by_major": [
         {
           "major_code": "105709",
           "major_name": "中西医结合临床",
-          "count": 9
-        },
-        {
-          "major_code": "105701",
-          "major_name": "中医内科学",
-          "count": 4
-        },
-        {
-          "major_code": "105702",
-          "major_name": "中医外科学",
-          "count": 3
-        },
-        {
-          "major_code": "105704",
-          "major_name": "中医妇科学",
-          "count": 3
-        },
-        {
-          "major_code": "105900",
-          "major_name": "针灸",
-          "count": 2
-        },
-        {
-          "major_code": "100601",
-          "major_name": "中西医结合基础",
-          "count": 2
-        },
-        {
-          "major_code": "105703",
-          "major_name": "中医骨伤科学",
-          "count": 1
-        },
-        {
-          "major_code": "100506",
-          "major_name": "中医内科学",
-          "count": 1
-        },
-        {
-          "major_code": "100800",
-          "major_name": "中药学",
-          "count": 1
-        },
-        {
-          "major_code": "100512",
-          "major_name": "针灸推拿学",
-          "count": 1
-        },
-        {
-          "major_code": "100706",
-          "major_name": "药理学",
-          "count": 1
-        },
-        {
-          "major_code": "105500",
-          "major_name": "药学",
           "count": 1
         }
       ],
       "receive_recommend_is_complete": "否",
-      "receive_recommend_note": "该来源为阶段性名单；后续补齐第一、第四阶段或学校汇总名单后，系统会自动合并。"
+      "receive_recommend_note": "阶段性名单；后续补齐学校汇总名单后自动合并。"
     },
     {
       "school_name": "上海中医药大学",
@@ -10693,7 +10759,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 17:28:41",
+      "last_checked": "2026-05-22 17:43:21",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "石油工程/化工/地质/机械",
       "level_display": "66",
@@ -16564,7 +16630,28 @@
   "quota_source_count": 2,
   "quota_updated_count": 2,
   "quota_failed_samples": [],
-  "receive_updated_count": 1,
-  "receive_failed_samples": [],
-  "summer_notice_count": 8
+  "receive_updated_count": 2,
+  "receive_failed_samples": [
+    {
+      "school_name": "南京大学",
+      "reason": "未解析到专业人数",
+      "source": "https://yzb.nju.edu.cn/28/6d/c47863a796781/pagem.htm"
+    },
+    {
+      "school_name": "南京农业大学",
+      "reason": "未解析到专业人数",
+      "source": "https://zsgz.njau.edu.cn/info/1011/1671.htm"
+    },
+    {
+      "school_name": "深圳大学",
+      "reason": "未解析到专业人数",
+      "source": "https://yz.szu.edu.cn/sszs/lqgs.htm"
+    },
+    {
+      "school_name": "电子科技大学",
+      "reason": "未解析到专业人数",
+      "source": "https://yz.uestc.edu.cn/info/1007/5342.htm"
+    }
+  ],
+  "summer_notice_count": 34
 }
