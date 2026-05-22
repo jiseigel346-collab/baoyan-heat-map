@@ -3,11 +3,51 @@
     {
       "school_name": "南京中医药大学",
       "year": "2026级",
-      "source_name": "南京中医药大学2026年推荐免试硕士研究生第二、三阶段拟录取名单",
-      "source_url": "https://gra.njucm.edu.cn/_upload/article/files/5e/34/a05724314f528a8ac2ecacd7be85/4afc406a-9491-40f1-afe4-188494bcd473.pdf",
-      "source_type": "pdf_major_list",
+      "source_name": "南京中医药大学研究生院：2026年推荐免试硕士研究生阶段拟录取名单",
+      "source_url": "https://gra.njucm.edu.cn/2025/1020/c7320a162570/page.htm",
+      "source_type": "html_with_pdf",
       "is_complete_total": "否",
-      "note": "该来源为阶段性名单；后续补齐第一、第四阶段或学校汇总名单后，系统会自动合并。"
+      "note": "阶段性名单；后续补齐学校汇总名单后自动合并。"
+    },
+    {
+      "school_name": "南京大学",
+      "year": "2026级",
+      "source_name": "南京大学2026年接收推荐免试研究生拟录取名单公示",
+      "source_url": "https://yzb.nju.edu.cn/28/6d/c47863a796781/pagem.htm",
+      "source_type": "html_with_pdf",
+      "is_complete_total": "是"
+    },
+    {
+      "school_name": "南京农业大学",
+      "year": "2026级",
+      "source_name": "南京农业大学2026年推荐免试研究生拟录取名单",
+      "source_url": "https://zsgz.njau.edu.cn/info/1011/1671.htm",
+      "source_type": "html_with_pdf",
+      "is_complete_total": "是"
+    },
+    {
+      "school_name": "北京中医药大学",
+      "year": "2026级",
+      "source_name": "北京中医药大学2026年推荐免试研究生拟录取名单公示",
+      "source_url": "https://yanjiusheng.bucm.edu.cn/zsjy/sszs/1d88d3cb7bfe445a9017608f6e793db9.htm",
+      "source_type": "html_with_pdf",
+      "is_complete_total": "是"
+    },
+    {
+      "school_name": "深圳大学",
+      "year": "2026级",
+      "source_name": "深圳大学研究生招生网录取公示栏目",
+      "source_url": "https://yz.szu.edu.cn/sszs/lqgs.htm",
+      "source_type": "list_page",
+      "is_complete_total": "是"
+    },
+    {
+      "school_name": "电子科技大学",
+      "year": "2026级",
+      "source_name": "电子科技大学各学院2026年接收推免生拟录取名单公示",
+      "source_url": "https://yz.uestc.edu.cn/info/1007/5342.htm",
+      "source_type": "html_with_links",
+      "is_complete_total": "否"
     }
   ]
 }
