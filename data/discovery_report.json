@@ -1,1 +1,19 @@
-{}
+{
+  "run_at": "2026-05-22T17:32:53.816019+00:00",
+  "current_year": 2026,
+  "schools_loaded": 434,
+  "seed_summer_found": 0,
+  "web_summer_found": 0,
+  "summer_saved": 0,
+  "receive_candidates_found": 0,
+  "receive_candidates_saved": 0,
+  "stats": {
+    "queries": 254,
+    "results_seen": 20,
+    "summer_candidates": 0,
+    "receive_candidates": 0,
+    "official_summer": 0,
+    "aggregator_summer": 0
+  },
+  "note": "前台仅展示已抓到的真实夏令营公告；接收推免专业人数仍需名单解析成功后才展示。"
+}
