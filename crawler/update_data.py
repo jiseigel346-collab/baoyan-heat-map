@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-保研地图 v11：最新数据过滤 + 全国接收推免动态慢速滚动
+保研地图 v13：官网优先 + 第三方线索辅助 + 只展示真实抓取数据
 核心原则：
 1. 本校推荐名额：来自本科教务处/本科生院推免名额通知；
 2. 接收推免人数：来自研究生院/研招办拟录取名单；
 3. 只有官网来源能访问并能解析到专业名单，才写入前台数据；
 4. 阶段性名单只标记为“已抓取接收推免人数”，不冒充全校最终总数；
-5. 没有来源的数据不显示，不写“待核验”。
+5. 没有真实人数的数据不进入前台；第三方来源只作为辅助线索，并在前台标注来源类型。
 """
 from __future__ import annotations
 
@@ -36,6 +36,7 @@ SCHOOL_SOURCES_JSON = DATA / "school_sources.json"
 RECEIVE_SOURCES_JSON = DATA / "receive_sources.json"
 SUMMER_SOURCES_JSON = DATA / "summer_camp_sources.json"
 SUMMER_NOTICES_JSON = DATA / "summer_camp_notices.json"
+SOURCE_DISCOVERY_JSON = DATA / "source_discovery.json"
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
 CURRENT_RECEIVE_YEAR = "2026级"
@@ -96,7 +97,7 @@ def ensure_common_fields(s: Dict[str, Any]) -> None:
         "recommendation_quota","graduate_count","recommendation_rate","recommendation_year",
         "recommendation_source_name","recommendation_source_url","recommendation_note","recommendation_verify_status",
         "receive_recommend_total","receive_recommend_year","receive_recommend_source_name","receive_recommend_source_url",
-        "receive_recommend_verify_status","receive_recommend_by_major","receive_recommend_is_complete","receive_recommend_note",
+        "receive_recommend_verify_status","receive_recommend_by_major","receive_recommend_is_complete","receive_recommend_note","receive_recommend_source_grade",
         "last_checked",
     ]:
         if k not in s:
@@ -271,36 +272,128 @@ def parse_major_counts_from_xlsx(content: bytes) -> List[Dict[str, Any]]:
     rows.sort(key=lambda x: x["count"], reverse=True)
     return rows
 
-def search_bing_candidates(school_name: str, limit: int = 4) -> List[str]:
-    queries = [
-        f'{school_name} 2026 接收推荐免试研究生 拟录取名单',
-        f'{school_name} 2026 拟录取推荐免试研究生名单公示',
-    ]
-    found = []
-    for q in queries:
-        try:
-            url = 'https://www.bing.com/search?q=' + quote(q)
-            r = requests.get(url, timeout=20, headers={"User-Agent": UA})
-            soup = BeautifulSoup(r.text, 'html.parser')
-            for a in soup.select('li.b_algo h2 a'):
-                href = a.get('href') or ''
-                title = re.sub(r"\s+", "", a.get_text(" ", strip=True))
-                if not href.startswith('http'):
-                    continue
-                # 只接受高校/科研院所官网，排除第三方转载，避免混入旧数据和营销数据。
-                if '.edu.cn' not in href and '.ac.cn' not in href:
-                    continue
-                if '2026' not in title and '2026' not in href:
-                    continue
-                if not any(k in title for k in ['推免', '推荐免试', '拟录取', '接收']):
-                    continue
-                if href not in found:
-                    found.append(href)
-                if len(found) >= limit:
-                    return found
-        except Exception:
+
+def is_official_url(url: str) -> bool:
+    u = (url or "").lower()
+    return any(x in u for x in [".edu.cn", ".ac.cn", "yz.chsi.com.cn"])
+
+def source_grade(url: str) -> str:
+    return "官网来源" if is_official_url(url) else "公开来源"
+
+def search_bing_results(query: str, limit: int = 8) -> List[Dict[str, str]]:
+    """用 Bing 页面做公开网页发现。GitHub Actions 无搜索 API 时的低成本方案。"""
+    results: List[Dict[str, str]] = []
+    try:
+        url = 'https://www.bing.com/search?q=' + quote(query)
+        r = requests.get(url, timeout=25, headers={"User-Agent": UA})
+        soup = BeautifulSoup(r.text, 'html.parser')
+        for node in soup.select('li.b_algo'):
+            a = node.select_one('h2 a')
+            if not a:
+                continue
+            href = a.get('href') or ''
+            title = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
+            snippet = re.sub(r"\s+", " ", node.get_text(" ", strip=True))[:400]
+            if not href.startswith('http'):
+                continue
+            # 排除明显无关/广告/聚合搜索页
+            bad = ["baidu.com", "zhihu.com/question", "weibo.com", "bilibili.com", "taobao.com"]
+            if any(x in href.lower() for x in bad):
+                continue
+            results.append({"title": title, "url": href, "snippet": snippet, "query": query, "grade": source_grade(href)})
+            if len(results) >= limit:
+                break
+    except Exception:
+        pass
+    return results
+
+def discover_receive_sources(schools: List[Dict[str, Any]], known_names: set, limit_schools: int = 120) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    """全国自动发现 2026级接收推免拟录取名单。
+    官网源优先；官网找不到时允许第三方/保研信息站作为公开来源线索。
+    """
+    discovered, logs = [], []
+    candidates = sorted(schools, key=lambda x: int(x.get("heat_score") or 0), reverse=True)[:limit_schools]
+    for s in candidates:
+        name = s.get("school_name", "")
+        if not name or name in known_names:
             continue
-    return found
+        queries = [
+            f'{name} 2026 接收推荐免试研究生 拟录取名单',
+            f'{name} 2026 推免生 拟录取名单 专业',
+            f'{name} 2026 推荐免试研究生 接收名单',
+        ]
+        picked = None
+        all_results = []
+        for q in queries:
+            res = search_bing_results(q, limit=6)
+            all_results.extend(res)
+        # 严格过滤：必须跟2026/推免/拟录取相关
+        filtered = []
+        for r in all_results:
+            text = (r["title"] + " " + r.get("snippet", "") + " " + r["url"])
+            if "2026" not in text:
+                continue
+            if not any(k in text for k in ["推免", "推荐免试", "拟录取", "接收"]):
+                continue
+            filtered.append(r)
+        # 官网优先，其次公开来源
+        official = [r for r in filtered if r["grade"] == "官网来源"]
+        public = [r for r in filtered if r["grade"] != "官网来源"]
+        if official:
+            picked = official[0]
+        elif public:
+            picked = public[0]
+        if picked:
+            discovered.append({
+                "school_name": name,
+                "year": CURRENT_RECEIVE_YEAR,
+                "source_name": picked["title"][:120],
+                "source_url": picked["url"],
+                "source_type": "auto_discovered",
+                "source_grade": picked["grade"],
+                "is_complete_total": "否",
+                "note": "系统自动发现的公开来源；能解析出专业人数后进入前台滚动。"
+            })
+            known_names.add(name)
+            logs.append({"school_name": name, "status": "discovered", "grade": picked["grade"], "url": picked["url"], "title": picked["title"]})
+        else:
+            logs.append({"school_name": name, "status": "not_found"})
+    return discovered, logs
+
+def discover_summer_camp_notices(schools: List[Dict[str, Any]], limit_schools: int = 160) -> List[Dict[str, Any]]:
+    """全网发现2026夏令营/优秀大学生营公告。官网优先，第三方也可作为公告来源展示并标注。"""
+    notices, seen = [], set()
+    candidates = sorted(schools, key=lambda x: int(x.get("heat_score") or 0), reverse=True)[:limit_schools]
+    for s in candidates:
+        school = s.get("school_name", "")
+        if not school:
+            continue
+        q = f'{school} 2026 夏令营 优秀大学生 推免'
+        for r in search_bing_results(q, limit=5):
+            text = r["title"] + " " + r.get("snippet", "") + " " + r["url"]
+            if "2026" not in text:
+                continue
+            if not any(k in text for k in ["夏令营", "优秀大学生", "推免", "预推免"]):
+                continue
+            date = parse_date_from_text(text)
+            # 2026夏令营常见标题含2026但页面日期未必能解析，允许标题含2026进入。
+            if date and date < SUMMER_MIN_DATE:
+                continue
+            key = (school, r["title"], r["url"])
+            if key in seen:
+                continue
+            seen.add(key)
+            notices.append({
+                "school": school,
+                "title": r["title"][:160],
+                "date": date or "2026",
+                "url": r["url"],
+                "source_name": r["grade"],
+                "source_grade": r["grade"],
+                "last_checked": now_cn(),
+            })
+            break
+    return notices
 
 def collect_texts_from_receive_source(src: Dict[str, Any]) -> Tuple[str, List[str]]:
     """从接收推免来源中收集可解析文本。支持：PDF直链、公告页附件PDF、列表页自动发现公告。"""
@@ -369,28 +462,14 @@ def update_receive_recommend(schools: List[Dict[str, Any]]) -> Tuple[int, List[D
     """
     sources_db = load_json(RECEIVE_SOURCES_JSON, {"sources": []})
     base_sources = sources_db.get("sources", [])
-    # 全国自动发现：每次优先扫描高热度且尚未有接收数据的高校，自动寻找2026级接收推免拟录取名单官网源。
+    # 全国自动发现：官网优先，官网没有时使用公开保研/招生信息页作为辅助线索。
     existing_names = {x.get("school_name") for x in base_sources}
-    auto_added = []
-    for s in sorted(schools, key=lambda x: int(x.get("heat_score") or 0), reverse=True):
-        if len(auto_added) >= 35:
-            break
-        name = s.get("school_name", "")
-        if not name or name in existing_names:
-            continue
-        for u in search_bing_candidates(name, limit=1):
-            auto_added.append({
-                "school_name": name,
-                "year": CURRENT_RECEIVE_YEAR,
-                "source_name": f"{name}2026级接收推免名单自动发现源",
-                "source_url": u,
-                "source_type": "auto_discovered",
-                "is_complete_total": "否",
-                "note": "由系统自动发现官网源；解析成功后进入前台展示。"
-            })
-            existing_names.add(name)
-            break
+    auto_added, discovery_logs = discover_receive_sources(schools, existing_names, limit_schools=160)
     all_sources = base_sources + auto_added
+    try:
+        save_json(SOURCE_DISCOVERY_JSON, {"updated_at": now_cn(), "receive_discovery": discovery_logs})
+    except Exception:
+        pass
     aggregated: Dict[str, Dict[str, Any]] = {}
     failed = []
 
@@ -471,7 +550,8 @@ def update_receive_recommend(schools: List[Dict[str, Any]]) -> Tuple[int, List[D
         item["receive_recommend_year"] = bucket["year"] or CURRENT_RECEIVE_YEAR
         item["receive_recommend_source_name"] = "；".join(bucket["source_names"][:2])
         item["receive_recommend_source_url"] = bucket["sources"][0] if bucket["sources"] else ""
-        item["receive_recommend_verify_status"] = "官网已核验"
+        item["receive_recommend_verify_status"] = "已解析"
+        item["receive_recommend_source_grade"] = source_grade(item["receive_recommend_source_url"]) if item.get("receive_recommend_source_url") else "官网来源"
         item["receive_recommend_by_major"] = rows[:40]
         item["receive_recommend_is_complete"] = bucket["is_complete"]
         item["receive_recommend_note"] = "；".join(bucket["notes"][:2])
@@ -561,6 +641,17 @@ def scrape_summer_camp_notices() -> Tuple[int, List[Dict[str, Any]]]:
         except Exception as e:
             # 源页面失败时不清空原公告，避免前台空白
             continue
+
+    # 全网自动发现夏令营/推免公告：官网优先，第三方公开来源可作为补充并标注来源类型。
+    try:
+        discovered_notices = discover_summer_camp_notices(load_json(SCHOOLS_JSON, {"schools": []}).get("schools", []), limit_schools=180)
+        for item in discovered_notices:
+            key = (item.get("school", ""), item.get("title", ""), item.get("url", ""))
+            if key not in seen:
+                seen.add(key)
+                notices.append(item)
+    except Exception:
+        pass
     def date_key(n: Dict[str, Any]) -> str:
         d = n.get("date") or "0000-00-00"
         return d
@@ -591,7 +682,7 @@ def main() -> None:
     db["summer_notice_count"] = summer_notice_count
     db["quota_failed_samples"] = quota_failed[:10]
     db["receive_failed_samples"] = receive_failed[:10]
-    db["note"] = "当前时间按2026-05-22口径：接收推免人数仅保留2026级官网可核验数据；夏令营公告仅保留2026年以来或标题含2026的公告。"
+    db["note"] = "当前时间按2026-05-22口径：接收推免人数优先采集2026级官网数据；官网抓不到时使用公开保研/招生信息源辅助发现并标注来源；夏令营公告仅保留2026年以来或标题含2026的公告。"
     save_json(SCHOOLS_JSON, db)
     print(f"recommendation quota updated: {quota_updated}, receive recommend updated: {receive_updated}, summer notices: {summer_notice_count}")
     if quota_failed:
