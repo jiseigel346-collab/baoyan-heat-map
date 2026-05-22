@@ -1,0 +1,625 @@
+{
+  "updated_at": "2026-05-23 00:23:38",
+  "receive_discovery": [
+    {
+      "school_name": "北京大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "清华大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海交通大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "浙江大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国科学技术大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国人民大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京航空航天大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华中科技大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "武汉大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西安交通大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "哈尔滨工业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "同济大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南开大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "天津大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中山大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "东南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "四川大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "电子科技大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华南理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "厦门大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西北工业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "吉林大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "山东大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国农业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "湖南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "大连理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "重庆大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华东师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中央民族大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国海洋大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海外国语大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海财经大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "东华大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华东理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国传媒大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国政法大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中央财经大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中央音乐学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京交通大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京体育大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京化工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京外国语大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京工业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京林业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京科技大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京邮电大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华北电力大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "对外经济贸易大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "兰州大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "东北大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西北农林科技大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国药科大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南京师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南京理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南京航空航天大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "武汉理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西安电子科技大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "长安大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海中医药大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海海洋大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海科技大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海音乐学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国人民公安大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国社会科学院大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国科学院大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国音乐学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中央戏剧学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中央美术学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "外交学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "天津医科大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "合肥工业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "哈尔滨工程大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国石油大学(华东)",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南京信息工程大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南京医科大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南京林业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "苏州大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "大连海事大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "广州中医药大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "郑州大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国美术学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "福州大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "成都中医药大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "成都理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海工程技术大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海应用技术大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海电力大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "海军军医大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "云南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "内蒙古大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京物资学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京电子科技学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京第二外国语学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京联合大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "东北师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "延边大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "四川农业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西南交通大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西南财经大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "天津中医药大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "宁夏大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "安徽大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "太原理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华南师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "暨南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "广西大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "新疆大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "石河子大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国矿业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "江南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "河海大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南昌大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "河北工业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "海南大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中南财经政法大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国地质大学(武汉)",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华中农业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华中师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "湖南师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西藏大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "贵州大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "辽宁大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "西北大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "陕西师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "青海大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "东北农业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "东北林业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "南京财经大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "武汉纺织大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "武汉轻工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海体育学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海对外经贸大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海师范大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海海事大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "上海理工大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "华东政法大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国地质大学(北京)",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国石油大学(北京)",
+      "status": "not_found"
+    },
+    {
+      "school_name": "中国矿业大学(北京)",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京信息科技大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京协和医学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京工商大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京建筑大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京服装学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京电影学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北京语言大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "北方工业大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "国际关系学院",
+      "status": "not_found"
+    },
+    {
+      "school_name": "首都医科大学",
+      "status": "not_found"
+    },
+    {
+      "school_name": "首都师范大学",
+      "status": "not_found"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-23 00:08:01",
-  "note": "当前时间按2026-05-22口径：接收推免人数仅保留2026级官网可核验数据；夏令营公告仅保留2026年以来或标题含2026的公告。",
+  "updated_at": "2026-05-23 00:24:51",
+  "note": "当前时间按2026-05-22口径：接收推免人数优先采集2026级官网数据；官网抓不到时使用公开保研/招生信息源辅助发现并标注来源；夏令营公告仅保留2026年以来或标题含2026的公告。",
   "sources": {
     "研招网2018推免资格基础名单": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
     "研招网2025新增推免资格高校备案名单": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250912/2293411123.html"
@@ -43,7 +43,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "清华大学",
@@ -81,7 +82,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海交通大学",
@@ -119,7 +121,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "复旦大学",
@@ -157,7 +160,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江大学",
@@ -195,7 +199,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国科学技术大学",
@@ -233,7 +238,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京大学",
@@ -271,7 +277,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国人民大学",
@@ -309,7 +316,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京航空航天大学",
@@ -347,7 +355,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华中科技大学",
@@ -385,7 +394,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "武汉大学",
@@ -423,7 +433,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安交通大学",
@@ -461,7 +472,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "哈尔滨工业大学",
@@ -499,7 +511,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "同济大学",
@@ -537,7 +550,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南开大学",
@@ -575,7 +589,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津大学",
@@ -613,7 +628,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中山大学",
@@ -651,7 +667,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东南大学",
@@ -689,7 +706,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京理工大学",
@@ -727,7 +745,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "四川大学",
@@ -765,7 +784,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "电子科技大学",
@@ -803,7 +823,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华南理工大学",
@@ -841,7 +862,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "厦门大学",
@@ -879,7 +901,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西北工业大学",
@@ -917,7 +940,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "吉林大学",
@@ -955,7 +979,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东大学",
@@ -993,7 +1018,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中南大学",
@@ -1031,7 +1057,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国农业大学",
@@ -1069,7 +1096,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京师范大学",
@@ -1107,7 +1135,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖南大学",
@@ -1145,7 +1174,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连理工大学",
@@ -1183,7 +1213,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "重庆大学",
@@ -1221,7 +1252,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华东师范大学",
@@ -1259,7 +1291,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中央民族大学",
@@ -1297,7 +1330,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国海洋大学",
@@ -1335,7 +1369,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海外国语大学",
@@ -1373,7 +1408,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海大学",
@@ -1411,7 +1447,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海财经大学",
@@ -1449,7 +1486,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东华大学",
@@ -1487,7 +1525,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华东理工大学",
@@ -1525,7 +1564,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国传媒大学",
@@ -1563,7 +1603,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国政法大学",
@@ -1601,7 +1642,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中央财经大学",
@@ -1639,7 +1681,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中央音乐学院",
@@ -1677,7 +1720,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京中医药大学",
@@ -1702,7 +1746,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-23 00:07:44",
+      "last_checked": "2026-05-23 00:24:11",
       "verify_status": "基础资格已自动更新；推免率/名额待核验",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "211",
@@ -1712,7 +1756,7 @@
       "receive_recommend_year": "2026级",
       "receive_recommend_source_name": "北京中医药大学2026年推荐免试研究生拟录取名单公示",
       "receive_recommend_source_url": "https://yanjiusheng.bucm.edu.cn/zsjy/sszs/1d88d3cb7bfe445a9017608f6e793db9.htm",
-      "receive_recommend_verify_status": "官网已核验",
+      "receive_recommend_verify_status": "已解析",
       "receive_recommend_by_major": [
         {
           "major_code": "105701",
@@ -1836,7 +1880,8 @@
         }
       ],
       "receive_recommend_is_complete": "是",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": "官网来源"
     },
     {
       "school_name": "北京交通大学",
@@ -1874,7 +1919,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京体育大学",
@@ -1912,7 +1958,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京化工大学",
@@ -1950,7 +1997,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京外国语大学",
@@ -1988,7 +2036,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京工业大学",
@@ -2026,7 +2075,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京林业大学",
@@ -2064,7 +2114,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京科技大学",
@@ -2102,7 +2153,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京邮电大学",
@@ -2140,7 +2192,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华北电力大学",
@@ -2178,7 +2231,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "对外经济贸易大学",
@@ -2216,7 +2270,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "兰州大学",
@@ -2254,7 +2309,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东北大学",
@@ -2292,7 +2348,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西北农林科技大学",
@@ -2330,7 +2387,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国药科大学",
@@ -2368,7 +2426,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京农业大学",
@@ -2406,7 +2465,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京师范大学",
@@ -2444,7 +2504,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京理工大学",
@@ -2482,7 +2543,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京航空航天大学",
@@ -2520,7 +2582,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "武汉理工大学",
@@ -2558,7 +2621,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安电子科技大学",
@@ -2596,7 +2660,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "长安大学",
@@ -2634,7 +2699,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京中医药大学",
@@ -2659,7 +2725,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-23 00:07:44",
+      "last_checked": "2026-05-23 00:24:11",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "79",
@@ -2669,7 +2735,7 @@
       "receive_recommend_year": "2026级",
       "receive_recommend_source_name": "南京中医药大学2026年推荐免试硕士研究生第四阶段拟录取名单",
       "receive_recommend_source_url": "https://gra.njucm.edu.cn/2025/1020/c7320a162570/page.htm",
-      "receive_recommend_verify_status": "官网已核验",
+      "receive_recommend_verify_status": "已解析",
       "receive_recommend_by_major": [
         {
           "major_code": "105709",
@@ -2678,7 +2744,8 @@
         }
       ],
       "receive_recommend_is_complete": "否",
-      "receive_recommend_note": "阶段性名单；后续补齐最终汇总名单后自动合并。"
+      "receive_recommend_note": "阶段性名单；后续补齐最终汇总名单后自动合并。",
+      "receive_recommend_source_grade": "官网来源"
     },
     {
       "school_name": "上海中医药大学",
@@ -2716,7 +2783,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海海洋大学",
@@ -2754,7 +2822,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海科技大学",
@@ -2792,7 +2861,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海音乐学院",
@@ -2830,7 +2900,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国人民公安大学",
@@ -2868,7 +2939,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国社会科学院大学",
@@ -2906,7 +2978,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国科学院大学",
@@ -2944,7 +3017,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国音乐学院",
@@ -2982,7 +3056,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中央戏剧学院",
@@ -3020,7 +3095,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中央美术学院",
@@ -3058,7 +3134,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "外交学院",
@@ -3096,7 +3173,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津医科大学",
@@ -3134,7 +3212,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "合肥工业大学",
@@ -3172,7 +3251,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南大学",
@@ -3210,7 +3290,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "哈尔滨工程大学",
@@ -3248,7 +3329,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国石油大学(华东)",
@@ -3286,7 +3368,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京信息工程大学",
@@ -3324,7 +3407,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京医科大学",
@@ -3362,7 +3446,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京林业大学",
@@ -3400,7 +3485,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "苏州大学",
@@ -3438,7 +3524,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连海事大学",
@@ -3476,7 +3563,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广州中医药大学",
@@ -3514,7 +3602,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "郑州大学",
@@ -3552,7 +3641,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国美术学院",
@@ -3590,7 +3680,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "福州大学",
@@ -3628,7 +3719,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "成都中医药大学",
@@ -3666,7 +3758,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "成都理工大学",
@@ -3704,7 +3797,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海工程技术大学",
@@ -3742,7 +3836,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海应用技术大学",
@@ -3780,7 +3875,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海电力大学",
@@ -3818,7 +3914,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "海军军医大学",
@@ -3856,7 +3953,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "云南大学",
@@ -3894,7 +3992,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "内蒙古大学",
@@ -3932,7 +4031,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京物资学院",
@@ -3970,7 +4070,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京电子科技学院",
@@ -4008,7 +4109,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京第二外国语学院",
@@ -4046,7 +4148,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京联合大学",
@@ -4084,7 +4187,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东北师范大学",
@@ -4122,7 +4226,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "延边大学",
@@ -4160,7 +4265,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "四川农业大学",
@@ -4198,7 +4304,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南交通大学",
@@ -4236,7 +4343,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南财经大学",
@@ -4274,7 +4382,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津中医药大学",
@@ -4312,7 +4421,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "宁夏大学",
@@ -4350,7 +4460,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽大学",
@@ -4388,7 +4499,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "太原理工大学",
@@ -4426,7 +4538,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华南师范大学",
@@ -4464,7 +4577,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "暨南大学",
@@ -4502,7 +4616,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广西大学",
@@ -4540,7 +4655,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "新疆大学",
@@ -4578,7 +4694,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "石河子大学",
@@ -4616,7 +4733,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国矿业大学",
@@ -4654,7 +4772,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江南大学",
@@ -4692,7 +4811,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河海大学",
@@ -4730,7 +4850,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南昌大学",
@@ -4768,7 +4889,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北工业大学",
@@ -4806,7 +4928,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "海南大学",
@@ -4844,7 +4967,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中南财经政法大学",
@@ -4882,7 +5006,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国地质大学(武汉)",
@@ -4920,7 +5045,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华中农业大学",
@@ -4958,7 +5084,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华中师范大学",
@@ -4996,7 +5123,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖南师范大学",
@@ -5034,7 +5162,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西藏大学",
@@ -5072,7 +5201,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "贵州大学",
@@ -5110,7 +5240,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "辽宁大学",
@@ -5148,7 +5279,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西北大学",
@@ -5186,7 +5318,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "陕西师范大学",
@@ -5224,7 +5357,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "青海大学",
@@ -5262,7 +5396,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东北农业大学",
@@ -5300,7 +5435,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东北林业大学",
@@ -5338,7 +5474,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京财经大学",
@@ -5376,7 +5513,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "武汉纺织大学",
@@ -5414,7 +5552,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "武汉轻工大学",
@@ -5452,7 +5591,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海体育学院",
@@ -5490,7 +5630,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海对外经贸大学",
@@ -5528,7 +5669,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海师范大学",
@@ -5566,7 +5708,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海海事大学",
@@ -5604,7 +5747,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "上海理工大学",
@@ -5642,7 +5786,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华东政法大学",
@@ -5680,7 +5825,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国地质大学(北京)",
@@ -5718,7 +5864,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国石油大学(北京)",
@@ -5756,7 +5903,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国矿业大学(北京)",
@@ -5794,7 +5942,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京信息科技大学",
@@ -5832,7 +5981,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京协和医学院",
@@ -5870,7 +6020,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京工商大学",
@@ -5908,7 +6059,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京建筑大学",
@@ -5946,7 +6098,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京服装学院",
@@ -5984,7 +6137,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京电影学院",
@@ -6022,7 +6176,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北京语言大学",
@@ -6060,7 +6215,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北方工业大学",
@@ -6098,7 +6254,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "国际关系学院",
@@ -6136,7 +6293,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "首都医科大学",
@@ -6174,7 +6332,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "首都师范大学",
@@ -6212,7 +6371,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "首都经济贸易大学",
@@ -6250,7 +6410,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广州美术学院",
@@ -6288,7 +6449,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西湖大学",
@@ -6326,7 +6488,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安邮电大学",
@@ -6364,7 +6527,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "成都信息工程大学",
@@ -6402,7 +6566,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "成都大学",
@@ -6440,7 +6605,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京体育学院",
@@ -6478,7 +6644,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京工业大学",
@@ -6516,7 +6683,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京艺术学院",
@@ -6554,7 +6722,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南京邮电大学",
@@ -6592,7 +6761,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "武汉体育学院",
@@ -6630,7 +6800,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "武汉工程大学",
@@ -6668,7 +6839,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "武汉科技大学",
@@ -6706,7 +6878,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南石油大学",
@@ -6744,7 +6917,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津美术学院",
@@ -6782,7 +6956,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津职业技术师范大学",
@@ -6820,7 +6995,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山西大学",
@@ -6858,7 +7034,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南方科技大学",
@@ -6896,7 +7073,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广州医科大学",
@@ -6934,7 +7112,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广州大学",
@@ -6972,7 +7151,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南大学",
@@ -7010,7 +7190,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "宁波大学",
@@ -7048,7 +7229,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "杭州师范大学",
@@ -7086,7 +7268,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "杭州电子科技大学",
@@ -7124,7 +7307,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湘潭大学",
@@ -7162,7 +7346,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "陆军军医大学",
@@ -7200,7 +7385,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安外国语大学",
@@ -7238,7 +7424,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安工业大学",
@@ -7276,7 +7463,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安工程大学",
@@ -7314,7 +7502,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安建筑科技大学",
@@ -7352,7 +7541,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安理工大学",
@@ -7390,7 +7580,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安石油大学",
@@ -7428,7 +7619,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安科技大学",
@@ -7466,7 +7658,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西安美术学院",
@@ -7504,7 +7697,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "哈尔滨体育学院",
@@ -7542,7 +7736,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "成都体育学院",
@@ -7580,7 +7775,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "青岛农业大学",
@@ -7618,7 +7814,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "苏州科技大学",
@@ -7656,7 +7853,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连大学",
@@ -7694,7 +7892,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国民航大学",
@@ -7732,7 +7931,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津体育学院",
@@ -7770,7 +7970,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津商业大学",
@@ -7808,7 +8009,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津外国语大学",
@@ -7846,7 +8048,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津工业大学",
@@ -7884,7 +8087,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津师范大学",
@@ -7922,7 +8126,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津理工大学",
@@ -7960,7 +8165,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津科技大学",
@@ -7998,7 +8204,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "天津财经大学",
@@ -8036,7 +8243,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "郑州轻工业大学",
@@ -8074,7 +8282,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "长沙理工大学",
@@ -8112,7 +8321,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳体育学院",
@@ -8150,7 +8360,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳音乐学院",
@@ -8188,7 +8399,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "四川外国语大学",
@@ -8226,7 +8438,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南政法大学",
@@ -8264,7 +8477,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "重庆交通大学",
@@ -8302,7 +8516,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "重庆医科大学",
@@ -8340,7 +8555,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "重庆师范大学",
@@ -8378,7 +8594,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "重庆邮电大学",
@@ -8416,7 +8633,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "哈尔滨医科大学",
@@ -8454,7 +8672,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "哈尔滨商业大学",
@@ -8492,7 +8711,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "哈尔滨师范大学",
@@ -8530,7 +8750,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "哈尔滨理工大学",
@@ -8568,7 +8789,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "济南大学",
@@ -8606,7 +8828,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "青岛大学",
@@ -8644,7 +8867,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "青岛理工大学",
@@ -8682,7 +8906,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "青岛科技大学",
@@ -8720,7 +8945,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连交通大学",
@@ -8758,7 +8984,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连医科大学",
@@ -8796,7 +9023,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连外国语大学",
@@ -8834,7 +9062,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连工业大学",
@@ -8872,7 +9101,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "大连海洋大学",
@@ -8910,7 +9140,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "云南中医药大学",
@@ -8948,7 +9179,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "内蒙古医科大学",
@@ -8986,7 +9218,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "内蒙古民族大学",
@@ -9024,7 +9257,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北华大学",
@@ -9062,7 +9296,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "长春师范大学",
@@ -9100,7 +9335,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "四川美术学院",
@@ -9138,7 +9374,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "四川音乐学院",
@@ -9176,7 +9413,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "北方民族大学",
@@ -9214,7 +9452,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽建筑大学",
@@ -9252,7 +9491,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "皖南医学院",
@@ -9290,7 +9530,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东第一医科大学",
@@ -9328,7 +9569,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "齐鲁工业大学",
@@ -9366,7 +9608,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "佛山大学",
@@ -9404,7 +9647,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广东药科大学",
@@ -9442,7 +9686,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广东财经大学",
@@ -9480,7 +9725,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "香港中文大学(深圳)",
@@ -9518,7 +9764,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广西中医药大学",
@@ -9556,7 +9803,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广西民族大学",
@@ -9594,7 +9842,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "桂林医科大学",
@@ -9632,7 +9881,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "喀什大学",
@@ -9670,7 +9920,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "塔里木大学",
@@ -9708,7 +9959,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "常州大学",
@@ -9746,7 +9998,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东华理工大学",
@@ -9784,7 +10037,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "景德镇陶瓷大学",
@@ -9822,7 +10076,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北北方学院",
@@ -9860,7 +10115,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北地质大学",
@@ -9898,7 +10154,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北科技大学",
@@ -9936,7 +10193,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南医药大学",
@@ -9974,7 +10232,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "宁波诺丁汉大学",
@@ -10012,7 +10271,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江农林大学",
@@ -10050,7 +10310,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江财经大学",
@@ -10088,7 +10349,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "海南医科大学",
@@ -10126,7 +10388,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江汉大学",
@@ -10164,7 +10427,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖南工商大学",
@@ -10202,7 +10466,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "兰州财经大学",
@@ -10240,7 +10505,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "闽南师范大学",
@@ -10278,7 +10544,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西藏农牧大学",
@@ -10316,7 +10583,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "贵州民族大学",
@@ -10354,7 +10622,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳农业大学",
@@ -10392,7 +10661,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳化工大学",
@@ -10430,7 +10700,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳工业大学",
@@ -10468,7 +10739,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳师范大学",
@@ -10506,7 +10778,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳建筑大学",
@@ -10544,7 +10817,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳航空航天大学",
@@ -10582,7 +10856,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "沈阳药科大学",
@@ -10620,7 +10895,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "辽宁石油化工大学",
@@ -10658,7 +10934,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "空军军医大学",
@@ -10696,7 +10973,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "陕西中医药大学",
@@ -10734,7 +11012,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东北石油大学",
@@ -10759,7 +11038,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-23 00:04:14",
+      "last_checked": "2026-05-23 00:22:32",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "石油工程/化工/地质/机械",
       "level_display": "66",
@@ -10772,7 +11051,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "齐齐哈尔大学",
@@ -10810,7 +11090,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "云南农业大学",
@@ -10848,7 +11129,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "云南师范大学",
@@ -10886,7 +11168,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "云南民族大学",
@@ -10924,7 +11207,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "云南财经大学",
@@ -10962,7 +11246,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "昆明医科大学",
@@ -11000,7 +11285,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "昆明理工大学",
@@ -11038,7 +11324,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南林业大学",
@@ -11076,7 +11363,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "内蒙古农业大学",
@@ -11114,7 +11402,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "内蒙古工业大学",
@@ -11152,7 +11441,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "内蒙古师范大学",
@@ -11190,7 +11480,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "内蒙古科技大学",
@@ -11228,7 +11519,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东北电力大学",
@@ -11266,7 +11558,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "吉林农业大学",
@@ -11304,7 +11597,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "吉林师范大学",
@@ -11342,7 +11636,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "吉林财经大学",
@@ -11380,7 +11675,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "长春中医药大学",
@@ -11418,7 +11714,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "长春工业大学",
@@ -11456,7 +11753,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "长春理工大学",
@@ -11494,7 +11792,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "四川师范大学",
@@ -11532,7 +11831,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西华大学",
@@ -11570,7 +11870,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西华师范大学",
@@ -11608,7 +11909,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南医科大学",
@@ -11646,7 +11948,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南民族大学",
@@ -11684,7 +11987,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西南科技大学",
@@ -11722,7 +12026,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "宁夏医科大学",
@@ -11760,7 +12065,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽中医药大学",
@@ -11798,7 +12104,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽农业大学",
@@ -11836,7 +12143,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽医科大学",
@@ -11874,7 +12182,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽工业大学",
@@ -11912,7 +12221,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽师范大学",
@@ -11950,7 +12260,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽理工大学",
@@ -11988,7 +12299,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "安徽财经大学",
@@ -12026,7 +12338,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "蚌埠医学院",
@@ -12064,7 +12377,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东中医药大学",
@@ -12102,7 +12416,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东农业大学",
@@ -12140,7 +12455,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东师范大学",
@@ -12178,7 +12494,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东建筑大学",
@@ -12216,7 +12533,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东理工大学",
@@ -12254,7 +12572,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东科技大学",
@@ -12292,7 +12611,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东艺术学院",
@@ -12330,7 +12650,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山东财经大学",
@@ -12368,7 +12689,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "曲阜师范大学",
@@ -12406,7 +12728,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "聊城大学",
@@ -12444,7 +12767,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中北大学",
@@ -12482,7 +12806,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "太原科技大学",
@@ -12520,7 +12845,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山西中医药大学",
@@ -12558,7 +12884,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山西农业大学",
@@ -12596,7 +12923,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山西医科大学",
@@ -12634,7 +12962,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山西师范大学",
@@ -12672,7 +13001,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "山西财经大学",
@@ -12710,7 +13040,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "五邑大学",
@@ -12748,7 +13079,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华南农业大学",
@@ -12786,7 +13118,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南方医科大学",
@@ -12824,7 +13157,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广东外语外贸大学",
@@ -12862,7 +13196,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广东工业大学",
@@ -12900,7 +13235,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广东海洋大学",
@@ -12938,7 +13274,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "汕头大学",
@@ -12976,7 +13313,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "深圳大学",
@@ -13014,7 +13352,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广西医科大学",
@@ -13052,7 +13391,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广西师范大学",
@@ -13090,7 +13430,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "广西艺术学院",
@@ -13128,7 +13469,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "桂林理工大学",
@@ -13166,7 +13508,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "桂林电子科技大学",
@@ -13204,7 +13547,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "新疆农业大学",
@@ -13242,7 +13586,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "新疆医科大学",
@@ -13280,7 +13625,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "新疆师范大学",
@@ -13318,7 +13664,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "新疆财经大学",
@@ -13356,7 +13703,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南通大学",
@@ -13394,7 +13742,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "徐州医科大学",
@@ -13432,7 +13781,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "扬州大学",
@@ -13470,7 +13820,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江苏大学",
@@ -13508,7 +13859,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江苏师范大学",
@@ -13546,7 +13898,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江苏科技大学",
@@ -13584,7 +13937,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华东交通大学",
@@ -13622,7 +13976,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南昌航空大学",
@@ -13660,7 +14015,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江西中医药大学",
@@ -13698,7 +14054,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江西农业大学",
@@ -13736,7 +14093,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江西师范大学",
@@ -13774,7 +14132,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江西理工大学",
@@ -13812,7 +14171,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "江西财经大学",
@@ -13850,7 +14210,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华北理工大学",
@@ -13888,7 +14249,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华北电力大学(保定)",
@@ -13926,7 +14288,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北中医学院",
@@ -13964,7 +14327,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北农业大学",
@@ -14002,7 +14366,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北医科大学",
@@ -14040,7 +14405,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北大学",
@@ -14078,7 +14444,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北工程大学",
@@ -14116,7 +14483,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北师范大学",
@@ -14154,7 +14522,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河北经贸大学",
@@ -14192,7 +14561,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "燕山大学",
@@ -14230,7 +14600,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "石家庄铁道大学",
@@ -14268,7 +14639,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华北水利水电大学",
@@ -14306,7 +14678,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南中医药大学",
@@ -14344,7 +14717,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南农业大学",
@@ -14382,7 +14756,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南工业大学",
@@ -14420,7 +14795,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南师范大学",
@@ -14458,7 +14834,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南理工大学",
@@ -14496,7 +14873,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南科技大学",
@@ -14534,7 +14912,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "河南财经政法大学",
@@ -14572,7 +14951,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江中医药大学",
@@ -14610,7 +14990,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江工业大学",
@@ -14648,7 +15029,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江工商大学",
@@ -14686,7 +15068,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江师范大学",
@@ -14724,7 +15107,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "浙江理工大学",
@@ -14762,7 +15146,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "温州医科大学",
@@ -14800,7 +15185,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "海南师范大学",
@@ -14838,7 +15224,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "三峡大学",
@@ -14876,7 +15263,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中南民族大学",
@@ -14914,7 +15302,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖北中医药大学",
@@ -14952,7 +15341,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖北大学",
@@ -14990,7 +15380,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖北工业大学",
@@ -15028,7 +15419,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "长江大学",
@@ -15066,7 +15458,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中南林业科技大学",
@@ -15104,7 +15497,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "南华大学",
@@ -15142,7 +15536,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "吉首大学",
@@ -15180,7 +15575,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖南中医药大学",
@@ -15218,7 +15614,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖南农业大学",
@@ -15256,7 +15653,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "湖南科技大学",
@@ -15294,7 +15692,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "兰州交通大学",
@@ -15332,7 +15731,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "兰州理工大学",
@@ -15370,7 +15770,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "甘肃中医药大学",
@@ -15408,7 +15809,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "甘肃农业大学",
@@ -15446,7 +15848,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西北师范大学",
@@ -15484,7 +15887,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西北民族大学",
@@ -15522,7 +15926,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "华侨大学",
@@ -15560,7 +15965,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "福建中医药大学",
@@ -15598,7 +16004,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "福建农林大学",
@@ -15636,7 +16043,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "福建医科大学",
@@ -15674,7 +16082,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "福建师范大学",
@@ -15712,7 +16121,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "集美大学",
@@ -15750,7 +16160,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西藏民族大学",
@@ -15788,7 +16199,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "贵州医科大学",
@@ -15826,7 +16238,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "贵州师范大学",
@@ -15864,7 +16277,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "贵阳中医学院",
@@ -15902,7 +16316,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "遵义医学院",
@@ -15940,7 +16355,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "东北财经大学",
@@ -15978,7 +16394,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "中国医科大学",
@@ -16016,7 +16433,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "渤海大学",
@@ -16054,7 +16472,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "辽宁中医药大学",
@@ -16092,7 +16511,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "辽宁工程技术大学",
@@ -16130,7 +16550,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "辽宁师范大学",
@@ -16168,7 +16589,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "辽宁科技大学",
@@ -16206,7 +16628,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "鲁迅美术学院",
@@ -16244,7 +16667,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "延安大学",
@@ -16282,7 +16706,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "西北政法大学",
@@ -16320,7 +16745,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "陕西科技大学",
@@ -16358,7 +16784,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "青海师范大学",
@@ -16396,7 +16823,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "青海民族大学",
@@ -16434,7 +16862,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "佳木斯大学",
@@ -16472,7 +16901,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "黑龙江中医药大学",
@@ -16510,7 +16940,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "黑龙江八一农垦大学",
@@ -16548,7 +16979,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "黑龙江大学",
@@ -16586,7 +17018,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     },
     {
       "school_name": "黑龙江科技大学",
@@ -16624,7 +17057,8 @@
       "receive_recommend_verify_status": "",
       "receive_recommend_by_major": [],
       "receive_recommend_is_complete": "",
-      "receive_recommend_note": ""
+      "receive_recommend_note": "",
+      "receive_recommend_source_grade": ""
     }
   ],
   "quota_source_count": 2,
