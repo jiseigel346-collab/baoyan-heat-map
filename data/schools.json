@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-05-22 17:44:11",
-  "note": "本校推荐名额与接收推免人数为不同口径；仅显示官网可核验数据。",
+  "updated_at": "2026-05-22 17:56:45",
+  "note": "当前时间按2026-05-22口径：接收推免人数仅保留2026级官网可核验数据；夏令营公告仅保留2026年以来或标题含2026的公告。",
   "sources": {
     "研招网2018推免资格基础名单": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
     "研招网2025新增推免资格高校备案名单": "https://yz.chsi.com.cn/kyzx/jybzc/202509/20250912/2293411123.html"
@@ -1702,7 +1702,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 17:43:35",
+      "last_checked": "2026-05-22 17:56:25",
       "verify_status": "基础资格已自动更新；推免率/名额待核验",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "211",
@@ -2659,7 +2659,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 17:43:25",
+      "last_checked": "2026-05-22 17:56:25",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "79",
@@ -2667,7 +2667,7 @@
       "recommendation_verify_status": "官网已核验",
       "receive_recommend_total": "1",
       "receive_recommend_year": "2026级",
-      "receive_recommend_source_name": "南京中医药大学研究生院：2026年推荐免试硕士研究生阶段拟录取名单",
+      "receive_recommend_source_name": "南京中医药大学2026年推荐免试硕士研究生第四阶段拟录取名单",
       "receive_recommend_source_url": "https://gra.njucm.edu.cn/2025/1020/c7320a162570/page.htm",
       "receive_recommend_verify_status": "官网已核验",
       "receive_recommend_by_major": [
@@ -2678,7 +2678,7 @@
         }
       ],
       "receive_recommend_is_complete": "否",
-      "receive_recommend_note": "阶段性名单；后续补齐学校汇总名单后自动合并。"
+      "receive_recommend_note": "阶段性名单；后续补齐最终汇总名单后自动合并。"
     },
     {
       "school_name": "上海中医药大学",
@@ -10759,7 +10759,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 17:43:21",
+      "last_checked": "2026-05-22 17:56:01",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "石油工程/化工/地质/机械",
       "level_display": "66",
@@ -16633,9 +16633,19 @@
   "receive_updated_count": 2,
   "receive_failed_samples": [
     {
+      "school_name": "南京中医药大学",
+      "reason": "未解析到专业人数",
+      "source": "https://gra.njucm.edu.cn/2025/1014/c7320a162390/page.htm"
+    },
+    {
       "school_name": "南京大学",
       "reason": "未解析到专业人数",
       "source": "https://yzb.nju.edu.cn/28/6d/c47863a796781/pagem.htm"
+    },
+    {
+      "school_name": "复旦大学",
+      "reason": "未解析到专业人数",
+      "source": "https://gsao.fudan.edu.cn/8c/af/c15906a756911/page.htm"
     },
     {
       "school_name": "南京农业大学",
@@ -16646,12 +16656,7 @@
       "school_name": "深圳大学",
       "reason": "未解析到专业人数",
       "source": "https://yz.szu.edu.cn/sszs/lqgs.htm"
-    },
-    {
-      "school_name": "电子科技大学",
-      "reason": "未解析到专业人数",
-      "source": "https://yz.uestc.edu.cn/info/1007/5342.htm"
     }
   ],
-  "summer_notice_count": 34
+  "summer_notice_count": 5
 }
