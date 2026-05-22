@@ -31,4 +31,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: auto update baoyan data
-          file_pattern: data/schools.json data/update_report.md
+         file_pattern: data/schools.json
