@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "school": "南京大学",
+      "source_name": "南京大学研究生招生网-夏令营/推免栏目",
+      "list_url": "https://yzb.nju.edu.cn/xlyxx/listm1.htm",
+      "keywords": [
+        "夏令营",
+        "推免",
+        "预推免",
+        "优秀大学生",
+        "推荐免试"
+      ]
+    },
+    {
+      "school": "东南大学",
+      "source_name": "东南大学研究生招生网",
+      "list_url": "https://yzb.seu.edu.cn/",
+      "keywords": [
+        "夏令营",
+        "推免",
+        "预推免",
+        "推荐免试",
+        "优秀大学生"
+      ]
+    },
+    {
+      "school": "南京中医药大学",
+      "source_name": "南京中医药大学研究生院招生公告",
+      "list_url": "https://gra.njucm.edu.cn/2902/list.htm",
+      "keywords": [
+        "夏令营",
+        "推免",
+        "预推免",
+        "推荐免试",
+        "拟录取"
+      ]
+    }
+  ]
+}

@@ -1,18 +1,26 @@
 {
+  "updated_at": "",
   "notices": [
     {
       "school": "南京大学",
-      "title": "研究生招生网“夏令营/推免”栏目持续更新",
+      "title": "研究生招生网“夏令营/推免”栏目",
       "date": "官网栏目",
       "url": "https://yzb.nju.edu.cn/xlyxx/listm1.htm",
       "source_name": "南京大学研究生招生网"
     },
     {
-      "school": "系统提示",
-      "title": "更多高校夏令营公告源接入后，会在这里自动滚动展示",
-      "date": "自动更新",
-      "url": "",
-      "source_name": "系统"
+      "school": "东南大学",
+      "title": "研究生招生网招生信息栏目",
+      "date": "官网栏目",
+      "url": "https://yzb.seu.edu.cn/",
+      "source_name": "东南大学研究生招生网"
+    },
+    {
+      "school": "南京中医药大学",
+      "title": "研究生院招生公告栏目",
+      "date": "官网栏目",
+      "url": "https://gra.njucm.edu.cn/2902/list.htm",
+      "source_name": "南京中医药大学研究生院"
     }
   ]
 }
