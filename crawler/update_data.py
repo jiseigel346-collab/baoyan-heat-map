@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Dict, Any, List, Tuple
 
 import requests
+from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from pypdf import PdfReader
 
@@ -28,6 +29,8 @@ SCHOOLS_JSON = DATA / "schools.json"
 SEED_JSON = DATA / "schools_seed.json"
 SCHOOL_SOURCES_JSON = DATA / "school_sources.json"
 RECEIVE_SOURCES_JSON = DATA / "receive_sources.json"
+SUMMER_SOURCES_JSON = DATA / "summer_camp_sources.json"
+SUMMER_NOTICES_JSON = DATA / "summer_camp_notices.json"
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
 
@@ -215,6 +218,74 @@ def update_receive_recommend(schools: List[Dict[str, Any]]) -> Tuple[int, List[D
             failed.append({"school_name": name, "reason": repr(e)})
     return updated, failed
 
+
+def parse_date_from_text(text: str) -> str:
+    m = re.search(r"(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})", text or "")
+    if m:
+        y, mo, d = m.groups()
+        return f"{y}-{int(mo):02d}-{int(d):02d}"
+    m = re.search(r"(20\d{2})[-/.年](\d{1,2})", text or "")
+    if m:
+        y, mo = m.groups()
+        return f"{y}-{int(mo):02d}"
+    return ""
+
+def scrape_summer_camp_notices() -> Tuple[int, List[Dict[str, Any]]]:
+    """抓取夏令营/推免公告栏目。只抓标题、链接、日期，不生成未经来源确认的数据。"""
+    sources_db = load_json(SUMMER_SOURCES_JSON, {"sources": []})
+    existing = load_json(SUMMER_NOTICES_JSON, {"notices": []}).get("notices", [])
+    notices: List[Dict[str, Any]] = []
+    seen = set()
+    for n in existing:
+        if n.get("school") == "系统提示":
+            continue
+        key = (n.get("school", ""), n.get("title", ""), n.get("url", ""))
+        if key not in seen and (n.get("title") or n.get("url")):
+            seen.add(key)
+            notices.append(n)
+    for src in sources_db.get("sources", []):
+        school = src.get("school") or src.get("school_name") or ""
+        url = src.get("list_url") or src.get("source_url") or ""
+        keywords = src.get("keywords") or ["夏令营", "推免", "预推免", "推荐免试", "优秀大学生"]
+        if not url:
+            continue
+        try:
+            r = fetch(url)
+            if not r.encoding or r.encoding.lower() == "iso-8859-1":
+                r.encoding = r.apparent_encoding
+            soup = BeautifulSoup(r.text, "html.parser")
+            for a in soup.find_all("a"):
+                title = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
+                href = a.get("href") or ""
+                if not title or len(title) < 4:
+                    continue
+                if not any(k in title for k in keywords):
+                    continue
+                full_url = urljoin(url, href)
+                context = title + " " + re.sub(r"\s+", " ", a.parent.get_text(" ", strip=True) if a.parent else "")
+                date = parse_date_from_text(context)
+                item = {
+                    "school": school,
+                    "title": title,
+                    "date": date,
+                    "url": full_url,
+                    "source_name": src.get("source_name", ""),
+                    "last_checked": now_cn(),
+                }
+                key = (item["school"], item["title"], item["url"])
+                if key not in seen:
+                    seen.add(key)
+                    notices.append(item)
+        except Exception as e:
+            # 源页面失败时不清空原公告，避免前台空白
+            continue
+    def date_key(n: Dict[str, Any]) -> str:
+        d = n.get("date") or "0000-00-00"
+        return d
+    notices.sort(key=date_key, reverse=True)
+    save_json(SUMMER_NOTICES_JSON, {"updated_at": now_cn(), "notices": notices[:60]})
+    return len(notices[:60]), notices[:5]
+
 def main() -> None:
     DATA.mkdir(exist_ok=True)
     db = load_json(SCHOOLS_JSON, None)
@@ -228,16 +299,18 @@ def main() -> None:
 
     quota_updated, quota_failed = update_recommend_quota(schools)
     receive_updated, receive_failed = update_receive_recommend(schools)
+    summer_notice_count, summer_notice_samples = scrape_summer_camp_notices()
 
     db["schools"] = schools
     db["updated_at"] = now_cn()
     db["quota_updated_count"] = quota_updated
     db["receive_updated_count"] = receive_updated
+    db["summer_notice_count"] = summer_notice_count
     db["quota_failed_samples"] = quota_failed[:10]
     db["receive_failed_samples"] = receive_failed[:10]
     db["note"] = "本校推荐名额与接收推免人数为不同口径；仅显示官网可核验数据。"
     save_json(SCHOOLS_JSON, db)
-    print(f"recommendation quota updated: {quota_updated}, receive recommend updated: {receive_updated}")
+    print(f"recommendation quota updated: {quota_updated}, receive recommend updated: {receive_updated}, summer notices: {summer_notice_count}")
     if quota_failed:
         print("quota failed samples:", quota_failed[:3])
     if receive_failed:
