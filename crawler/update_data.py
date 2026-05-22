@@ -360,39 +360,58 @@ def discover_receive_sources(schools: List[Dict[str, Any]], known_names: set, li
             logs.append({"school_name": name, "status": "not_found"})
     return discovered, logs
 
-def discover_summer_camp_notices(schools: List[Dict[str, Any]], limit_schools: int = 160) -> List[Dict[str, Any]]:
-    """全网发现2026夏令营/优秀大学生营公告。官网优先，第三方也可作为公告来源展示并标注。"""
+def discover_summer_camp_notices(schools: List[Dict[str, Any]], limit_schools: int = 999) -> List[Dict[str, Any]]:
+    """全网发现 2026 夏令营/优秀大学生营/预推免公告。
+    v14 逻辑：
+    1. 不再只抓少数手工源，按院校库全量轮询；
+    2. 学校官网/研究生院/学院官网优先；第三方公开来源只作为补充展示并标注；
+    3. 只收 2026 年相关公告，过滤 2023/2024/2025 老公告；
+    4. 每所学校最多保留 3 条，避免少数学校霸屏；
+    5. 本函数依赖 Bing 公开搜索页，稳定性不如正式搜索 API。后续正式商用建议接入 Bing Search API/SerpAPI。
+    """
     notices, seen = [], set()
     candidates = sorted(schools, key=lambda x: int(x.get("heat_score") or 0), reverse=True)[:limit_schools]
     for s in candidates:
         school = s.get("school_name", "")
         if not school:
             continue
-        q = f'{school} 2026 夏令营 优秀大学生 推免'
-        for r in search_bing_results(q, limit=5):
-            text = r["title"] + " " + r.get("snippet", "") + " " + r["url"]
-            if "2026" not in text:
-                continue
-            if not any(k in text for k in ["夏令营", "优秀大学生", "推免", "预推免"]):
-                continue
-            date = parse_date_from_text(text)
-            # 2026夏令营常见标题含2026但页面日期未必能解析，允许标题含2026进入。
-            if date and date < SUMMER_MIN_DATE:
-                continue
-            key = (school, r["title"], r["url"])
-            if key in seen:
-                continue
-            seen.add(key)
-            notices.append({
-                "school": school,
-                "title": r["title"][:160],
-                "date": date or "2026",
-                "url": r["url"],
-                "source_name": r["grade"],
-                "source_grade": r["grade"],
-                "last_checked": now_cn(),
-            })
-            break
+        queries = [
+            f'{school} 2026 夏令营 优秀大学生',
+            f'{school} 2026 研究生 夏令营 推免',
+            f'{school} 2026 预推免 推免 公告',
+        ]
+        school_items = []
+        for q in queries:
+            for r in search_bing_results(q, limit=8):
+                text = r["title"] + " " + r.get("snippet", "") + " " + r["url"]
+                if "2026" not in text:
+                    continue
+                if not any(k in text for k in ["夏令营", "优秀大学生", "预推免", "推免", "推荐免试"]):
+                    continue
+                # 排除明显往年内容，标题/摘要里出现 2023/2024 且没有明确 2026 时不要；含 2026 的保留。
+                if ("2023" in text or "2024" in text) and "2026" not in text:
+                    continue
+                date = parse_date_from_text(text)
+                if date and date < SUMMER_MIN_DATE:
+                    continue
+                # 没解析出完整日期但含 2026，允许进入，前台按 2026 归类。
+                item = {
+                    "school": school,
+                    "title": r["title"][:180],
+                    "date": date or "2026",
+                    "url": r["url"],
+                    "source_name": r.get("grade", "公开来源"),
+                    "source_grade": r.get("grade", source_grade(r.get("url", ""))),
+                    "last_checked": now_cn(),
+                }
+                key = (item["school"], item["title"], item["url"])
+                if key in seen:
+                    continue
+                seen.add(key)
+                school_items.append(item)
+        # 官网源优先，公开来源补充；每校最多 3 条。
+        school_items.sort(key=lambda x: (0 if x.get("source_grade") == "官网来源" else 1, str(x.get("date", ""))), reverse=False)
+        notices.extend(school_items[:3])
     return notices
 
 def collect_texts_from_receive_source(src: Dict[str, Any]) -> Tuple[str, List[str]]:
@@ -644,7 +663,7 @@ def scrape_summer_camp_notices() -> Tuple[int, List[Dict[str, Any]]]:
 
     # 全网自动发现夏令营/推免公告：官网优先，第三方公开来源可作为补充并标注来源类型。
     try:
-        discovered_notices = discover_summer_camp_notices(load_json(SCHOOLS_JSON, {"schools": []}).get("schools", []), limit_schools=180)
+        discovered_notices = discover_summer_camp_notices(load_json(SCHOOLS_JSON, {"schools": []}).get("schools", []), limit_schools=999)
         for item in discovered_notices:
             key = (item.get("school", ""), item.get("title", ""), item.get("url", ""))
             if key not in seen:
@@ -656,8 +675,8 @@ def scrape_summer_camp_notices() -> Tuple[int, List[Dict[str, Any]]]:
         d = n.get("date") or "0000-00-00"
         return d
     notices.sort(key=date_key, reverse=True)
-    save_json(SUMMER_NOTICES_JSON, {"updated_at": now_cn(), "notices": notices[:60]})
-    return len(notices[:60]), notices[:5]
+    save_json(SUMMER_NOTICES_JSON, {"updated_at": now_cn(), "notices": notices[:240]})
+    return len(notices[:240]), notices[:5]
 
 def main() -> None:
     DATA.mkdir(exist_ok=True)
@@ -682,7 +701,7 @@ def main() -> None:
     db["summer_notice_count"] = summer_notice_count
     db["quota_failed_samples"] = quota_failed[:10]
     db["receive_failed_samples"] = receive_failed[:10]
-    db["note"] = "当前时间按2026-05-22口径：接收推免人数优先采集2026级官网数据；官网抓不到时使用公开保研/招生信息源辅助发现并标注来源；夏令营公告仅保留2026年以来或标题含2026的公告。"
+    db["note"] = "当前时间按2026-05-22口径：接收推免人数优先采集2026级官网数据；官网抓不到时使用公开保研/招生信息源辅助发现并标注来源；夏令营公告改为右侧模块滚动展示，按全国院校库全量搜索2026年以来或标题含2026的夏令营/预推免公告。"
     save_json(SCHOOLS_JSON, db)
     print(f"recommendation quota updated: {quota_updated}, receive recommend updated: {receive_updated}, summer notices: {summer_notice_count}")
     if quota_failed:
