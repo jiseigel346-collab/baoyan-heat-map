@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-22 22:26:27",
+  "updated_at": "2026-05-23 00:08:01",
   "note": "当前时间按2026-05-22口径：接收推免人数仅保留2026级官网可核验数据；夏令营公告仅保留2026年以来或标题含2026的公告。",
   "sources": {
     "研招网2018推免资格基础名单": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
@@ -1702,7 +1702,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 22:26:12",
+      "last_checked": "2026-05-23 00:07:44",
       "verify_status": "基础资格已自动更新；推免率/名额待核验",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "211",
@@ -2659,7 +2659,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 22:26:12",
+      "last_checked": "2026-05-23 00:07:44",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "临床医学/基础医学/公共卫生/药学",
       "level_display": "79",
@@ -10759,7 +10759,7 @@
       "source_name": "研招网2018推免资格基础名单",
       "source_url": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
       "publish_date": "2018-09-05",
-      "last_checked": "2026-05-22 22:25:37",
+      "last_checked": "2026-05-23 00:04:14",
       "verify_status": "自动抓取到官网来源；建议人工抽查口径",
       "hot_majors": "石油工程/化工/地质/机械",
       "level_display": "66",
