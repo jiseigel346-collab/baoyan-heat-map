@@ -19,9 +19,14 @@ from pathlib import Path
 from typing import Dict, Any, List, Tuple
 
 import requests
-from urllib.parse import urljoin
+from urllib.parse import urljoin, quote
 from bs4 import BeautifulSoup
 from pypdf import PdfReader
+
+try:
+    import openpyxl
+except Exception:
+    openpyxl = None
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -196,6 +201,107 @@ def parse_major_counts_from_text(text: str) -> List[Dict[str, Any]]:
     rows.sort(key=lambda x: x["count"], reverse=True)
     return rows
 
+
+
+def parse_major_counts_from_html_tables(html: str) -> List[Dict[str, Any]]:
+    soup = BeautifulSoup(html, "html.parser")
+    counter = Counter()
+    for table in soup.find_all("table"):
+        rows = []
+        for tr in table.find_all("tr"):
+            cells = [re.sub(r"\s+", "", c.get_text(" ", strip=True)) for c in tr.find_all(["td", "th"])]
+            if cells:
+                rows.append(cells)
+        if not rows:
+            continue
+        major_idx = None
+        for ri, row in enumerate(rows[:5]):
+            for ci, val in enumerate(row):
+                if "专业" in val and len(val) <= 8:
+                    major_idx = ci
+                    start = ri + 1
+                    break
+            if major_idx is not None:
+                break
+        if major_idx is None:
+            continue
+        for row in rows[start:]:
+            if len(row) <= major_idx:
+                continue
+            major = clean_major_name("", row[major_idx])
+            if major and 2 <= len(major) <= 20 and not any(x in major for x in ["专业", "姓名", "学院", "备注"]):
+                counter[("", major)] += 1
+    rows = [{"major_code": code, "major_name": major, "count": count} for (code, major), count in counter.items()]
+    rows.sort(key=lambda x: x["count"], reverse=True)
+    return rows
+
+def parse_major_counts_from_xlsx(content: bytes) -> List[Dict[str, Any]]:
+    if openpyxl is None:
+        return []
+    counter = Counter()
+    try:
+        wb = openpyxl.load_workbook(io.BytesIO(content), read_only=True, data_only=True)
+    except Exception:
+        return []
+    for ws in wb.worksheets:
+        all_rows = []
+        for row in ws.iter_rows(values_only=True):
+            vals = [re.sub(r"\s+", "", str(x or "")) for x in row]
+            if any(vals):
+                all_rows.append(vals)
+        major_idx = None
+        start = 0
+        for ri, row in enumerate(all_rows[:15]):
+            for ci, val in enumerate(row):
+                if "专业" in val and len(val) <= 10:
+                    major_idx = ci
+                    start = ri + 1
+                    break
+            if major_idx is not None:
+                break
+        if major_idx is None:
+            continue
+        for row in all_rows[start:]:
+            if len(row) <= major_idx:
+                continue
+            major = clean_major_name("", row[major_idx])
+            if major and 2 <= len(major) <= 20 and not any(x in major for x in ["专业", "姓名", "学院", "备注"]):
+                counter[("", major)] += 1
+    rows = [{"major_code": code, "major_name": major, "count": count} for (code, major), count in counter.items()]
+    rows.sort(key=lambda x: x["count"], reverse=True)
+    return rows
+
+def search_bing_candidates(school_name: str, limit: int = 4) -> List[str]:
+    queries = [
+        f'{school_name} 2026 接收推荐免试研究生 拟录取名单',
+        f'{school_name} 2026 拟录取推荐免试研究生名单公示',
+    ]
+    found = []
+    for q in queries:
+        try:
+            url = 'https://www.bing.com/search?q=' + quote(q)
+            r = requests.get(url, timeout=20, headers={"User-Agent": UA})
+            soup = BeautifulSoup(r.text, 'html.parser')
+            for a in soup.select('li.b_algo h2 a'):
+                href = a.get('href') or ''
+                title = re.sub(r"\s+", "", a.get_text(" ", strip=True))
+                if not href.startswith('http'):
+                    continue
+                # 只接受高校/科研院所官网，排除第三方转载，避免混入旧数据和营销数据。
+                if '.edu.cn' not in href and '.ac.cn' not in href:
+                    continue
+                if '2026' not in title and '2026' not in href:
+                    continue
+                if not any(k in title for k in ['推免', '推荐免试', '拟录取', '接收']):
+                    continue
+                if href not in found:
+                    found.append(href)
+                if len(found) >= limit:
+                    return found
+        except Exception:
+            continue
+    return found
+
 def collect_texts_from_receive_source(src: Dict[str, Any]) -> Tuple[str, List[str]]:
     """从接收推免来源中收集可解析文本。支持：PDF直链、公告页附件PDF、列表页自动发现公告。"""
     url = src.get("source_url") or src.get("list_url") or ""
@@ -220,6 +326,9 @@ def collect_texts_from_receive_source(src: Dict[str, Any]) -> Tuple[str, List[st
             page_text = re.sub(r"\s+", " ", soup.get_text("\n", strip=True))
             texts.append(page_text)
             urls.append(page_url)
+            table_rows = parse_major_counts_from_html_tables(r.text)
+            if table_rows:
+                texts.append(' '.join([('000000 '+x['major_name']+' ')*int(x['count']) for x in table_rows]))
             # 从公告页里找 PDF / XLS / 相关名单附件。这里只解析 PDF；Excel 后续可继续加 openpyxl。
             for a in soup.find_all("a"):
                 title = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
@@ -228,6 +337,15 @@ def collect_texts_from_receive_source(src: Dict[str, Any]) -> Tuple[str, List[st
                 low = full.lower().split("?")[0]
                 if low.endswith(".pdf") and (not title or any(k in title for k in ["名单", "推免", "拟录取", "推荐免试", "附件"])):
                     add_pdf(full)
+                if (low.endswith(".xlsx") or low.endswith(".xlsm")) and (not title or any(k in title for k in ["名单", "推免", "拟录取", "推荐免试", "附件"])):
+                    try:
+                        rb = fetch(full).content
+                        xrows = parse_major_counts_from_xlsx(rb)
+                        if xrows:
+                            texts.append(' '.join([('000000 '+x['major_name']+' ')*int(x['count']) for x in xrows]))
+                            urls.append(full)
+                    except Exception:
+                        pass
                 # 列表页：自动进入“接收推免/推免拟录取”公告页，只深入一层，避免乱爬。
                 if depth == 0 and not low.endswith(".pdf") and any(k in title for k in ["接收推免", "推荐免试研究生拟录取", "推免生拟录取", "推荐免试研究生"]):
                     add_page(full, depth=1)
@@ -250,10 +368,33 @@ def update_receive_recommend(schools: List[Dict[str, Any]]) -> Tuple[int, List[D
     4. 解析不到专业人数则不写入前台字段。
     """
     sources_db = load_json(RECEIVE_SOURCES_JSON, {"sources": []})
+    base_sources = sources_db.get("sources", [])
+    # 全国自动发现：每次优先扫描高热度且尚未有接收数据的高校，自动寻找2026级接收推免拟录取名单官网源。
+    existing_names = {x.get("school_name") for x in base_sources}
+    auto_added = []
+    for s in sorted(schools, key=lambda x: int(x.get("heat_score") or 0), reverse=True):
+        if len(auto_added) >= 35:
+            break
+        name = s.get("school_name", "")
+        if not name or name in existing_names:
+            continue
+        for u in search_bing_candidates(name, limit=1):
+            auto_added.append({
+                "school_name": name,
+                "year": CURRENT_RECEIVE_YEAR,
+                "source_name": f"{name}2026级接收推免名单自动发现源",
+                "source_url": u,
+                "source_type": "auto_discovered",
+                "is_complete_total": "否",
+                "note": "由系统自动发现官网源；解析成功后进入前台展示。"
+            })
+            existing_names.add(name)
+            break
+    all_sources = base_sources + auto_added
     aggregated: Dict[str, Dict[str, Any]] = {}
     failed = []
 
-    for src in sources_db.get("sources", []):
+    for src in all_sources:
         name = src.get("school_name")
         url = src.get("source_url") or src.get("list_url")
         year = str(src.get("year", ""))
