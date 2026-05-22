@@ -182,11 +182,56 @@ def parse_major_counts_from_text(text: str) -> List[Dict[str, Any]]:
     rows.sort(key=lambda x: x["count"], reverse=True)
     return rows
 
+def collect_texts_from_receive_source(src: Dict[str, Any]) -> Tuple[str, List[str]]:
+    """从接收推免来源中收集可解析文本。支持：PDF直链、公告页附件PDF、列表页自动发现公告。"""
+    url = src.get("source_url") or src.get("list_url") or ""
+    texts: List[str] = []
+    urls: List[str] = []
+    if not url:
+        return "", urls
+
+    def add_pdf(pdf_url: str):
+        try:
+            texts.append(get_pdf_text(pdf_url))
+            urls.append(pdf_url)
+        except Exception:
+            pass
+
+    def add_page(page_url: str, depth: int = 0):
+        try:
+            r = fetch(page_url)
+            if not r.encoding or r.encoding.lower() == "iso-8859-1":
+                r.encoding = r.apparent_encoding
+            soup = BeautifulSoup(r.text, "html.parser")
+            page_text = re.sub(r"\s+", " ", soup.get_text("\n", strip=True))
+            texts.append(page_text)
+            urls.append(page_url)
+            # 从公告页里找 PDF / XLS / 相关名单附件。这里只解析 PDF；Excel 后续可继续加 openpyxl。
+            for a in soup.find_all("a"):
+                title = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
+                href = a.get("href") or ""
+                full = urljoin(page_url, href)
+                low = full.lower().split("?")[0]
+                if low.endswith(".pdf") and (not title or any(k in title for k in ["名单", "推免", "拟录取", "推荐免试", "附件"])):
+                    add_pdf(full)
+                # 列表页：自动进入“接收推免/推免拟录取”公告页，只深入一层，避免乱爬。
+                if depth == 0 and not low.endswith(".pdf") and any(k in title for k in ["接收推免", "推荐免试研究生拟录取", "推免生拟录取", "推荐免试研究生"]):
+                    add_page(full, depth=1)
+        except Exception:
+            pass
+
+    if url.lower().split("?")[0].endswith(".pdf"):
+        add_pdf(url)
+    else:
+        add_page(url)
+    return "\n".join(texts), urls
+
+
 def update_receive_recommend(schools: List[Dict[str, Any]]) -> Tuple[int, List[Dict[str, Any]]]:
     sources_db = load_json(RECEIVE_SOURCES_JSON, {"sources": []})
     updated, failed = 0, []
     for src in sources_db.get("sources", []):
-        name, url = src.get("school_name"), src.get("source_url")
+        name, url = src.get("school_name"), src.get("source_url") or src.get("list_url")
         if not name or not url:
             continue
         item = find_school_item(schools, name)
@@ -195,27 +240,24 @@ def update_receive_recommend(schools: List[Dict[str, Any]]) -> Tuple[int, List[D
             continue
         ensure_common_fields(item)
         try:
-            if url.lower().split("?")[0].endswith(".pdf"):
-                text = get_pdf_text(url)
-            else:
-                text = get_html_text(url)
+            text, used_urls = collect_texts_from_receive_source(src)
             rows = parse_major_counts_from_text(text)
             total = sum(int(r["count"]) for r in rows)
             if total > 0:
                 item["receive_recommend_total"] = str(total)
                 item["receive_recommend_year"] = src.get("year", "")
                 item["receive_recommend_source_name"] = src.get("source_name", "")
-                item["receive_recommend_source_url"] = url
+                item["receive_recommend_source_url"] = used_urls[0] if used_urls else url
                 item["receive_recommend_verify_status"] = "官网已核验"
-                item["receive_recommend_by_major"] = rows
+                item["receive_recommend_by_major"] = rows[:30]
                 item["receive_recommend_is_complete"] = src.get("is_complete_total", "否")
                 item["receive_recommend_note"] = src.get("note", "")
                 item["last_checked"] = now_cn()
                 updated += 1
             else:
-                failed.append({"school_name": name, "reason": "未解析到专业人数"})
+                failed.append({"school_name": name, "reason": "未解析到专业人数", "source": url})
         except Exception as e:
-            failed.append({"school_name": name, "reason": repr(e)})
+            failed.append({"school_name": name, "reason": repr(e), "source": url})
     return updated, failed
 
 
