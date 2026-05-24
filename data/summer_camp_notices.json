@@ -1,19 +1,8 @@
 {
-  "updated_at": "2026-05-24T16:00:00+08:00",
-  "notice_count": 10,
-  "note": "稳定兜底版：抓不到新公告时不会清空已有公告；官网优先，聚合源补充。",
+  "updated_at": "2026-05-24T17:09:06+08:00",
+  "notice_count": 14,
+  "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
-    {
-      "school": "北京大学",
-      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
-      "date": "2026-05",
-      "url": "https://admission.pku.edu.cn/xly/index.htm",
-      "source_type": "官网栏目",
-      "category": "夏令营",
-      "province": "北京",
-      "level": "985",
-      "status": "更新中"
-    },
     {
       "school": "北京大学燕京学堂",
       "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
@@ -35,6 +24,50 @@
       "province": "北京",
       "level": "科研院所",
       "status": "报名中"
+    },
+    {
+      "title": "北京大学经济学院关于举办“2026年优秀大学生夏令营”活动的通知 2026-05-20",
+      "url": "https://econ.pku.edu.cn/jxxm/zsxxfb_20211202144549787517/cbcf209f9c5d4757bd4e5fb4f62d4bed.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-20",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学现代农学院2026年全国优秀大学生夏令营活动通知 2026-05-20",
+      "url": "https://saas.pku.edu.cn/xwzx/tzgg/0e4ca13b09cd43179ffbdb849569ec59.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-20",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学国家发展研究院 2026年“全国经济学与管理学优秀大学生夏令营”活动通知 2026-05-19",
+      "url": "https://nsd.pku.edu.cn/jxxm/yjs/zszl/tzgg2/bf5c8c5f998b41e39ced81b47d9fcc41.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-19",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学前沿交叉学科研究院关于举办2026年交叉学科优秀大学生夏令营的通知 2026-05-19",
+      "url": "http://www.aais.pku.edu.cn/info/1058/19671.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-19",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
     },
     {
       "school": "中国科学院理化技术研究所",
@@ -59,15 +92,15 @@
       "status": "报名中"
     },
     {
-      "school": "中国科学院生物与化学交叉研究中心",
-      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
-      "date": "2026-04-09",
-      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
-      "source_type": "官网",
+      "school": "北京大学",
+      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
+      "date": "2026-05",
+      "url": "https://admission.pku.edu.cn/xly/index.htm",
+      "source_type": "官网栏目",
       "category": "夏令营",
-      "province": "上海",
-      "level": "科研院所",
-      "status": "已发布"
+      "province": "北京",
+      "level": "985",
+      "status": "更新中"
     },
     {
       "school": "北京大学深圳研究生院",
@@ -78,6 +111,17 @@
       "category": "夏令营",
       "province": "广东",
       "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "中国科学院生物与化学交叉研究中心",
+      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
+      "date": "2026-04-09",
+      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "上海",
+      "level": "科研院所",
       "status": "已发布"
     },
     {
@@ -116,17 +160,6 @@
   ],
   "items": [
     {
-      "school": "北京大学",
-      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
-      "date": "2026-05",
-      "url": "https://admission.pku.edu.cn/xly/index.htm",
-      "source_type": "官网栏目",
-      "category": "夏令营",
-      "province": "北京",
-      "level": "985",
-      "status": "更新中"
-    },
-    {
       "school": "北京大学燕京学堂",
       "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
       "date": "2026-05-22",
@@ -147,6 +180,50 @@
       "province": "北京",
       "level": "科研院所",
       "status": "报名中"
+    },
+    {
+      "title": "北京大学经济学院关于举办“2026年优秀大学生夏令营”活动的通知 2026-05-20",
+      "url": "https://econ.pku.edu.cn/jxxm/zsxxfb_20211202144549787517/cbcf209f9c5d4757bd4e5fb4f62d4bed.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-20",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学现代农学院2026年全国优秀大学生夏令营活动通知 2026-05-20",
+      "url": "https://saas.pku.edu.cn/xwzx/tzgg/0e4ca13b09cd43179ffbdb849569ec59.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-20",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学国家发展研究院 2026年“全国经济学与管理学优秀大学生夏令营”活动通知 2026-05-19",
+      "url": "https://nsd.pku.edu.cn/jxxm/yjs/zszl/tzgg2/bf5c8c5f998b41e39ced81b47d9fcc41.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-19",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学前沿交叉学科研究院关于举办2026年交叉学科优秀大学生夏令营的通知 2026-05-19",
+      "url": "http://www.aais.pku.edu.cn/info/1058/19671.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-19",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
     },
     {
       "school": "中国科学院理化技术研究所",
@@ -171,15 +248,15 @@
       "status": "报名中"
     },
     {
-      "school": "中国科学院生物与化学交叉研究中心",
-      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
-      "date": "2026-04-09",
-      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
-      "source_type": "官网",
+      "school": "北京大学",
+      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
+      "date": "2026-05",
+      "url": "https://admission.pku.edu.cn/xly/index.htm",
+      "source_type": "官网栏目",
       "category": "夏令营",
-      "province": "上海",
-      "level": "科研院所",
-      "status": "已发布"
+      "province": "北京",
+      "level": "985",
+      "status": "更新中"
     },
     {
       "school": "北京大学深圳研究生院",
@@ -190,6 +267,17 @@
       "category": "夏令营",
       "province": "广东",
       "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "中国科学院生物与化学交叉研究中心",
+      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
+      "date": "2026-04-09",
+      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "上海",
+      "level": "科研院所",
       "status": "已发布"
     },
     {
@@ -228,17 +316,6 @@
   ],
   "summer_camp_notices": [
     {
-      "school": "北京大学",
-      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
-      "date": "2026-05",
-      "url": "https://admission.pku.edu.cn/xly/index.htm",
-      "source_type": "官网栏目",
-      "category": "夏令营",
-      "province": "北京",
-      "level": "985",
-      "status": "更新中"
-    },
-    {
       "school": "北京大学燕京学堂",
       "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
       "date": "2026-05-22",
@@ -259,6 +336,50 @@
       "province": "北京",
       "level": "科研院所",
       "status": "报名中"
+    },
+    {
+      "title": "北京大学经济学院关于举办“2026年优秀大学生夏令营”活动的通知 2026-05-20",
+      "url": "https://econ.pku.edu.cn/jxxm/zsxxfb_20211202144549787517/cbcf209f9c5d4757bd4e5fb4f62d4bed.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-20",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学现代农学院2026年全国优秀大学生夏令营活动通知 2026-05-20",
+      "url": "https://saas.pku.edu.cn/xwzx/tzgg/0e4ca13b09cd43179ffbdb849569ec59.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-20",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学国家发展研究院 2026年“全国经济学与管理学优秀大学生夏令营”活动通知 2026-05-19",
+      "url": "https://nsd.pku.edu.cn/jxxm/yjs/zszl/tzgg2/bf5c8c5f998b41e39ced81b47d9fcc41.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-19",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学前沿交叉学科研究院关于举办2026年交叉学科优秀大学生夏令营的通知 2026-05-19",
+      "url": "http://www.aais.pku.edu.cn/info/1058/19671.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-19",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
     },
     {
       "school": "中国科学院理化技术研究所",
@@ -283,15 +404,15 @@
       "status": "报名中"
     },
     {
-      "school": "中国科学院生物与化学交叉研究中心",
-      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
-      "date": "2026-04-09",
-      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
-      "source_type": "官网",
+      "school": "北京大学",
+      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
+      "date": "2026-05",
+      "url": "https://admission.pku.edu.cn/xly/index.htm",
+      "source_type": "官网栏目",
       "category": "夏令营",
-      "province": "上海",
-      "level": "科研院所",
-      "status": "已发布"
+      "province": "北京",
+      "level": "985",
+      "status": "更新中"
     },
     {
       "school": "北京大学深圳研究生院",
@@ -302,6 +423,17 @@
       "category": "夏令营",
       "province": "广东",
       "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "中国科学院生物与化学交叉研究中心",
+      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
+      "date": "2026-04-09",
+      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "上海",
+      "level": "科研院所",
       "status": "已发布"
     },
     {

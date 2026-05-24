@@ -1,12 +1,10 @@
 {
-  "updated_at": "2026-05-24T16:54:32+0800",
-  "mode": "baoyantongzhi_public_pages",
-  "list_urls": [
-    "https://www.baoyantongzhi.com/notice"
-  ],
-  "list_detail_urls_found": 0,
-  "detail_pages_checked": 0,
-  "notices_added": 0,
-  "errors": [],
-  "summer_notice_total_after_dedupe": 0
+  "updated_at": "2026-05-24T17:09:06+08:00",
+  "status": "success",
+  "existing_before": 10,
+  "found_this_run": 7,
+  "final_notice_count": 14,
+  "official_count": 11,
+  "aggregate_count": 3,
+  "message": "官网栏目 + 保研通知网公开页抓取；若抓取为空，保留已有公告和种子公告，前台不会空白。"
 }
