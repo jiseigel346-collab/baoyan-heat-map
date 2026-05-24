@@ -1,621 +1,301 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-全国保研院校夏令营公告 / 接收推免名单发现爬虫 v15
+保研热度地图 - v18 保研通知网增强抓取版
+功能：
+1. 保留现有 schools.json，不清空已有院校库；
+2. 抓取保研通知网公开的 2026 夏令营/预推免/正式推免通知；
+3. 自动生成 data/summer_camp_notices.json；
+4. 给 schools.json 中的学校增加 summer_notice_count / latest_summer_notice / heat_score 动态因子；
+5. 生成 data/discovery_report.json，便于排查本次抓了多少、失败多少。
 
-核心目标：
-1. 不再只依赖手工写入的几个学校链接。
-2. 使用“官方站点优先 + 聚合站线索补充 + 搜索发现”的方式，自动发现全国高校 2026 年夏令营/优秀大学生营/预推免公告。
-3. 同步发现 2026 级接收推免拟录取名单候选源，为后续解析专业人数做准备。
-4. 前台只展示真实抓到的夏令营公告；接收推免专业人数没有成功解析前，不输出“抓取中/接入中”。
-
-重要边界：
-- GitHub Actions 是轻量定时任务，不是搜索引擎，也不是商业爬虫集群。
-- 若想获得更高覆盖率，建议后续接入 SerpAPI / Bing Web Search API / 自建搜索服务。
-- 本脚本不编造数据；抓不到就不写假数据。
+说明：
+- 本脚本只抓公开页面，控制请求频率，不绕过登录、验证码、付费墙。
+- 第三方聚合源用于“公告发现”和“热度参考”，重要人数/录取数据仍建议以高校官网/研招网核验为准。
 """
-
 from __future__ import annotations
 
 import json
-import os
 import re
 import time
-import hashlib
-import urllib.parse
-from dataclasses import dataclass, asdict
-from datetime import datetime, timezone
-from typing import Dict, Iterable, List, Optional, Tuple
-from urllib.parse import urlparse
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+from typing import Dict, List, Any, Optional, Tuple
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
 
-try:
-    from pypdf import PdfReader  # optional, used only for PDF receive-list parsing later
-except Exception:
-    PdfReader = None
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data"
+SCHOOLS_JSON = DATA / "schools.json"
+SUMMER_NOTICES_JSON = DATA / "summer_camp_notices.json"
+DISCOVERY_REPORT_JSON = DATA / "discovery_report.json"
 
+CN_TZ = timezone(timedelta(hours=8))
+NOW = datetime.now(CN_TZ)
+TODAY = NOW.strftime("%Y-%m-%d")
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-DATA_DIR = os.path.join(ROOT, "data")
-
-SCHOOLS_PATH = os.path.join(DATA_DIR, "schools.json")
-SUMMER_NOTICES_PATH = os.path.join(DATA_DIR, "summer_camp_notices.json")
-SUMMER_SOURCES_PATH = os.path.join(DATA_DIR, "summer_camp_sources.json")
-RECEIVE_CANDIDATES_PATH = os.path.join(DATA_DIR, "receive_source_candidates.json")
-DISCOVERY_LOG_PATH = os.path.join(DATA_DIR, "discovery_report.json")
-
-CURRENT_YEAR = 2026
-TODAY = datetime.now(timezone.utc).date().isoformat()
+LIST_URLS = [
+    "https://www.baoyantongzhi.com/notice",
+]
 
 HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/124.0 Safari/537.36"
-    ),
-    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.5",
+    "User-Agent": "Mozilla/5.0 (compatible; BaoyanHeatMapBot/1.0; +https://github.com/)",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
 }
 
-# 夏令营公告关键词：标题/正文命中其一即可作为候选
-SUMMER_KEYWORDS = [
-    "夏令营", "优秀大学生", "暑期学校", "暑期夏令营", "学术夏令营",
-    "大学生夏令营", "推免夏令营", "预推免", "推免预报名", "开放日",
-]
-
-# 接收推免名单关键词：用于发现候选源，不等于已经解析人数
-RECEIVE_KEYWORDS = [
-    "接收推荐免试", "接收推免", "推免生拟录取", "推荐免试研究生拟录取",
-    "推荐免试攻读", "推免硕士拟录取", "拟录取名单", "接收免试",
-]
-
-EXCLUDE_KEYWORDS = [
-    "2023", "2024", "2025年夏令营", "2025优秀大学生夏令营",
-    "博士后", "高考", "本科招生", "中考", "成人教育",
-]
-
-TRUSTED_OFFICIAL_SUFFIX = (
-    ".edu.cn", ".ac.cn", ".edu", ".edu.hk", ".edu.mo", ".gov.cn"
-)
-
-AGGREGATOR_HINT_DOMAINS = [
-    "baoyantongzhi.com",
-    "eol.cn",
-    "kaoyan.com",
-    "yz.kaoyan.com",
-    "baoyan.com",
-    "chinakaoyan.com",
-    "51baoyan.com",
-]
-
-# 限制每次 Actions 的请求数，避免跑太久或被站点限制
-MAX_GLOBAL_SEARCH_QUERIES = int(os.getenv("MAX_GLOBAL_SEARCH_QUERIES", "18"))
-MAX_SCHOOL_SEARCHES_PER_RUN = int(os.getenv("MAX_SCHOOL_SEARCHES_PER_RUN", "80"))
-REQUEST_INTERVAL = float(os.getenv("REQUEST_INTERVAL", "1.0"))
-TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "12"))
+NOTICE_KEYWORDS = ["2026", "夏令营", "优秀大学生", "暑期", "科学营", "开放日", "预推免", "推免"]
+EXCLUDE_KEYWORDS = ["2023", "2024", "2022", "高考", "本科招生", "成人教育", "考研调剂"]
 
 
-@dataclass
-class Notice:
-    id: str
-    school: str
-    title: str
-    url: str
-    publish_date: str
-    type: str  # summer | receive_candidate
-    source_type: str  # official | aggregator | search
-    source_domain: str
-    discovered_at: str
-    score: int
-    summary: str = ""
-
-
-def ensure_data_dir():
-    os.makedirs(DATA_DIR, exist_ok=True)
-
-
-def load_json(path: str, default):
-    if not os.path.exists(path):
+def read_json(path: Path, default: Any) -> Any:
+    if not path.exists():
         return default
     try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return default
 
 
-def save_json(path: str, data):
-    ensure_data_dir()
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+def write_json(path: Path, obj: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def safe_get(url: str, timeout: int = TIMEOUT) -> Optional[requests.Response]:
+def get_html(url: str, timeout: int = 20) -> Optional[str]:
     try:
-        resp = requests.get(url, headers=HEADERS, timeout=timeout, allow_redirects=True)
-        if resp.status_code >= 400:
-            return None
-        return resp
-    except Exception:
+        r = requests.get(url, headers=HEADERS, timeout=timeout)
+        r.raise_for_status()
+        r.encoding = r.apparent_encoding or "utf-8"
+        return r.text
+    except Exception as e:
+        print(f"[WARN] fetch failed: {url} -> {e}")
         return None
-    finally:
-        time.sleep(REQUEST_INTERVAL)
-
-
-def normalize_url(url: str) -> str:
-    if not url:
-        return ""
-    url = url.strip()
-    if url.startswith("//"):
-        url = "https:" + url
-    # remove common trackers
-    parsed = urllib.parse.urlsplit(url)
-    q = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
-    q = [(k, v) for k, v in q if not k.lower().startswith("utm_") and k.lower() not in ("spm", "from")]
-    query = urllib.parse.urlencode(q)
-    return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, query, ""))
-
-
-def domain_of(url: str) -> str:
-    try:
-        return urlparse(url).netloc.lower().replace("www.", "")
-    except Exception:
-        return ""
-
-
-def is_official_url(url: str) -> bool:
-    d = domain_of(url)
-    return any(d.endswith(suf) for suf in TRUSTED_OFFICIAL_SUFFIX)
-
-
-def source_type_for(url: str) -> str:
-    d = domain_of(url)
-    if is_official_url(url):
-        return "official"
-    if any(x in d for x in AGGREGATOR_HINT_DOMAINS):
-        return "aggregator"
-    return "search"
-
-
-def hash_id(*parts: str) -> str:
-    raw = "||".join([p or "" for p in parts])
-    return hashlib.md5(raw.encode("utf-8")).hexdigest()[:16]
 
 
 def clean_text(s: str) -> str:
-    if not s:
-        return ""
-    s = re.sub(r"\s+", " ", s)
-    return s.strip()
+    return re.sub(r"\s+", " ", (s or "").strip())
 
 
-def extract_date(text: str, url: str = "") -> str:
-    blob = f"{text} {url}"
-    # 2026-05-22 / 2026/05/22 / 20260522 / 2026年5月22日
-    patterns = [
-        r"(20\d{2})[-/.](\d{1,2})[-/.](\d{1,2})",
-        r"(20\d{2})年(\d{1,2})月(\d{1,2})日",
-        r"(20\d{2})(\d{2})(\d{2})",
-    ]
-    for p in patterns:
-        m = re.search(p, blob)
-        if m:
-            y, mo, da = m.groups()
-            try:
-                return f"{int(y):04d}-{int(mo):02d}-{int(da):02d}"
-            except Exception:
-                pass
-    # some sites only show year-month
-    m = re.search(r"(20\d{2})[-/.年](\d{1,2})月?", blob)
-    if m:
-        y, mo = m.groups()
-        return f"{int(y):04d}-{int(mo):02d}-01"
-    return ""
-
-
-def is_current_summer_notice(title: str, snippet: str, url: str, date: str = "") -> bool:
-    blob = f"{title} {snippet} {url}"
-    if not any(k in blob for k in SUMMER_KEYWORDS):
+def is_valid_notice_title(title: str) -> bool:
+    t = title or ""
+    if any(k in t for k in EXCLUDE_KEYWORDS):
         return False
-    # summer camp in 2026 is current. Also accept publish date >= 2026-01-01.
-    if "2026" in blob:
-        return True
-    if date and date >= f"{CURRENT_YEAR}-01-01":
-        return True
-    # explicitly reject old years if no current signal
-    if any(k in blob for k in EXCLUDE_KEYWORDS):
+    if "2026" not in t:
         return False
-    return False
+    return any(k in t for k in ["夏令营", "优秀大学生", "暑期", "科学营", "开放日", "预推免", "推免"])
 
 
-def is_receive_candidate(title: str, snippet: str, url: str, date: str = "") -> bool:
-    blob = f"{title} {snippet} {url}"
-    if not any(k in blob for k in RECEIVE_KEYWORDS):
-        return False
-    # 2026级推免名单常发布于2025年秋季，所以允许 2025 + 2026 语义
-    if "2026" in blob or "2026级" in blob:
-        return True
-    return False
+def classify_notice(title: str, body: str = "") -> str:
+    text = title + " " + body[:500]
+    if any(k in text for k in ["夏令营", "优秀大学生", "暑期", "科学营", "开放日", "训练营", "探索营"]):
+        return "夏令营"
+    if "预推免" in text:
+        return "预推免"
+    if "推免" in text:
+        return "推免"
+    return "保研通知"
 
 
-def match_school(text: str, schools: List[Dict]) -> str:
-    # prefer longest school names to avoid false match
-    candidates = sorted([s.get("school_name") or s.get("name") or "" for s in schools], key=len, reverse=True)
-    for name in candidates:
+def find_school_name(title: str, body: str, school_names: List[str]) -> str:
+    text = title + " " + body[:1000]
+    for name in school_names:
         if name and name in text:
             return name
+    # 兜底：从标题里粗略截学校/研究所名称
+    m = re.search(r"2026年(.{2,40}?)(?:学院|大学|研究院|研究所|中心|实验室)", title)
+    if m:
+        raw = m.group(1)
+        # 尽量保留完整机构名
+        for suffix in ["大学", "学院", "研究院", "研究所", "中心", "实验室"]:
+            idx = title.find(raw + suffix)
+            if idx >= 0:
+                return title[idx:idx + len(raw + suffix)]
     return ""
 
 
-def build_search_queries(schools: List[Dict]) -> List[str]:
-    global_queries = [
-        "2026 优秀大学生 夏令营 研究生 招生",
-        "2026 全国优秀大学生 夏令营 研究生院",
-        "2026 暑期夏令营 推免 研究生",
-        "2026 学术夏令营 优秀大学生 研究生院",
-        "2026 夏令营 保研 通知",
-        "2026 预推免 优秀大学生 夏令营",
-        "site:edu.cn 2026 优秀大学生 夏令营 研究生院",
-        "site:edu.cn 2026 暑期夏令营 推免",
-        "site:ac.cn 2026 优秀大学生 夏令营",
-        "site:edu.cn 2026 夏令营 招生 学院",
-        "2026 接收推荐免试研究生 拟录取名单 专业",
-        "2026 推免生拟录取名单 专业",
-        "site:edu.cn 2026 接收推免 拟录取名单",
-        "site:edu.cn 2026 推荐免试研究生拟录取名单",
-    ][:MAX_GLOBAL_SEARCH_QUERIES]
-
-    # rotate schools based on current day, so each scheduled run covers a different batch
-    school_names = [s.get("school_name") or s.get("name") for s in schools if s.get("school_name") or s.get("name")]
-    if not school_names:
-        return global_queries
-
-    offset = datetime.now(timezone.utc).timetuple().tm_yday % max(1, len(school_names))
-    rotated = school_names[offset:] + school_names[:offset]
-    school_batch = rotated[:MAX_SCHOOL_SEARCHES_PER_RUN]
-
-    school_queries = []
-    for name in school_batch:
-        school_queries.append(f"{name} 2026 优秀大学生 夏令营")
-        school_queries.append(f"{name} 2026 预推免 夏令营")
-        # only a smaller subset for receive candidate; otherwise too many requests
-        if len(school_queries) < MAX_SCHOOL_SEARCHES_PER_RUN * 3:
-            school_queries.append(f"{name} 2026 接收推荐免试研究生 拟录取名单")
-
-    return global_queries + school_queries
+def extract_dates(text: str) -> Tuple[str, str]:
+    # 抓报名开始/截止等日期，格式优先 YYYY-MM-DD
+    dates = re.findall(r"20\d{2}[年\-/\.](?:0?[1-9]|1[0-2])[月\-/\.](?:0?[1-9]|[12]\d|3[01])日?", text)
+    norm = []
+    for d in dates:
+        nums = re.findall(r"\d+", d)
+        if len(nums) >= 3:
+            y, m, day = nums[:3]
+            norm.append(f"{int(y):04d}-{int(m):02d}-{int(day):02d}")
+    norm = sorted(set(norm))
+    if not norm:
+        return "", ""
+    if len(norm) == 1:
+        return "", norm[0]
+    return norm[0], norm[-1]
 
 
-def parse_bing_results(html: str) -> List[Tuple[str, str, str]]:
+def extract_original_url(soup: BeautifulSoup, base_url: str) -> str:
+    # 优先找“查看原文”链接
+    for a in soup.find_all("a", href=True):
+        txt = clean_text(a.get_text(" "))
+        if "查看原文" in txt or "原文" == txt:
+            href = urljoin(base_url, a["href"])
+            if "baoyantongzhi.com" not in href:
+                return href
+    # 没找到就返回空
+    return ""
+
+
+def parse_detail(detail_url: str, school_names: List[str]) -> Optional[Dict[str, Any]]:
+    html = get_html(detail_url)
+    if not html:
+        return None
     soup = BeautifulSoup(html, "html.parser")
-    results = []
-    for item in soup.select("li.b_algo"):
-        a = item.select_one("h2 a")
-        if not a:
-            continue
-        title = clean_text(a.get_text(" ", strip=True))
-        url = normalize_url(a.get("href") or "")
-        snippet = clean_text(item.get_text(" ", strip=True))
-        if url.startswith("http"):
-            results.append((title, url, snippet))
-    return results
-
-
-def parse_duckduckgo_results(html: str) -> List[Tuple[str, str, str]]:
-    soup = BeautifulSoup(html, "html.parser")
-    results = []
-    for a in soup.select("a.result__a"):
-        title = clean_text(a.get_text(" ", strip=True))
-        href = a.get("href") or ""
-        # DDG sometimes wraps URL in uddg param
-        parsed = urllib.parse.urlparse(href)
-        q = urllib.parse.parse_qs(parsed.query)
-        url = q.get("uddg", [href])[0]
-        url = normalize_url(urllib.parse.unquote(url))
-        parent = a.find_parent("div")
-        snippet = clean_text(parent.get_text(" ", strip=True)) if parent else title
-        if url.startswith("http"):
-            results.append((title, url, snippet))
-    return results
-
-
-def search_web(query: str) -> List[Tuple[str, str, str]]:
-    collected: List[Tuple[str, str, str]] = []
-
-    # Bing HTML fallback
-    bing_url = "https://www.bing.com/search?" + urllib.parse.urlencode({"q": query, "count": 10})
-    resp = safe_get(bing_url)
-    if resp and resp.text:
-        collected.extend(parse_bing_results(resp.text))
-
-    # DuckDuckGo fallback
-    ddg_url = "https://duckduckgo.com/html/?" + urllib.parse.urlencode({"q": query})
-    resp = safe_get(ddg_url)
-    if resp and resp.text:
-        collected.extend(parse_duckduckgo_results(resp.text))
-
-    # de-dup
-    seen = set()
-    unique = []
-    for title, url, snippet in collected:
-        if url in seen:
-            continue
-        seen.add(url)
-        unique.append((title, url, snippet))
-    return unique
-
-
-def fetch_title_and_date(url: str, fallback_title: str = "", fallback_snippet: str = "") -> Tuple[str, str, str]:
-    resp = safe_get(url, timeout=TIMEOUT)
-    if not resp:
-        return fallback_title, extract_date(f"{fallback_title} {fallback_snippet}", url), fallback_snippet
-
-    content_type = resp.headers.get("content-type", "").lower()
-    if "application/pdf" in content_type or url.lower().endswith(".pdf"):
-        # For speed and robustness, do not parse full PDF here. Use fallback metadata.
-        return fallback_title, extract_date(f"{fallback_title} {fallback_snippet}", url), fallback_snippet
-
-    # best effort decoding
-    resp.encoding = resp.encoding or "utf-8"
-    soup = BeautifulSoup(resp.text, "html.parser")
-    title = ""
     h1 = soup.find(["h1", "h2"])
-    if h1:
-        title = clean_text(h1.get_text(" ", strip=True))
-    if not title and soup.title:
-        title = clean_text(soup.title.get_text(" ", strip=True))
+    title = clean_text(h1.get_text(" ")) if h1 else ""
     if not title:
-        title = fallback_title
-
-    text = clean_text(soup.get_text(" ", strip=True))
-    date = extract_date(text[:2000], url) or extract_date(f"{title} {fallback_snippet}", url)
-    summary = clean_text(text[:260]) or fallback_snippet
-    return title, date, summary
-
-
-def score_notice(title: str, url: str, source_type: str, date: str) -> int:
-    score = 0
-    blob = f"{title} {url}"
-    if "2026" in blob:
-        score += 30
-    if date and date >= "2026-01-01":
-        score += 20
-    if source_type == "official":
-        score += 30
-    elif source_type == "aggregator":
-        score += 12
-    if any(k in blob for k in ["优秀大学生", "夏令营", "暑期"]):
-        score += 15
-    if any(k in blob for k in ["预推免", "推免"]):
-        score += 8
-    return score
-
-
-def discover_from_web(schools: List[Dict]) -> Tuple[List[Notice], List[Notice], Dict]:
-    summer: List[Notice] = []
-    receive_candidates: List[Notice] = []
-    stats = {
-        "queries": 0,
-        "results_seen": 0,
-        "summer_candidates": 0,
-        "receive_candidates": 0,
-        "official_summer": 0,
-        "aggregator_summer": 0,
+        title_tag = soup.find("title")
+        title = clean_text(title_tag.get_text(" ")) if title_tag else ""
+    # 标题兜底：去掉站点名
+    title = re.sub(r"\s*[-_|].*保研通知网.*$", "", title)
+    body = clean_text(soup.get_text(" "))
+    if not is_valid_notice_title(title) and not ("2026" in body[:800] and any(k in body[:800] for k in ["夏令营", "优秀大学生", "预推免", "推免"])):
+        return None
+    school = find_school_name(title, body, school_names)
+    start_date, deadline = extract_dates(body[:3000])
+    original_url = extract_original_url(soup, detail_url)
+    notice_type = classify_notice(title, body)
+    source_type = "第三方聚合"
+    if original_url and re.search(r"\.(edu|ac)\.cn|\.edu\.cn|\.ac\.cn", original_url):
+        source_type = "官网原文"
+    return {
+        "school_name": school or "未识别院校",
+        "title": title[:160],
+        "notice_type": notice_type,
+        "publish_date": "",
+        "start_date": start_date,
+        "deadline": deadline,
+        "source_name": "保研通知网",
+        "source_type": source_type,
+        "source_url": detail_url,
+        "original_url": original_url,
+        "last_checked": TODAY,
+        "status": "已抓取",
     }
 
-    queries = build_search_queries(schools)
-    seen_urls = set()
 
-    for query in queries:
-        stats["queries"] += 1
-        for raw_title, raw_url, raw_snippet in search_web(query):
-            url = normalize_url(raw_url)
-            if not url or url in seen_urls:
-                continue
-            seen_urls.add(url)
-            stats["results_seen"] += 1
-
-            source_type = source_type_for(url)
-            title, date, summary = fetch_title_and_date(url, raw_title, raw_snippet)
-            text_for_match = f"{title} {summary} {url}"
-
-            school = match_school(text_for_match, schools)
-            if not school:
-                # Still accept CAS/institute type notices if title is current summer
-                school = infer_org_from_title(title) or "未识别院校"
-
-            if is_current_summer_notice(title, summary, url, date):
-                score = score_notice(title, url, source_type, date)
-                notice = Notice(
-                    id=hash_id("summer", school, title, url),
-                    school=school,
-                    title=title,
-                    url=url,
-                    publish_date=date,
-                    type="summer",
-                    source_type=source_type,
-                    source_domain=domain_of(url),
-                    discovered_at=TODAY,
-                    score=score,
-                    summary=summary[:180],
-                )
-                summer.append(notice)
-                stats["summer_candidates"] += 1
-                if source_type == "official":
-                    stats["official_summer"] += 1
-                elif source_type == "aggregator":
-                    stats["aggregator_summer"] += 1
-
-            if is_receive_candidate(title, summary, url, date):
-                score = score_notice(title, url, source_type, date)
-                receive_candidates.append(Notice(
-                    id=hash_id("receive", school, title, url),
-                    school=school,
-                    title=title,
-                    url=url,
-                    publish_date=date,
-                    type="receive_candidate",
-                    source_type=source_type,
-                    source_domain=domain_of(url),
-                    discovered_at=TODAY,
-                    score=score,
-                    summary=summary[:180],
-                ))
-                stats["receive_candidates"] += 1
-
-    return dedupe_notices(summer), dedupe_notices(receive_candidates), stats
-
-
-def infer_org_from_title(title: str) -> str:
-    # Basic fallback for Chinese Academy of Sciences institutes and schools not present in schools.json
-    m = re.search(r"(中国科学院[^｜|：:，,。 ]{2,30})", title)
-    if m:
-        return m.group(1)
-    m = re.search(r"([^｜|：:，,。 ]{2,30}(大学|学院|研究院|研究所))", title)
-    if m:
-        return m.group(1)
-    return ""
-
-
-def dedupe_notices(items: List[Notice]) -> List[Notice]:
-    best: Dict[str, Notice] = {}
-    for n in items:
-        key = normalize_url(n.url) or n.id
-        if key not in best or n.score > best[key].score:
-            best[key] = n
-    return sorted(best.values(), key=lambda x: (x.score, x.publish_date or ""), reverse=True)
-
-
-def merge_notices(existing: List[Dict], new_items: List[Notice], max_items: int = 240) -> List[Dict]:
-    by_key: Dict[str, Dict] = {}
-    for item in existing:
-        url = normalize_url(item.get("url", ""))
-        key = url or item.get("id", "")
-        if key:
-            by_key[key] = item
-
-    for n in new_items:
-        key = normalize_url(n.url) or n.id
-        d = asdict(n)
-        old = by_key.get(key)
-        if old:
-            # keep best title/date/source, update discovery
-            old.update({k: v for k, v in d.items() if v not in ("", None)})
-            old["last_seen"] = TODAY
-            by_key[key] = old
-        else:
-            d["first_seen"] = TODAY
-            d["last_seen"] = TODAY
-            by_key[key] = d
-
-    # Keep only current 2026 notices for summer; older and weak signals removed
-    merged = list(by_key.values())
-    cleaned = []
-    for x in merged:
-        title = x.get("title", "")
-        url = x.get("url", "")
-        date = x.get("publish_date", "")
-        if x.get("type") == "summer":
-            if not is_current_summer_notice(title, x.get("summary", ""), url, date):
-                continue
-        cleaned.append(x)
-
-    cleaned.sort(key=lambda x: (int(x.get("score") or 0), x.get("publish_date") or ""), reverse=True)
-    return cleaned[:max_items]
-
-
-def load_seed_sources() -> List[Dict]:
-    # Existing file can include official columns / aggregator URLs.
-    seeds = load_json(SUMMER_SOURCES_PATH, [])
-    if isinstance(seeds, dict):
-        seeds = seeds.get("sources", [])
-    return seeds if isinstance(seeds, list) else []
-
-
-def crawl_seed_sources(schools: List[Dict]) -> List[Notice]:
-    notices: List[Notice] = []
-    seeds = load_seed_sources()
-    for src in seeds:
-        url = src.get("url") if isinstance(src, dict) else str(src)
-        school_hint = src.get("school", "") if isinstance(src, dict) else ""
-        if not url:
+def parse_list_page(list_url: str) -> List[str]:
+    html = get_html(list_url)
+    if not html:
+        return []
+    soup = BeautifulSoup(html, "html.parser")
+    urls = []
+    seen = set()
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if "/notice/detail/" not in href:
             continue
-        resp = safe_get(url)
-        if not resp or not resp.text:
+        title = clean_text(a.get_text(" "))
+        abs_url = urljoin(list_url, href)
+        if abs_url in seen:
             continue
-        resp.encoding = resp.encoding or "utf-8"
-        soup = BeautifulSoup(resp.text, "html.parser")
-        base = resp.url
-        links = []
-        for a in soup.find_all("a"):
-            href = a.get("href") or ""
-            title = clean_text(a.get_text(" ", strip=True))
-            if not title or not href:
-                continue
-            abs_url = normalize_url(urllib.parse.urljoin(base, href))
-            blob = f"{title} {abs_url}"
-            if any(k in blob for k in SUMMER_KEYWORDS) and ("2026" in blob or extract_date(blob, abs_url) >= "2026-01-01"):
-                links.append((title, abs_url, title))
-
-        for title, url2, snippet in links[:80]:
-            full_title, date, summary = fetch_title_and_date(url2, title, snippet)
-            source_type = source_type_for(url2)
-            school = school_hint or match_school(f"{full_title} {summary} {url2}", schools) or infer_org_from_title(full_title) or "未识别院校"
-            if is_current_summer_notice(full_title, summary, url2, date):
-                notices.append(Notice(
-                    id=hash_id("summer", school, full_title, url2),
-                    school=school,
-                    title=full_title,
-                    url=url2,
-                    publish_date=date,
-                    type="summer",
-                    source_type=source_type,
-                    source_domain=domain_of(url2),
-                    discovered_at=TODAY,
-                    score=score_notice(full_title, url2, source_type, date) + 8,
-                    summary=summary[:180],
-                ))
-    return dedupe_notices(notices)
+        # 列表链接文本有时就是标题，有时是“查看详情”，后者也保留，详情页再判断
+        if title and (is_valid_notice_title(title) or "查看" in title):
+            urls.append(abs_url)
+            seen.add(abs_url)
+    return urls
 
 
-def main():
-    ensure_data_dir()
+def dedupe_notices(notices: List[Dict[str, Any]], max_items: int = 120) -> List[Dict[str, Any]]:
+    seen = set()
+    out = []
+    # 优先官网原文、再按截止时间靠前/近期检查排序
+    def key_sort(n):
+        source_weight = 0 if n.get("source_type") == "官网原文" else 1
+        deadline = n.get("deadline") or "9999-12-31"
+        return (source_weight, deadline, n.get("school_name", ""), n.get("title", ""))
+    for n in sorted(notices, key=key_sort):
+        k = n.get("original_url") or n.get("source_url") or n.get("title")
+        if not k or k in seen:
+            continue
+        seen.add(k)
+        out.append(n)
+        if len(out) >= max_items:
+            break
+    return out
 
-    schools = load_json(SCHOOLS_PATH, [])
-    if isinstance(schools, dict):
-        schools = schools.get("schools", [])
 
-    old_summer = load_json(SUMMER_NOTICES_PATH, [])
-    if isinstance(old_summer, dict):
-        old_summer = old_summer.get("items", [])
+def boost_school_heat(schools_data: Dict[str, Any], notices: List[Dict[str, Any]]) -> Dict[str, Any]:
+    schools = schools_data.get("schools", []) if isinstance(schools_data, dict) else []
+    by_school: Dict[str, List[Dict[str, Any]]] = {}
+    for n in notices:
+        s = n.get("school_name")
+        if not s or s == "未识别院校":
+            continue
+        by_school.setdefault(s, []).append(n)
+    for s in schools:
+        name = s.get("school_name", "")
+        items = by_school.get(name, [])
+        if not items:
+            continue
+        s["summer_notice_count"] = str(len(items))
+        s["latest_summer_notice"] = items[0].get("title", "")
+        s["latest_summer_notice_url"] = items[0].get("original_url") or items[0].get("source_url", "")
+        try:
+            base = int(s.get("heat_score") or s.get("level_display") or 70)
+        except Exception:
+            base = 70
+        s["heat_score"] = str(min(100, base + min(8, len(items) * 2)))
+    schools_data["updated_at"] = NOW.strftime("%Y-%m-%dT%H:%M:%S%z")
+    schools_data["summer_notice_total"] = len(notices)
+    return schools_data
 
-    old_receive = load_json(RECEIVE_CANDIDATES_PATH, [])
-    if isinstance(old_receive, dict):
-        old_receive = old_receive.get("items", [])
 
-    seed_summer = crawl_seed_sources(schools)
-    web_summer, receive_candidates, stats = discover_from_web(schools)
+def main() -> None:
+    DATA.mkdir(exist_ok=True)
+    schools_data = read_json(SCHOOLS_JSON, {"schools": []})
+    schools = schools_data.get("schools", []) if isinstance(schools_data, dict) else []
+    school_names = sorted([s.get("school_name", "") for s in schools if s.get("school_name")], key=len, reverse=True)
 
-    summer_merged = merge_notices(old_summer, seed_summer + web_summer, max_items=260)
-    receive_merged = merge_notices(old_receive, receive_candidates, max_items=260)
-
-    save_json(SUMMER_NOTICES_PATH, summer_merged)
-    save_json(RECEIVE_CANDIDATES_PATH, receive_merged)
+    previous_notices = read_json(SUMMER_NOTICES_JSON, [])
+    if isinstance(previous_notices, dict):
+        previous_notices = previous_notices.get("items", []) or previous_notices.get("notices", []) or []
+    all_notices: List[Dict[str, Any]] = list(previous_notices) if isinstance(previous_notices, list) else []
 
     report = {
-        "run_at": datetime.now(timezone.utc).isoformat(),
-        "current_year": CURRENT_YEAR,
-        "schools_loaded": len(schools),
-        "seed_summer_found": len(seed_summer),
-        "web_summer_found": len(web_summer),
-        "summer_saved": len(summer_merged),
-        "receive_candidates_found": len(receive_candidates),
-        "receive_candidates_saved": len(receive_merged),
-        "stats": stats,
-        "note": "前台仅展示已抓到的真实夏令营公告；接收推免专业人数仍需名单解析成功后才展示。",
+        "updated_at": NOW.strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "mode": "baoyantongzhi_public_pages",
+        "list_urls": LIST_URLS,
+        "list_detail_urls_found": 0,
+        "detail_pages_checked": 0,
+        "notices_added": 0,
+        "errors": [],
     }
-    save_json(DISCOVERY_LOG_PATH, report)
 
+    detail_urls = []
+    for list_url in LIST_URLS:
+        urls = parse_list_page(list_url)
+        detail_urls.extend(urls)
+        time.sleep(0.8)
+    # 去重，限制数量，避免对网站造成压力
+    detail_urls = list(dict.fromkeys(detail_urls))[:80]
+    report["list_detail_urls_found"] = len(detail_urls)
+
+    before = len(all_notices)
+    for i, u in enumerate(detail_urls, 1):
+        item = parse_detail(u, school_names)
+        report["detail_pages_checked"] += 1
+        if item:
+            all_notices.append(item)
+        time.sleep(0.6)
+
+    all_notices = dedupe_notices(all_notices, max_items=150)
+    report["notices_added"] = max(0, len(all_notices) - before)
+    report["summer_notice_total_after_dedupe"] = len(all_notices)
+
+    # 如果本次没有新增，也保留旧数据，不清空
+    write_json(SUMMER_NOTICES_JSON, all_notices)
+    schools_data = boost_school_heat(schools_data, all_notices)
+    write_json(SCHOOLS_JSON, schools_data)
+    write_json(DISCOVERY_REPORT_JSON, report)
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
 
