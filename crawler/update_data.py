@@ -1,303 +1,135 @@
 # -*- coding: utf-8 -*-
-"""
-保研热度地图 - v18 保研通知网增强抓取版
-功能：
-1. 保留现有 schools.json，不清空已有院校库；
-2. 抓取保研通知网公开的 2026 夏令营/预推免/正式推免通知；
-3. 自动生成 data/summer_camp_notices.json；
-4. 给 schools.json 中的学校增加 summer_notice_count / latest_summer_notice / heat_score 动态因子；
-5. 生成 data/discovery_report.json，便于排查本次抓了多少、失败多少。
-
-说明：
-- 本脚本只抓公开页面，控制请求频率，不绕过登录、验证码、付费墙。
-- 第三方聚合源用于“公告发现”和“热度参考”，重要人数/录取数据仍建议以高校官网/研招网核验为准。
-"""
 from __future__ import annotations
-
-import json
-import re
-import time
+import json, re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Dict, List, Any, Optional, Tuple
 from urllib.parse import urljoin
-
 import requests
 from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-SCHOOLS_JSON = DATA / "schools.json"
-SUMMER_NOTICES_JSON = DATA / "summer_camp_notices.json"
-DISCOVERY_REPORT_JSON = DATA / "discovery_report.json"
+SUMMER_FILE = DATA / "summer_camp_notices.json"
+REPORT_FILE = DATA / "discovery_report.json"
+SCHOOLS_FILE = DATA / "schools.json"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
-CN_TZ = timezone(timedelta(hours=8))
-NOW = datetime.now(CN_TZ)
-TODAY = NOW.strftime("%Y-%m-%d")
-
-LIST_URLS = [
-    "https://www.baoyantongzhi.com/notice",
+SEED_NOTICES = [
+{"school":"北京大学","title":"北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新","date":"2026-05","url":"https://admission.pku.edu.cn/xly/index.htm","source_type":"官网栏目","category":"夏令营","province":"北京","level":"985","status":"更新中"},
+{"school":"北京大学燕京学堂","title":"北京大学燕京学堂2026年全国优秀大学生夏令营","date":"2026-05-22","url":"https://yenching.pku.edu.cn/info/1040/5974.htm","source_type":"官网","category":"夏令营","province":"北京","level":"985","status":"已发布"},
+{"school":"中国科学院国家空间科学中心","title":"中国科学院国家空间科学中心2026年全国优秀大学生夏令营招募通知","date":"2026-05-21","url":"https://www.nssc.ac.cn/yjsb/zsxx/zsdt/202605/t20260521_8207648.html","source_type":"官网","category":"夏令营","province":"北京","level":"科研院所","status":"报名中"},
+{"school":"中国科学院理化技术研究所","title":"欢迎参加理化所2026年优秀大学生夏令营","date":"2026-05-08","url":"https://ipc.cas.cn/yjsjy2019/zsxx/202605/t20260508_8197625.html","source_type":"官网","category":"夏令营","province":"北京","level":"科研院所","status":"报名中"},
+{"school":"中国科学院大学公共政策与管理学院","title":"中国科学院2026年公共政策与管理全国优秀大学生夏令营报名通知","date":"2026-05-07","url":"https://sppm.ucas.ac.cn/index.php/zh-CN/zsgl/zsxx/3367-2014","source_type":"官网","category":"夏令营","province":"北京","level":"双一流","status":"报名中"},
+{"school":"中国科学院生物与化学交叉研究中心","title":"中国科学院生物与化学交叉研究中心2026年暑期夏令营","date":"2026-04-09","url":"https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html","source_type":"官网","category":"夏令营","province":"上海","level":"科研院所","status":"已发布"},
+{"school":"北京大学深圳研究生院","title":"北京大学深圳研究生院2026年国际暑期探索营","date":"2026-04-28","url":"https://www.pkusz.edu.cn/info/1058/6656.htm","source_type":"官网","category":"夏令营","province":"广东","level":"985","status":"已发布"},
+{"school":"香港中文大学（深圳）","title":"数据科学学院硕士研究生项目2026年优秀大学生迷你营及夏令营","date":"2026-02-04","url":"https://www.baoyantongzhi.com/notice/detail/24602","source_type":"聚合来源","category":"夏令营","province":"广东","level":"合作办学","status":"已发布"},
+{"school":"浙江大学","title":"浙江大学基础医学院2026年优秀大学生暑期夏令营通知","date":"2026","url":"https://www.baoyantongzhi.com/notice/detail/54656","source_type":"聚合来源","category":"夏令营","province":"浙江","level":"985","status":"已发布"},
+{"school":"保研通知网","title":"2026保研通知查询：全国高校夏令营、预推免、正式推免通知","date":"2026","url":"https://www.baoyantongzhi.com/notice","source_type":"聚合来源","category":"聚合入口","province":"全国","level":"聚合源","status":"更新中"}
 ]
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; BaoyanHeatMapBot/1.0; +https://github.com/)",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-}
+def now_iso():
+    return datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
 
-NOTICE_KEYWORDS = ["2026", "夏令营", "优秀大学生", "暑期", "科学营", "开放日", "预推免", "推免"]
-EXCLUDE_KEYWORDS = ["2023", "2024", "2022", "高考", "本科招生", "成人教育", "考研调剂"]
-
-
-def read_json(path: Path, default: Any) -> Any:
-    if not path.exists():
-        return default
+def read_json(path, default):
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
-        return default
+        pass
+    return default
 
+def get_html(url):
+    r = requests.get(url, headers={"User-Agent": UA}, timeout=15)
+    r.raise_for_status()
+    r.encoding = r.apparent_encoding or "utf-8"
+    return r.text
 
-def write_json(path: Path, obj: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+def extract_date(text):
+    m = re.search(r"(2026)[-/年.](\d{1,2})(?:[-/月.](\d{1,2}))?", text)
+    if not m: return ""
+    y, mo, d = m.group(1), int(m.group(2)), m.group(3)
+    return f"{y}-{mo:02d}-{int(d):02d}" if d else f"{y}-{mo:02d}"
 
+def guess_school(title):
+    known = ["北京大学燕京学堂","北京大学深圳研究生院","北京大学","中国科学院国家空间科学中心","中国科学院理化技术研究所","中国科学院理化所","中国科学院大学公共政策与管理学院","中国科学院大学","中国科学院生物与化学交叉研究中心","香港中文大学（深圳）","浙江大学","南京大学","中国科学技术大学"]
+    for k in known:
+        if k in title: return k
+    m = re.match(r"(.{2,30}?大学|.{2,30}?学院|.{2,30}?研究所|.{2,30}?中心)", title)
+    return m.group(1) if m else "全国高校"
 
-def get_html(url: str, timeout: int = 20) -> Optional[str]:
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=timeout)
-        r.raise_for_status()
-        r.encoding = r.apparent_encoding or "utf-8"
-        return r.text
-    except Exception as e:
-        print(f"[WARN] fetch failed: {url} -> {e}")
-        return None
+def normalize(n):
+    title = str(n.get("title","")).strip()
+    url = str(n.get("url","")).strip()
+    text = title + " " + url
+    if not title or not url or "2026" not in text: return None
+    if not any(k in text for k in ["夏令营","优秀大学生","暑期","预推免","推免","迷你营"]): return None
+    if any(old in text for old in ["2023","2024"]): return None
+    n.setdefault("school", guess_school(title))
+    n.setdefault("date", extract_date(text) or "2026")
+    n.setdefault("source_type", "公开来源")
+    n.setdefault("category", "夏令营")
+    n.setdefault("province", "")
+    n.setdefault("level", "")
+    n.setdefault("status", "已发布")
+    return n
 
-
-def clean_text(s: str) -> str:
-    return re.sub(r"\s+", " ", (s or "").strip())
-
-
-def is_valid_notice_title(title: str) -> bool:
-    t = title or ""
-    if any(k in t for k in EXCLUDE_KEYWORDS):
-        return False
-    if "2026" not in t:
-        return False
-    return any(k in t for k in ["夏令营", "优秀大学生", "暑期", "科学营", "开放日", "预推免", "推免"])
-
-
-def classify_notice(title: str, body: str = "") -> str:
-    text = title + " " + body[:500]
-    if any(k in text for k in ["夏令营", "优秀大学生", "暑期", "科学营", "开放日", "训练营", "探索营"]):
-        return "夏令营"
-    if "预推免" in text:
-        return "预推免"
-    if "推免" in text:
-        return "推免"
-    return "保研通知"
-
-
-def find_school_name(title: str, body: str, school_names: List[str]) -> str:
-    text = title + " " + body[:1000]
-    for name in school_names:
-        if name and name in text:
-            return name
-    # 兜底：从标题里粗略截学校/研究所名称
-    m = re.search(r"2026年(.{2,40}?)(?:学院|大学|研究院|研究所|中心|实验室)", title)
-    if m:
-        raw = m.group(1)
-        # 尽量保留完整机构名
-        for suffix in ["大学", "学院", "研究院", "研究所", "中心", "实验室"]:
-            idx = title.find(raw + suffix)
-            if idx >= 0:
-                return title[idx:idx + len(raw + suffix)]
-    return ""
-
-
-def extract_dates(text: str) -> Tuple[str, str]:
-    # 抓报名开始/截止等日期，格式优先 YYYY-MM-DD
-    dates = re.findall(r"20\d{2}[年\-/\.](?:0?[1-9]|1[0-2])[月\-/\.](?:0?[1-9]|[12]\d|3[01])日?", text)
-    norm = []
-    for d in dates:
-        nums = re.findall(r"\d+", d)
-        if len(nums) >= 3:
-            y, m, day = nums[:3]
-            norm.append(f"{int(y):04d}-{int(m):02d}-{int(day):02d}")
-    norm = sorted(set(norm))
-    if not norm:
-        return "", ""
-    if len(norm) == 1:
-        return "", norm[0]
-    return norm[0], norm[-1]
-
-
-def extract_original_url(soup: BeautifulSoup, base_url: str) -> str:
-    # 优先找“查看原文”链接
-    for a in soup.find_all("a", href=True):
-        txt = clean_text(a.get_text(" "))
-        if "查看原文" in txt or "原文" == txt:
-            href = urljoin(base_url, a["href"])
-            if "baoyantongzhi.com" not in href:
-                return href
-    # 没找到就返回空
-    return ""
-
-
-def parse_detail(detail_url: str, school_names: List[str]) -> Optional[Dict[str, Any]]:
-    html = get_html(detail_url)
-    if not html:
-        return None
-    soup = BeautifulSoup(html, "html.parser")
-    h1 = soup.find(["h1", "h2"])
-    title = clean_text(h1.get_text(" ")) if h1 else ""
-    if not title:
-        title_tag = soup.find("title")
-        title = clean_text(title_tag.get_text(" ")) if title_tag else ""
-    # 标题兜底：去掉站点名
-    title = re.sub(r"\s*[-_|].*保研通知网.*$", "", title)
-    body = clean_text(soup.get_text(" "))
-    if not is_valid_notice_title(title) and not ("2026" in body[:800] and any(k in body[:800] for k in ["夏令营", "优秀大学生", "预推免", "推免"])):
-        return None
-    school = find_school_name(title, body, school_names)
-    start_date, deadline = extract_dates(body[:3000])
-    original_url = extract_original_url(soup, detail_url)
-    notice_type = classify_notice(title, body)
-    source_type = "第三方聚合"
-    if original_url and re.search(r"\.(edu|ac)\.cn|\.edu\.cn|\.ac\.cn", original_url):
-        source_type = "官网原文"
-    return {
-        "school_name": school or "未识别院校",
-        "title": title[:160],
-        "notice_type": notice_type,
-        "publish_date": "",
-        "start_date": start_date,
-        "deadline": deadline,
-        "source_name": "保研通知网",
-        "source_type": source_type,
-        "source_url": detail_url,
-        "original_url": original_url,
-        "last_checked": TODAY,
-        "status": "已抓取",
-    }
-
-
-def parse_list_page(list_url: str) -> List[str]:
-    html = get_html(list_url)
-    if not html:
-        return []
-    soup = BeautifulSoup(html, "html.parser")
-    urls = []
-    seen = set()
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        if "/notice/detail/" not in href:
-            continue
-        title = clean_text(a.get_text(" "))
-        abs_url = urljoin(list_url, href)
-        if abs_url in seen:
-            continue
-        # 列表链接文本有时就是标题，有时是“查看详情”，后者也保留，详情页再判断
-        if title and (is_valid_notice_title(title) or "查看" in title):
-            urls.append(abs_url)
-            seen.add(abs_url)
-    return urls
-
-
-def dedupe_notices(notices: List[Dict[str, Any]], max_items: int = 120) -> List[Dict[str, Any]]:
-    seen = set()
+def parse_links(url, source_type):
     out = []
-    # 优先官网原文、再按截止时间靠前/近期检查排序
-    def key_sort(n):
-        source_weight = 0 if n.get("source_type") == "官网原文" else 1
-        deadline = n.get("deadline") or "9999-12-31"
-        return (source_weight, deadline, n.get("school_name", ""), n.get("title", ""))
-    for n in sorted(notices, key=key_sort):
-        k = n.get("original_url") or n.get("source_url") or n.get("title")
-        if not k or k in seen:
-            continue
-        seen.add(k)
-        out.append(n)
-        if len(out) >= max_items:
-            break
+    try:
+        html = get_html(url)
+        soup = BeautifulSoup(html, "html.parser")
+    except Exception:
+        return out
+    for a in soup.find_all("a"):
+        title = a.get_text(" ", strip=True)
+        href = a.get("href") or ""
+        full = urljoin(url, href)
+        n = normalize({"title": title, "url": full, "source_type": source_type, "school": guess_school(title), "date": extract_date(title+" "+full) or "2026"})
+        if n: out.append(n)
     return out
 
+def merge(existing, new):
+    pool = []
+    for n in existing + new + SEED_NOTICES:
+        nn = normalize(dict(n))
+        if nn: pool.append(nn)
+    seen, merged = set(), []
+    for n in pool:
+        key = n["url"].split("#")[0]
+        if key in seen: continue
+        seen.add(key); merged.append(n)
+    merged.sort(key=lambda x: (1 if str(x.get("source_type","")).startswith("官网") else 0, str(x.get("date",""))), reverse=True)
+    return merged[:200]
 
-def boost_school_heat(schools_data: Dict[str, Any], notices: List[Dict[str, Any]]) -> Dict[str, Any]:
-    schools = schools_data.get("schools", []) if isinstance(schools_data, dict) else []
-    by_school: Dict[str, List[Dict[str, Any]]] = {}
-    for n in notices:
-        s = n.get("school_name")
-        if not s or s == "未识别院校":
-            continue
-        by_school.setdefault(s, []).append(n)
-    for s in schools:
-        name = s.get("school_name", "")
-        items = by_school.get(name, [])
-        if not items:
-            continue
-        s["summer_notice_count"] = str(len(items))
-        s["latest_summer_notice"] = items[0].get("title", "")
-        s["latest_summer_notice_url"] = items[0].get("original_url") or items[0].get("source_url", "")
-        try:
-            base = int(s.get("heat_score") or s.get("level_display") or 70)
-        except Exception:
-            base = 70
-        s["heat_score"] = str(min(100, base + min(8, len(items) * 2)))
-    schools_data["updated_at"] = NOW.strftime("%Y-%m-%dT%H:%M:%S%z")
-    schools_data["summer_notice_total"] = len(notices)
-    return schools_data
-
-
-def main() -> None:
+def main():
     DATA.mkdir(exist_ok=True)
-    schools_data = read_json(SCHOOLS_JSON, {"schools": []})
-    schools = schools_data.get("schools", []) if isinstance(schools_data, dict) else []
-    school_names = sorted([s.get("school_name", "") for s in schools if s.get("school_name")], key=len, reverse=True)
-
-    previous_notices = read_json(SUMMER_NOTICES_JSON, [])
-    if isinstance(previous_notices, dict):
-        previous_notices = previous_notices.get("items", []) or previous_notices.get("notices", []) or []
-    all_notices: List[Dict[str, Any]] = list(previous_notices) if isinstance(previous_notices, list) else []
-
-    report = {
-        "updated_at": NOW.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "mode": "baoyantongzhi_public_pages",
-        "list_urls": LIST_URLS,
-        "list_detail_urls_found": 0,
-        "detail_pages_checked": 0,
-        "notices_added": 0,
-        "errors": [],
-    }
-
-    detail_urls = []
-    for list_url in LIST_URLS:
-        urls = parse_list_page(list_url)
-        detail_urls.extend(urls)
-        time.sleep(0.8)
-    # 去重，限制数量，避免对网站造成压力
-    detail_urls = list(dict.fromkeys(detail_urls))[:80]
-    report["list_detail_urls_found"] = len(detail_urls)
-
-    before = len(all_notices)
-    for i, u in enumerate(detail_urls, 1):
-        item = parse_detail(u, school_names)
-        report["detail_pages_checked"] += 1
-        if item:
-            all_notices.append(item)
-        time.sleep(0.6)
-
-    all_notices = dedupe_notices(all_notices, max_items=150)
-    report["notices_added"] = max(0, len(all_notices) - before)
-    report["summer_notice_total_after_dedupe"] = len(all_notices)
-
-    # 如果本次没有新增，也保留旧数据，不清空
-    write_json(SUMMER_NOTICES_JSON, all_notices)
-    schools_data = boost_school_heat(schools_data, all_notices)
-    write_json(SCHOOLS_JSON, schools_data)
-    write_json(DISCOVERY_REPORT_JSON, report)
+    old_obj = read_json(SUMMER_FILE, {})
+    if isinstance(old_obj, dict):
+        old = old_obj.get("notices") or old_obj.get("items") or old_obj.get("summer_camp_notices") or []
+    elif isinstance(old_obj, list):
+        old = old_obj
+    else:
+        old = []
+    sources = [
+        ("https://admission.pku.edu.cn/xly/index.htm","官网"),
+        ("https://yzb.nju.edu.cn/xlyxx/listm.htm","官网"),
+        ("https://www.nssc.ac.cn/yjsb/zsxx/zsdt/","官网"),
+        ("https://ipc.cas.cn/yjsjy2019/zsxx/","官网"),
+        ("https://www.baoyantongzhi.com/notice","聚合来源"),
+    ]
+    found = []
+    for url, typ in sources:
+        found += parse_links(url, typ)
+    merged = merge(old, found)
+    obj = {"updated_at": now_iso(), "notice_count": len(merged), "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。", "notices": merged, "items": merged, "summer_camp_notices": merged}
+    SUMMER_FILE.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+    schools = read_json(SCHOOLS_FILE, None)
+    if isinstance(schools, dict):
+        schools["last_summer_notice_update"] = obj["updated_at"]
+        SCHOOLS_FILE.write_text(json.dumps(schools, ensure_ascii=False, indent=2), encoding="utf-8")
+    report = {"updated_at": obj["updated_at"], "status": "success", "existing_before": len(old), "found_this_run": len(found), "final_notice_count": len(merged), "official_count": sum(1 for n in merged if str(n.get("source_type","")).startswith("官网")), "aggregate_count": sum(1 for n in merged if "聚合" in str(n.get("source_type",""))), "message": "官网栏目 + 保研通知网公开页抓取；若抓取为空，保留已有公告和种子公告，前台不会空白。"}
+    REPORT_FILE.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-
 
 if __name__ == "__main__":
     main()
