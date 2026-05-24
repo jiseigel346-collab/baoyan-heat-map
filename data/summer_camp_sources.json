@@ -1,35 +1,27 @@
 {
-  "note": "全国夏令营公告种子源。脚本还会用搜索发现全国公告；这里放稳定入口，提高覆盖率。",
-  "sources": [
+  "updated_at": "2026-05-24T16:00:00+08:00",
+  "official_sources": [
     {
-      "school": "北京大学",
-      "url": "https://admission.pku.edu.cn/xly/index.htm",
-      "type": "official"
+      "name": "北京大学研究生招生网夏令营栏目",
+      "url": "https://admission.pku.edu.cn/xly/index.htm"
     },
     {
-      "school": "南京大学",
-      "url": "https://yzb.nju.edu.cn/xlyxx/listm1.htm",
-      "type": "official"
+      "name": "南京大学研究生招生网夏令营/推免栏目",
+      "url": "https://yzb.nju.edu.cn/xlyxx/listm.htm"
     },
     {
-      "school": "中国科学院大学",
-      "url": "https://admission.ucas.ac.cn/",
-      "type": "official"
+      "name": "中国科学院国家空间科学中心招生动态",
+      "url": "https://www.nssc.ac.cn/yjsb/zsxx/zsdt/"
     },
     {
-      "school": "中国科学院理化技术研究所",
-      "url": "https://ipc.cas.cn/yjsjy2019/xly/",
-      "type": "official"
-    },
+      "name": "中国科学院理化所招生信息",
+      "url": "https://ipc.cas.cn/yjsjy2019/zsxx/"
+    }
+  ],
+  "aggregate_sources": [
     {
-      "school": "北京大学深圳研究生院",
-      "url": "https://www.pkusz.edu.cn/",
-      "type": "official"
-    },
-    {
-      "school": "保研通知聚合源",
-      "url": "https://www.baoyantongzhi.com/notice",
-      "type": "aggregator"
+      "name": "保研通知网2026公告查询",
+      "url": "https://www.baoyantongzhi.com/notice"
     }
   ]
 }

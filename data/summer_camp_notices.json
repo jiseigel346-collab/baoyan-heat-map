@@ -1,1 +1,341 @@
-[]
+{
+  "updated_at": "2026-05-24T16:00:00+08:00",
+  "notice_count": 10,
+  "note": "稳定兜底版：抓不到新公告时不会清空已有公告；官网优先，聚合源补充。",
+  "notices": [
+    {
+      "school": "北京大学",
+      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
+      "date": "2026-05",
+      "url": "https://admission.pku.edu.cn/xly/index.htm",
+      "source_type": "官网栏目",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "985",
+      "status": "更新中"
+    },
+    {
+      "school": "北京大学燕京学堂",
+      "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
+      "date": "2026-05-22",
+      "url": "https://yenching.pku.edu.cn/info/1040/5974.htm",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "中国科学院国家空间科学中心",
+      "title": "中国科学院国家空间科学中心2026年全国优秀大学生夏令营招募通知",
+      "date": "2026-05-21",
+      "url": "https://www.nssc.ac.cn/yjsb/zsxx/zsdt/202605/t20260521_8207648.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "科研院所",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院理化技术研究所",
+      "title": "欢迎参加理化所2026年优秀大学生夏令营",
+      "date": "2026-05-08",
+      "url": "https://ipc.cas.cn/yjsjy2019/zsxx/202605/t20260508_8197625.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "科研院所",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院大学公共政策与管理学院",
+      "title": "中国科学院2026年公共政策与管理全国优秀大学生夏令营报名通知",
+      "date": "2026-05-07",
+      "url": "https://sppm.ucas.ac.cn/index.php/zh-CN/zsgl/zsxx/3367-2014",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "双一流",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院生物与化学交叉研究中心",
+      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
+      "date": "2026-04-09",
+      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "上海",
+      "level": "科研院所",
+      "status": "已发布"
+    },
+    {
+      "school": "北京大学深圳研究生院",
+      "title": "北京大学深圳研究生院2026年国际暑期探索营",
+      "date": "2026-04-28",
+      "url": "https://www.pkusz.edu.cn/info/1058/6656.htm",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "广东",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "香港中文大学（深圳）",
+      "title": "数据科学学院硕士研究生项目2026年优秀大学生迷你营及夏令营",
+      "date": "2026-02-04",
+      "url": "https://www.baoyantongzhi.com/notice/detail/24602",
+      "source_type": "聚合来源",
+      "category": "夏令营",
+      "province": "广东",
+      "level": "合作办学",
+      "status": "已发布"
+    },
+    {
+      "school": "浙江大学",
+      "title": "浙江大学基础医学院2026年优秀大学生暑期夏令营通知",
+      "date": "2026",
+      "url": "https://www.baoyantongzhi.com/notice/detail/54656",
+      "source_type": "聚合来源",
+      "category": "夏令营",
+      "province": "浙江",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "保研通知网",
+      "title": "2026保研通知查询：全国高校夏令营、预推免、正式推免通知",
+      "date": "2026",
+      "url": "https://www.baoyantongzhi.com/notice",
+      "source_type": "聚合来源",
+      "category": "聚合入口",
+      "province": "全国",
+      "level": "聚合源",
+      "status": "更新中"
+    }
+  ],
+  "items": [
+    {
+      "school": "北京大学",
+      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
+      "date": "2026-05",
+      "url": "https://admission.pku.edu.cn/xly/index.htm",
+      "source_type": "官网栏目",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "985",
+      "status": "更新中"
+    },
+    {
+      "school": "北京大学燕京学堂",
+      "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
+      "date": "2026-05-22",
+      "url": "https://yenching.pku.edu.cn/info/1040/5974.htm",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "中国科学院国家空间科学中心",
+      "title": "中国科学院国家空间科学中心2026年全国优秀大学生夏令营招募通知",
+      "date": "2026-05-21",
+      "url": "https://www.nssc.ac.cn/yjsb/zsxx/zsdt/202605/t20260521_8207648.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "科研院所",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院理化技术研究所",
+      "title": "欢迎参加理化所2026年优秀大学生夏令营",
+      "date": "2026-05-08",
+      "url": "https://ipc.cas.cn/yjsjy2019/zsxx/202605/t20260508_8197625.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "科研院所",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院大学公共政策与管理学院",
+      "title": "中国科学院2026年公共政策与管理全国优秀大学生夏令营报名通知",
+      "date": "2026-05-07",
+      "url": "https://sppm.ucas.ac.cn/index.php/zh-CN/zsgl/zsxx/3367-2014",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "双一流",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院生物与化学交叉研究中心",
+      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
+      "date": "2026-04-09",
+      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "上海",
+      "level": "科研院所",
+      "status": "已发布"
+    },
+    {
+      "school": "北京大学深圳研究生院",
+      "title": "北京大学深圳研究生院2026年国际暑期探索营",
+      "date": "2026-04-28",
+      "url": "https://www.pkusz.edu.cn/info/1058/6656.htm",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "广东",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "香港中文大学（深圳）",
+      "title": "数据科学学院硕士研究生项目2026年优秀大学生迷你营及夏令营",
+      "date": "2026-02-04",
+      "url": "https://www.baoyantongzhi.com/notice/detail/24602",
+      "source_type": "聚合来源",
+      "category": "夏令营",
+      "province": "广东",
+      "level": "合作办学",
+      "status": "已发布"
+    },
+    {
+      "school": "浙江大学",
+      "title": "浙江大学基础医学院2026年优秀大学生暑期夏令营通知",
+      "date": "2026",
+      "url": "https://www.baoyantongzhi.com/notice/detail/54656",
+      "source_type": "聚合来源",
+      "category": "夏令营",
+      "province": "浙江",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "保研通知网",
+      "title": "2026保研通知查询：全国高校夏令营、预推免、正式推免通知",
+      "date": "2026",
+      "url": "https://www.baoyantongzhi.com/notice",
+      "source_type": "聚合来源",
+      "category": "聚合入口",
+      "province": "全国",
+      "level": "聚合源",
+      "status": "更新中"
+    }
+  ],
+  "summer_camp_notices": [
+    {
+      "school": "北京大学",
+      "title": "北京大学研究生招生网“夏令营”栏目：2026年优秀大学生夏令营通知持续更新",
+      "date": "2026-05",
+      "url": "https://admission.pku.edu.cn/xly/index.htm",
+      "source_type": "官网栏目",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "985",
+      "status": "更新中"
+    },
+    {
+      "school": "北京大学燕京学堂",
+      "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
+      "date": "2026-05-22",
+      "url": "https://yenching.pku.edu.cn/info/1040/5974.htm",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "中国科学院国家空间科学中心",
+      "title": "中国科学院国家空间科学中心2026年全国优秀大学生夏令营招募通知",
+      "date": "2026-05-21",
+      "url": "https://www.nssc.ac.cn/yjsb/zsxx/zsdt/202605/t20260521_8207648.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "科研院所",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院理化技术研究所",
+      "title": "欢迎参加理化所2026年优秀大学生夏令营",
+      "date": "2026-05-08",
+      "url": "https://ipc.cas.cn/yjsjy2019/zsxx/202605/t20260508_8197625.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "科研院所",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院大学公共政策与管理学院",
+      "title": "中国科学院2026年公共政策与管理全国优秀大学生夏令营报名通知",
+      "date": "2026-05-07",
+      "url": "https://sppm.ucas.ac.cn/index.php/zh-CN/zsgl/zsxx/3367-2014",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "北京",
+      "level": "双一流",
+      "status": "报名中"
+    },
+    {
+      "school": "中国科学院生物与化学交叉研究中心",
+      "title": "中国科学院生物与化学交叉研究中心2026年暑期夏令营",
+      "date": "2026-04-09",
+      "url": "https://www.ircbc.cn/edu/xly/202604/t20260409_8183495.html",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "上海",
+      "level": "科研院所",
+      "status": "已发布"
+    },
+    {
+      "school": "北京大学深圳研究生院",
+      "title": "北京大学深圳研究生院2026年国际暑期探索营",
+      "date": "2026-04-28",
+      "url": "https://www.pkusz.edu.cn/info/1058/6656.htm",
+      "source_type": "官网",
+      "category": "夏令营",
+      "province": "广东",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "香港中文大学（深圳）",
+      "title": "数据科学学院硕士研究生项目2026年优秀大学生迷你营及夏令营",
+      "date": "2026-02-04",
+      "url": "https://www.baoyantongzhi.com/notice/detail/24602",
+      "source_type": "聚合来源",
+      "category": "夏令营",
+      "province": "广东",
+      "level": "合作办学",
+      "status": "已发布"
+    },
+    {
+      "school": "浙江大学",
+      "title": "浙江大学基础医学院2026年优秀大学生暑期夏令营通知",
+      "date": "2026",
+      "url": "https://www.baoyantongzhi.com/notice/detail/54656",
+      "source_type": "聚合来源",
+      "category": "夏令营",
+      "province": "浙江",
+      "level": "985",
+      "status": "已发布"
+    },
+    {
+      "school": "保研通知网",
+      "title": "2026保研通知查询：全国高校夏令营、预推免、正式推免通知",
+      "date": "2026",
+      "url": "https://www.baoyantongzhi.com/notice",
+      "source_type": "聚合来源",
+      "category": "聚合入口",
+      "province": "全国",
+      "level": "聚合源",
+      "status": "更新中"
+    }
+  ]
+}
