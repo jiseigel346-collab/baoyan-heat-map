@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-23 00:38:46",
+  "updated_at": "2026-05-24T16:54:32+0800",
   "note": "当前时间按2026-05-22口径：接收推免人数优先采集2026级官网数据；官网抓不到时使用公开保研/招生信息源辅助发现并标注来源；夏令营公告改为右侧模块滚动展示，按全国院校库全量搜索2026年以来或标题含2026的夏令营/预推免公告。",
   "sources": {
     "研招网2018推免资格基础名单": "https://yz.chsi.com.cn/kyzx/kp/201809/20180905/1718817601.html",
@@ -17092,5 +17092,6 @@
       "source": "https://yz.szu.edu.cn/sszs/lqgs.htm"
     }
   ],
-  "summer_notice_count": 5
+  "summer_notice_count": 5,
+  "summer_notice_total": 0
 }
