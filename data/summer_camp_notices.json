@@ -1,8 +1,30 @@
 {
-  "updated_at": "2026-05-25T10:48:44+08:00",
-  "notice_count": 14,
+  "updated_at": "2026-05-25T17:55:20+08:00",
+  "notice_count": 16,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学新结构经济学2026年“全国优秀大学生”夏令营报名通知 2026-05-25",
+      "url": "https://www.nse.pku.edu.cn/jxpy/yjspy/xjgjjxxly/a00a8f8101f046d3bfa4ab4f2537a277.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-25",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学物理学院2026年优秀大学生暑期夏令营报名通知 2026-05-25",
+      "url": "https://www.phy.pku.edu.cn/info/1018/16072.htm?sessionid=",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-25",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "school": "北京大学燕京学堂",
       "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
@@ -160,6 +182,28 @@
   ],
   "items": [
     {
+      "title": "北京大学新结构经济学2026年“全国优秀大学生”夏令营报名通知 2026-05-25",
+      "url": "https://www.nse.pku.edu.cn/jxpy/yjspy/xjgjjxxly/a00a8f8101f046d3bfa4ab4f2537a277.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-25",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学物理学院2026年优秀大学生暑期夏令营报名通知 2026-05-25",
+      "url": "https://www.phy.pku.edu.cn/info/1018/16072.htm?sessionid=",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-25",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "school": "北京大学燕京学堂",
       "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
       "date": "2026-05-22",
@@ -315,6 +359,28 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学新结构经济学2026年“全国优秀大学生”夏令营报名通知 2026-05-25",
+      "url": "https://www.nse.pku.edu.cn/jxpy/yjspy/xjgjjxxly/a00a8f8101f046d3bfa4ab4f2537a277.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-25",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学物理学院2026年优秀大学生暑期夏令营报名通知 2026-05-25",
+      "url": "https://www.phy.pku.edu.cn/info/1018/16072.htm?sessionid=",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-25",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "school": "北京大学燕京学堂",
       "title": "北京大学燕京学堂2026年全国优秀大学生夏令营",
