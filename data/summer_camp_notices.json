@@ -1,8 +1,19 @@
 {
-  "updated_at": "2026-05-26T10:37:23+08:00",
-  "notice_count": 16,
+  "updated_at": "2026-05-26T17:41:28+08:00",
+  "notice_count": 17,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学电子学院关于举办2026年优秀大学生夏令营的通知 2026-05-26",
+      "url": "https://ele.pku.edu.cn/info/1232/5845.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-26",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学新结构经济学2026年“全国优秀大学生”夏令营报名通知 2026-05-25",
       "url": "https://www.nse.pku.edu.cn/jxpy/yjspy/xjgjjxxly/a00a8f8101f046d3bfa4ab4f2537a277.htm",
@@ -182,6 +193,17 @@
   ],
   "items": [
     {
+      "title": "北京大学电子学院关于举办2026年优秀大学生夏令营的通知 2026-05-26",
+      "url": "https://ele.pku.edu.cn/info/1232/5845.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-26",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学新结构经济学2026年“全国优秀大学生”夏令营报名通知 2026-05-25",
       "url": "https://www.nse.pku.edu.cn/jxpy/yjspy/xjgjjxxly/a00a8f8101f046d3bfa4ab4f2537a277.htm",
       "source_type": "官网",
@@ -359,6 +381,17 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学电子学院关于举办2026年优秀大学生夏令营的通知 2026-05-26",
+      "url": "https://ele.pku.edu.cn/info/1232/5845.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-26",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学新结构经济学2026年“全国优秀大学生”夏令营报名通知 2026-05-25",
       "url": "https://www.nse.pku.edu.cn/jxpy/yjspy/xjgjjxxly/a00a8f8101f046d3bfa4ab4f2537a277.htm",
