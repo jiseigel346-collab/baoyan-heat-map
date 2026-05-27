@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-05-27T04:01:40+08:00",
+  "updated_at": "2026-05-27T10:47:29+08:00",
   "status": "success",
   "existing_before": 17,
-  "found_this_run": 10,
-  "final_notice_count": 17,
-  "official_count": 14,
+  "found_this_run": 11,
+  "final_notice_count": 18,
+  "official_count": 15,
   "aggregate_count": 3,
   "message": "官网栏目 + 保研通知网公开页抓取；若抓取为空，保留已有公告和种子公告，前台不会空白。"
 }
