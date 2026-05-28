@@ -1,8 +1,19 @@
 {
-  "updated_at": "2026-05-28T04:06:29+08:00",
-  "notice_count": 18,
+  "updated_at": "2026-05-28T10:34:25+08:00",
+  "notice_count": 19,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学材料科学与工程学院2026年“全国优秀大学生夏令营”活动通知 2026-05-28",
+      "url": "https://www.mse.pku.edu.cn/info/1013/6054.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-28",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学化学学院和深研院化生学院联合举办 2026年“全国优秀大学生夏令营”活动的通知（第... 2026-05-27",
       "url": "https://www.chem.pku.edu.cn/tzgg11/53d88fd1b8c040739758471f22428676.htm",
@@ -204,6 +215,17 @@
   ],
   "items": [
     {
+      "title": "北京大学材料科学与工程学院2026年“全国优秀大学生夏令营”活动通知 2026-05-28",
+      "url": "https://www.mse.pku.edu.cn/info/1013/6054.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-28",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学化学学院和深研院化生学院联合举办 2026年“全国优秀大学生夏令营”活动的通知（第... 2026-05-27",
       "url": "https://www.chem.pku.edu.cn/tzgg11/53d88fd1b8c040739758471f22428676.htm",
       "source_type": "官网",
@@ -403,6 +425,17 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学材料科学与工程学院2026年“全国优秀大学生夏令营”活动通知 2026-05-28",
+      "url": "https://www.mse.pku.edu.cn/info/1013/6054.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-05-28",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学化学学院和深研院化生学院联合举办 2026年“全国优秀大学生夏令营”活动的通知（第... 2026-05-27",
       "url": "https://www.chem.pku.edu.cn/tzgg11/53d88fd1b8c040739758471f22428676.htm",
