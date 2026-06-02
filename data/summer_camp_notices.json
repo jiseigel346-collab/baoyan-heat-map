@@ -1,11 +1,33 @@
 {
-  "updated_at": "2026-06-02T10:54:54+08:00",
-  "notice_count": 31,
+  "updated_at": "2026-06-02T18:11:26+08:00",
+  "notice_count": 33,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
     {
       "title": "北京大学数学科学学院大数据2026年全国优秀大学生暑期夏令营通知 2026-06-02",
       "url": "https://math.pku.edu.cn/zygg/172436.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-02",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学城市规划与设计学院 关于举办 “2026年全国优秀大学生夏令营”的通知 2026-06-02",
+      "url": "https://urban.pkusz.edu.cn/info/1008/3878.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-02",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学科学智能学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-02",
+      "url": "https://ai4s.pkusz.edu.cn/info/1153/1385.htm",
       "source_type": "官网",
       "school": "北京大学",
       "date": "2026-06-02",
@@ -358,6 +380,28 @@
       "status": "已发布"
     },
     {
+      "title": "北京大学城市规划与设计学院 关于举办 “2026年全国优秀大学生夏令营”的通知 2026-06-02",
+      "url": "https://urban.pkusz.edu.cn/info/1008/3878.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-02",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学科学智能学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-02",
+      "url": "https://ai4s.pkusz.edu.cn/info/1153/1385.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-02",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学新材料学院2026年全国优秀大学生夏令营活动通知 2026-06-01",
       "url": "https://sam.pkusz.edu.cn/info/1067/2549.htm",
       "source_type": "官网",
@@ -692,6 +736,28 @@
     {
       "title": "北京大学数学科学学院大数据2026年全国优秀大学生暑期夏令营通知 2026-06-02",
       "url": "https://math.pku.edu.cn/zygg/172436.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-02",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学城市规划与设计学院 关于举办 “2026年全国优秀大学生夏令营”的通知 2026-06-02",
+      "url": "https://urban.pkusz.edu.cn/info/1008/3878.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-02",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学科学智能学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-02",
+      "url": "https://ai4s.pkusz.edu.cn/info/1153/1385.htm",
       "source_type": "官网",
       "school": "北京大学",
       "date": "2026-06-02",
