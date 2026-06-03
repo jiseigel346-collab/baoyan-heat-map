@@ -1,8 +1,19 @@
 {
-  "updated_at": "2026-06-03T04:39:02+08:00",
-  "notice_count": 33,
+  "updated_at": "2026-06-03T11:30:25+08:00",
+  "notice_count": 34,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学统计科学中心2026年优秀大学生夏令营报名通知 2026-06-03",
+      "url": "https://www.stat-center.pku.edu.cn/xwdt/zxxw/7f396d1fabfe45fdac4e01b5b6b06f3e.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-03",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学数学科学学院大数据2026年全国优秀大学生暑期夏令营通知 2026-06-02",
       "url": "https://math.pku.edu.cn/zygg/172436.htm",
@@ -369,6 +380,17 @@
   ],
   "items": [
     {
+      "title": "北京大学统计科学中心2026年优秀大学生夏令营报名通知 2026-06-03",
+      "url": "https://www.stat-center.pku.edu.cn/xwdt/zxxw/7f396d1fabfe45fdac4e01b5b6b06f3e.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-03",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学数学科学学院大数据2026年全国优秀大学生暑期夏令营通知 2026-06-02",
       "url": "https://math.pku.edu.cn/zygg/172436.htm",
       "source_type": "官网",
@@ -733,6 +755,17 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学统计科学中心2026年优秀大学生夏令营报名通知 2026-06-03",
+      "url": "https://www.stat-center.pku.edu.cn/xwdt/zxxw/7f396d1fabfe45fdac4e01b5b6b06f3e.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-03",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学数学科学学院大数据2026年全国优秀大学生暑期夏令营通知 2026-06-02",
       "url": "https://math.pku.edu.cn/zygg/172436.htm",
