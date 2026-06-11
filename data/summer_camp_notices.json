@@ -1,8 +1,30 @@
 {
-  "updated_at": "2026-06-11T04:20:53+08:00",
-  "notice_count": 36,
+  "updated_at": "2026-06-11T10:56:46+08:00",
+  "notice_count": 38,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学医学部医学技术研究院关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-11",
+      "url": "https://imt.bjmu.edu.cn/zszp_2/zsxx_2/b135d2de991d45079c8a17293519eb80.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-11",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学临床医学高等研究院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-11",
+      "url": "https://iacm.bjmu.edu.cn/jypx/zsdt/bsssyjs/ff524a017c7e4552acf627d7d2b3d1da.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-11",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学基础医学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-09",
       "url": "https://sbms.bjmu.edu.cn/tzgg/c17f1f850d6f4f51bf9cd3c2e31fd397.htm",
@@ -402,6 +424,28 @@
   ],
   "items": [
     {
+      "title": "北京大学医学部医学技术研究院关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-11",
+      "url": "https://imt.bjmu.edu.cn/zszp_2/zsxx_2/b135d2de991d45079c8a17293519eb80.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-11",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学临床医学高等研究院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-11",
+      "url": "https://iacm.bjmu.edu.cn/jypx/zsdt/bsssyjs/ff524a017c7e4552acf627d7d2b3d1da.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-11",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学基础医学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-09",
       "url": "https://sbms.bjmu.edu.cn/tzgg/c17f1f850d6f4f51bf9cd3c2e31fd397.htm",
       "source_type": "官网",
@@ -799,6 +843,28 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学医学部医学技术研究院关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-11",
+      "url": "https://imt.bjmu.edu.cn/zszp_2/zsxx_2/b135d2de991d45079c8a17293519eb80.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-11",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学临床医学高等研究院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-11",
+      "url": "https://iacm.bjmu.edu.cn/jypx/zsdt/bsssyjs/ff524a017c7e4552acf627d7d2b3d1da.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-11",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学基础医学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-09",
       "url": "https://sbms.bjmu.edu.cn/tzgg/c17f1f850d6f4f51bf9cd3c2e31fd397.htm",
