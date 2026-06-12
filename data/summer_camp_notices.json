@@ -1,8 +1,30 @@
 {
-  "updated_at": "2026-06-12T10:53:35+08:00",
-  "notice_count": 38,
+  "updated_at": "2026-06-12T18:01:04+08:00",
+  "notice_count": 40,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学医学人文学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-12",
+      "url": "https://shh.bjmu.edu.cn/tzgg2/15bd2f410b924b9faa88bb27adf254d9.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-12",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学护理学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-12",
+      "url": "https://nursing.bjmu.edu.cn/jyjx/tzgg2/0970cb710fe04528b505d80b93f5bccc.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-12",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学医学部医学技术研究院关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-11",
       "url": "https://imt.bjmu.edu.cn/zszp_2/zsxx_2/b135d2de991d45079c8a17293519eb80.htm",
@@ -424,6 +446,28 @@
   ],
   "items": [
     {
+      "title": "北京大学医学人文学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-12",
+      "url": "https://shh.bjmu.edu.cn/tzgg2/15bd2f410b924b9faa88bb27adf254d9.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-12",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学护理学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-12",
+      "url": "https://nursing.bjmu.edu.cn/jyjx/tzgg2/0970cb710fe04528b505d80b93f5bccc.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-12",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学医学部医学技术研究院关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-11",
       "url": "https://imt.bjmu.edu.cn/zszp_2/zsxx_2/b135d2de991d45079c8a17293519eb80.htm",
       "source_type": "官网",
@@ -843,6 +887,28 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学医学人文学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-12",
+      "url": "https://shh.bjmu.edu.cn/tzgg2/15bd2f410b924b9faa88bb27adf254d9.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-12",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学护理学院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-12",
+      "url": "https://nursing.bjmu.edu.cn/jyjx/tzgg2/0970cb710fe04528b505d80b93f5bccc.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-12",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学医学部医学技术研究院关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-11",
       "url": "https://imt.bjmu.edu.cn/zszp_2/zsxx_2/b135d2de991d45079c8a17293519eb80.htm",
