@@ -1,8 +1,30 @@
 {
-  "updated_at": "2026-06-16T04:49:15+08:00",
-  "notice_count": 41,
+  "updated_at": "2026-06-16T11:28:00+08:00",
+  "notice_count": 43,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学人民医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
+      "url": "https://www.pkuph.cn/jyjx_jxxw_info/29753.html",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-16",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学第六医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
+      "url": "https://pkuh6.cn/Html/News/Articles/6956.html",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-16",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学信息管理系关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-15",
       "url": "https://www.im.pku.edu.cn/zsxm/ssxm/f892661acd7e4f5bb15577bf3da54211.htm",
@@ -457,6 +479,28 @@
   ],
   "items": [
     {
+      "title": "北京大学人民医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
+      "url": "https://www.pkuph.cn/jyjx_jxxw_info/29753.html",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-16",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学第六医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
+      "url": "https://pkuh6.cn/Html/News/Articles/6956.html",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-16",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学信息管理系关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-15",
       "url": "https://www.im.pku.edu.cn/zsxm/ssxm/f892661acd7e4f5bb15577bf3da54211.htm",
       "source_type": "官网",
@@ -909,6 +953,28 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学人民医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
+      "url": "https://www.pkuph.cn/jyjx_jxxw_info/29753.html",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-16",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
+      "title": "北京大学第六医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
+      "url": "https://pkuh6.cn/Html/News/Articles/6956.html",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-16",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学信息管理系关于举办“2026年全国优秀大学生夏令营”活动的通知 2026-06-15",
       "url": "https://www.im.pku.edu.cn/zsxm/ssxm/f892661acd7e4f5bb15577bf3da54211.htm",
