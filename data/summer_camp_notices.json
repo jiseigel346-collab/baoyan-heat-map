@@ -1,8 +1,19 @@
 {
-  "updated_at": "2026-06-18T04:05:28+08:00",
-  "notice_count": 43,
+  "updated_at": "2026-06-18T10:54:09+08:00",
+  "notice_count": 44,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
+    {
+      "title": "北京大学软件与微电子学院2026年全国优秀大学生夏令营通知 2026-06-18",
+      "url": "https://ss.pku.edu.cn/zsxx/zstz/08b3e84f435b4cab85fbf7b8f3aaea0a.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-18",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学人民医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
       "url": "https://www.pkuph.cn/jyjx_jxxw_info/29753.html",
@@ -479,6 +490,17 @@
   ],
   "items": [
     {
+      "title": "北京大学软件与微电子学院2026年全国优秀大学生夏令营通知 2026-06-18",
+      "url": "https://ss.pku.edu.cn/zsxx/zstz/08b3e84f435b4cab85fbf7b8f3aaea0a.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-18",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "title": "北京大学人民医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
       "url": "https://www.pkuph.cn/jyjx_jxxw_info/29753.html",
       "source_type": "官网",
@@ -953,6 +975,17 @@
     }
   ],
   "summer_camp_notices": [
+    {
+      "title": "北京大学软件与微电子学院2026年全国优秀大学生夏令营通知 2026-06-18",
+      "url": "https://ss.pku.edu.cn/zsxx/zstz/08b3e84f435b4cab85fbf7b8f3aaea0a.htm",
+      "source_type": "官网",
+      "school": "北京大学",
+      "date": "2026-06-18",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
     {
       "title": "北京大学人民医院关于举办“2026年全国优秀大学生夏令营”的通知 2026-06-16",
       "url": "https://www.pkuph.cn/jyjx_jxxw_info/29753.html",
