@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-26T16:54:29+08:00",
-  "notice_count": 44,
+  "updated_at": "2026-06-26T22:10:23+08:00",
+  "notice_count": 45,
   "note": "稳定版：抓不到新公告时保留旧公告和种子公告，避免前台空白。",
   "notices": [
     {
@@ -452,6 +452,17 @@
       "category": "夏令营",
       "province": "上海",
       "level": "科研院所",
+      "status": "已发布"
+    },
+    {
+      "title": "关于公布理化所2026年“理化筑梦 遇见未来”优秀大学生夏令营...",
+      "url": "https://ipc.cas.cn/yjsjy2019/zsxx/202606/t20260626_8234200.html",
+      "source_type": "官网",
+      "school": "关于公布理化所2026年“理化筑梦 遇见未来”优秀大学",
+      "date": "2026",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
       "status": "已发布"
     },
     {
@@ -941,6 +952,17 @@
       "status": "已发布"
     },
     {
+      "title": "关于公布理化所2026年“理化筑梦 遇见未来”优秀大学生夏令营...",
+      "url": "https://ipc.cas.cn/yjsjy2019/zsxx/202606/t20260626_8234200.html",
+      "source_type": "官网",
+      "school": "关于公布理化所2026年“理化筑梦 遇见未来”优秀大学",
+      "date": "2026",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
+      "status": "已发布"
+    },
+    {
       "school": "香港中文大学（深圳）",
       "title": "数据科学学院硕士研究生项目2026年优秀大学生迷你营及夏令营",
       "date": "2026-02-04",
@@ -1424,6 +1446,17 @@
       "category": "夏令营",
       "province": "上海",
       "level": "科研院所",
+      "status": "已发布"
+    },
+    {
+      "title": "关于公布理化所2026年“理化筑梦 遇见未来”优秀大学生夏令营...",
+      "url": "https://ipc.cas.cn/yjsjy2019/zsxx/202606/t20260626_8234200.html",
+      "source_type": "官网",
+      "school": "关于公布理化所2026年“理化筑梦 遇见未来”优秀大学",
+      "date": "2026",
+      "category": "夏令营",
+      "province": "",
+      "level": "",
       "status": "已发布"
     },
     {
