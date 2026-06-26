@@ -235,12 +235,14 @@ def main() -> None:
     discipline_rows = read_csv(DATA / "discipline_categories.csv")
     specialty_rows = read_csv(DATA / "specialty_catalog.csv")
     school_base_rows = read_csv(DATA / "school_specialty_score_base.csv")
+    nationwide_notice_rows = read_csv(DATA / "yanshuoshi_2026_notice_details.csv")
 
     summary_rows = [
         {"item": "国家线", "rows": len(national_rows), "file": "national_lines.csv"},
         {"item": "14门类-一级学科/专业学位类别", "rows": len(discipline_rows), "file": "discipline_categories.csv"},
         {"item": "研招网专业目录增量样本", "rows": len(specialty_rows), "file": "specialty_catalog.csv"},
         {"item": "研招网学校-专业底表增量样本", "rows": len(school_base_rows), "file": "school_specialty_score_base.csv"},
+        {"item": "全国2026拟录取/复试结果公告索引", "rows": len(nationwide_notice_rows), "file": "yanshuoshi_2026_notice_details.csv"},
         {"item": "第三方拟录取最低分样本", "rows": len(third_party_rows), "file": "admission_min_scores_third_party.csv"},
         {"item": "官网拟录取最低分样本", "rows": len(official_rows), "file": "admission_min_scores_official_sample.csv"},
     ]
@@ -254,6 +256,7 @@ def main() -> None:
 
     write_workbook(DATA / "graduate_2026_result_tables.xlsx", {
         "结果说明": summary_rows,
+        "全国拟录取公告索引": nationwide_notice_rows,
         "官网录取最低分样本": official_rows,
         "第三方录取最低分样本": third_party_rows,
         "14门类国家线": national_rows,

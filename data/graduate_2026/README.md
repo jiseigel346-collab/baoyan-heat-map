@@ -8,6 +8,7 @@
 - `school_specialty_score_base.csv/json`：按“学校-专业”展开的底表，包含院校代码、院校名称、省份、门类、一级学科/专业学位类别、专业代码、专业名称，并自动匹配国家线。
 - `admission_min_scores_official_sample.csv/json`：招生单位官网拟录取名单解析样本，按专业计算初试最低分。
 - `admission_min_scores_third_party.csv/json`：第三方聚合页中可解析的拟录取最低分样本，含 `result_min_score`。
+- `yanshuoshi_2026_notice_details.csv`：全国 2026 拟录取/复试结果公告索引，用来继续逐校解析官网附件和成绩表。
 - `graduate_2026_result_tables.xlsx`：可直接筛选的 Excel 汇总，包含国家线、门类层级、学校专业底表、官网样本和第三方录取最低分样本。
 - `result_summary.csv/json`：结果表行数汇总。
 - `sources.json`：本次生成时间、来源、数据量和口径说明。
@@ -19,6 +20,8 @@
 原因：研招网专业目录能证明招生单位和专业目录，教育部国家线能证明全国最低复试要求；但“最终录取最低分”没有全国统一公开总表，必须逐校进入研究生院/学院官网拟录取名单核验，不能用国家线或复试线替代。
 
 `admission_min_scores_official_sample` 是官网拟录取名单直接计算出的录取最低分；`admission_min_scores_third_party` 是第三方聚合结果，能先用于筛选，但必须按 `source_url` 回到原始公告或招生单位官网复核。
+
+`yanshuoshi_2026_notice_details` 是全国公告索引，不等于已全部解析出最低分；其中很多公告的成绩附件需要登录、下载 PDF/Excel 或跳转学校官网后才能计算。
 
 `sources.json` 的 `collection_warnings` 会记录研招网未登录分页限制、访问频控等情况。出现这些警告时，相关表是“可核验底表/增量底表”，不应宣称为最终全量录取最低分表。
 
