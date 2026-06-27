@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import io
 import json
 import re
 from datetime import datetime, timezone, timedelta
@@ -12,6 +13,7 @@ from typing import Any
 import requests
 from bs4 import BeautifulSoup
 from openpyxl import Workbook
+from pypdf import PdfReader
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -148,21 +150,28 @@ def parse_official_admission_table(url: str, school_name: str) -> list[dict[str,
     response.raise_for_status()
     response.encoding = response.apparent_encoding or "utf-8"
     soup = BeautifulSoup(response.text, "html.parser")
-    table = soup.find("table")
-    if not table:
-        return []
-
     grouped: dict[str, list[int]] = {}
-    for tr in table.find_all("tr")[1:]:
-        cells = [cell.get_text(" ", strip=True) for cell in tr.find_all(["td", "th"])]
-        if len(cells) < 6:
+    for table in soup.find_all("table"):
+        rows = table.find_all("tr")
+        if len(rows) < 2:
             continue
-        try:
-            initial_score = int(cells[2])
-        except ValueError:
+        header = [cell.get_text(" ", strip=True).replace(" ", "") for cell in rows[0].find_all(["td", "th"])]
+        specialty_index = score_index = None
+        for index, header_text in enumerate(header):
+            if specialty_index is None and ("专业名称" in header_text or header_text == "专业"):
+                specialty_index = index
+            if score_index is None and "初试" in header_text and ("成绩" in header_text or header_text == "初试"):
+                score_index = index
+        if specialty_index is None or score_index is None:
             continue
-        specialty = cells[5]
-        grouped.setdefault(specialty, []).append(initial_score)
+        for tr in rows[1:]:
+            cells = [cell.get_text(" ", strip=True) for cell in tr.find_all(["td", "th"])]
+            if len(cells) <= max(specialty_index, score_index):
+                continue
+            specialty = cells[specialty_index]
+            scores = [int(score) for score in re.findall(r"\b\d{3}\b", cells[score_index])]
+            if specialty and scores:
+                grouped.setdefault(specialty, []).extend(scores)
 
     rows = []
     for specialty, scores in sorted(grouped.items()):
@@ -186,6 +195,78 @@ def parse_official_admission_table(url: str, school_name: str) -> list[dict[str,
     return rows
 
 
+def official_rows_from_grouped(grouped: dict[str, list[int]], school_name: str, source_url: str, source_type: str, note: str) -> list[dict[str, Any]]:
+    rows = []
+    for specialty, scores in sorted(grouped.items()):
+        rows.append({
+            "year": "2026",
+            "school_name": school_name,
+            "department": "",
+            "specialty_name": specialty,
+            "score_level": "官网拟录取最低分",
+            "result_min_score": min(scores),
+            "final_admission_min_score": min(scores),
+            "final_admission_max_score": max(scores),
+            "admission_avg_score": round(sum(scores) / len(scores), 2),
+            "school_retest_min_score": "",
+            "admission_score_raw": f"{len(scores)}人，初试分范围 {min(scores)}-{max(scores)}",
+            "source_type": source_type,
+            "source_url": source_url,
+            "verify_status": "官网来源按专业聚合",
+            "notes": note,
+        })
+    return rows
+
+
+def parse_official_markdown_table(path: Path, school_name: str, source_url: str) -> list[dict[str, Any]]:
+    grouped: dict[str, list[int]] = {}
+    lines = path.read_text(encoding="utf-8").splitlines()
+    header: list[str] | None = None
+    specialty_index = score_index = None
+    for line in lines:
+        stripped = line.strip()
+        if not stripped.startswith("|") or "---" in stripped:
+            continue
+        cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+        normalized = [cell.replace(" ", "") for cell in cells]
+        if any("初试" in cell for cell in normalized) and any(("专业名称" in cell or cell == "专业") for cell in normalized):
+            header = normalized
+            specialty_index = score_index = None
+            for index, header_text in enumerate(header):
+                if specialty_index is None and ("专业名称" in header_text or header_text == "专业"):
+                    specialty_index = index
+                if score_index is None and "初试" in header_text and ("成绩" in header_text or header_text == "初试"):
+                    score_index = index
+            continue
+        if header is None or specialty_index is None or score_index is None:
+            continue
+        if len(cells) <= max(specialty_index, score_index):
+            continue
+        specialty = cells[specialty_index]
+        scores = [int(score) for score in re.findall(r"\b\d{3}\b", cells[score_index])]
+        if specialty and scores:
+            grouped.setdefault(specialty, []).extend(scores)
+    return official_rows_from_grouped(grouped, school_name, source_url, "招生单位官网拟录取名单(WebFetch文本)", "从官网页面文本表格按专业计算初试最低分。")
+
+
+def parse_official_pdf(url: str, school_name: str) -> list[dict[str, Any]]:
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+    response.raise_for_status()
+    reader = PdfReader(io.BytesIO(response.content))
+    text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
+    sections = []
+    for match in re.finditer(r"2026年([^（\s]+)（(\d{6})）拟录取名单", text):
+        sections.append((match.start(), match.group(1), match.group(2)))
+    grouped: dict[str, list[int]] = {}
+    for index, (start, specialty, _code) in enumerate(sections):
+        end = sections[index + 1][0] if index + 1 < len(sections) else len(text)
+        section = text[start:end]
+        scores = [int(score) for score in re.findall(r"\b\d{12,15}\s+\S+\s+(\d{3})\b", section)]
+        if scores and not section.startswith("2025年"):
+            grouped.setdefault(specialty, []).extend(scores)
+    return official_rows_from_grouped(grouped, school_name, url, "招生单位官网拟录取名单PDF", "从官网 PDF 按专业段落计算初试最低分。")
+
+
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, Any]]]) -> None:
     wb = Workbook()
     default = wb.active
@@ -207,12 +288,20 @@ def main() -> None:
     parser.add_argument("--noobdream-text", type=Path, help="Markdown/text export of N诺择校数据 page.")
     parser.add_argument("--official-sample-url", default=DEFAULT_OFFICIAL_SAMPLE_URL, help="Official admitted list sample URL.")
     parser.add_argument("--official-sample-school", default="国际关系学院", help="School name for the official sample URL.")
+    parser.add_argument("--official-markdown-source", action="append", default=[], help="Official markdown source as school|url|path.")
+    parser.add_argument("--official-pdf-source", action="append", default=[], help="Official PDF source as school|url.")
     args = parser.parse_args()
 
     DATA.mkdir(parents=True, exist_ok=True)
     updated_at = now_iso()
     third_party_rows = parse_noobdream_text(args.noobdream_text) if args.noobdream_text else []
     official_rows = parse_official_admission_table(args.official_sample_url, args.official_sample_school) if args.official_sample_url else []
+    for source in args.official_markdown_source:
+        school, url, path = source.split("|", 2)
+        official_rows.extend(parse_official_markdown_table(Path(path), school, url))
+    for source in args.official_pdf_source:
+        school, url = source.split("|", 1)
+        official_rows.extend(parse_official_pdf(url, school))
 
     if third_party_rows:
         write_csv(DATA / "admission_min_scores_third_party.csv", third_party_rows)
@@ -236,6 +325,12 @@ def main() -> None:
     specialty_rows = read_csv(DATA / "specialty_catalog.csv")
     school_base_rows = read_csv(DATA / "school_specialty_score_base.csv")
     nationwide_notice_rows = read_csv(DATA / "yanshuoshi_2026_notice_details.csv")
+    kybang_file_rows = read_csv(DATA / "kybang_2026_file_index.csv")
+    coverage_audit_rows = []
+    coverage_audit_path = DATA / "coverage_audit.json"
+    if coverage_audit_path.exists():
+        audit = json.loads(coverage_audit_path.read_text(encoding="utf-8"))
+        coverage_audit_rows = [{"field": key, "value": json.dumps(value, ensure_ascii=False) if isinstance(value, list) else value} for key, value in audit.items()]
 
     summary_rows = [
         {"item": "国家线", "rows": len(national_rows), "file": "national_lines.csv"},
@@ -243,6 +338,7 @@ def main() -> None:
         {"item": "研招网专业目录增量样本", "rows": len(specialty_rows), "file": "specialty_catalog.csv"},
         {"item": "研招网学校-专业底表增量样本", "rows": len(school_base_rows), "file": "school_specialty_score_base.csv"},
         {"item": "全国2026拟录取/复试结果公告索引", "rows": len(nationwide_notice_rows), "file": "yanshuoshi_2026_notice_details.csv"},
+        {"item": "考友帮2026文件名/目录索引", "rows": len(kybang_file_rows), "file": "kybang_2026_file_index.csv"},
         {"item": "第三方拟录取最低分样本", "rows": len(third_party_rows), "file": "admission_min_scores_third_party.csv"},
         {"item": "官网拟录取最低分样本", "rows": len(official_rows), "file": "admission_min_scores_official_sample.csv"},
     ]
@@ -256,7 +352,9 @@ def main() -> None:
 
     write_workbook(DATA / "graduate_2026_result_tables.xlsx", {
         "结果说明": summary_rows,
+        "覆盖核查": coverage_audit_rows,
         "全国拟录取公告索引": nationwide_notice_rows,
+        "考友帮文件名索引": kybang_file_rows,
         "官网录取最低分样本": official_rows,
         "第三方录取最低分样本": third_party_rows,
         "14门类国家线": national_rows,

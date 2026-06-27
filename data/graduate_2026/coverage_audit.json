@@ -3,8 +3,8 @@
   "reason": "全国所有硕士招生单位、所有专业的最终录取最低分尚未全部解析。已有全国公告索引，但大量公告需要登录、下载附件、PDF/Excel解析或跳转学校官网后才能计算。",
   "nationwide_notice_rows": 944,
   "nationwide_notice_unique_schools_or_units": 438,
-  "parsed_score_unique_schools": 357,
-  "notice_schools_without_parsed_scores": 373,
+  "parsed_score_unique_schools": 359,
+  "notice_schools_without_parsed_scores": 372,
   "examples_without_parsed_scores": [
     "三亚学院",
     "东北石油大学",
@@ -30,7 +30,6 @@
     "中钢集团马鞍山矿山研究院",
     "信阳师范大学",
     "北京化工研究院",
-    "北京国家会计学院",
     "北京城市学院",
     "北京大学中文系",
     "北京大学习近平新时代中国特色社会主义思想研究院",
@@ -85,8 +84,11 @@
     "北京科技大学高精尖学院",
     "北京第二外国语学院",
     "华北水利水电大学信息工程学院",
-    "华北水利水电大学材料学院"
+    "华北水利水电大学材料学院",
+    "华北水利水电大学能源与动力工程学院"
   ],
   "third_party_min_score_rows": 1808,
-  "official_min_score_sample_rows": 20
+  "official_min_score_sample_rows": 133,
+  "kybang_file_or_directory_index_rows": 2543,
+  "kybang_parse_status": "已提取文件名/目录索引；网页未提供公开下载直链，不能直接解析最低分。"
 }
