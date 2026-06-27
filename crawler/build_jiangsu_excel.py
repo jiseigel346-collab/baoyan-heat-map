@@ -52,27 +52,29 @@ def write_detail(wb, plan):
     rows = plan["rows"]
     ws = wb.active
     ws.title = "江苏2026本科招生计划(明细)"
+    # 注意：数据源(掌上高考)不含江苏官方“院校专业组代号”，其内部分组序号与官方不符，
+    # 故不输出专业组号，仅保留可核验、可判断可报性的“选科要求”。
     headers = ["序号", "院校名称", "院校所在省", "院校国标代码", "批次", "科类",
-               "专业组", "选科要求", "专业名称", "计划数", "学制", "学费(元/年)", "备注"]
+               "选科要求", "专业名称", "计划数", "学制", "学费(元/年)", "备注"]
     ws.append(headers)
     style_header(ws, len(headers))
-    # 排序：科类、院校、专业组、计划数降序
+    # 排序：科类、院校、选科要求、计划数降序
     rows = sorted(rows, key=lambda r: (r.get("subject_type", ""), r.get("school_name", ""),
-                                       str(r.get("group_name", "")),
+                                       str(r.get("select_req", "")),
                                        -(int(r["num"]) if str(r.get("num")).isdigit() else 0)))
     for i, r in enumerate(rows, start=1):
         ws.append([i, r["school_name"], r["school_province"], r["school_code"],
-                   r["batch"], r["subject_type"], r["group_name"], r["select_req"],
+                   r["batch"], r["subject_type"], r["select_req"],
                    r["special_name"],
                    int(r["num"]) if str(r["num"]).isdigit() else r["num"],
                    r["length"], r["tuition"], r["remark"]])
     # 数据区字体（大表，仅设字体+对齐，省略逐格边框以保证性能）
-    left_cols = {2, 8, 9, 13}
+    left_cols = {2, 7, 8, 12}
     for row in ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(headers)):
         for cell in row:
             cell.font = CELL_FONT
             cell.alignment = LEFT if cell.column in left_cols else CENTER
-    widths = [6, 26, 10, 12, 12, 8, 8, 20, 30, 8, 8, 11, 34]
+    widths = [6, 26, 10, 12, 12, 8, 22, 32, 8, 8, 11, 34]
     for i, w in enumerate(widths, start=1):
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = "A2"
@@ -89,7 +91,7 @@ def write_school_summary(wb, plan):
         agg[k]["n_major"] += 1
         if str(r["num"]).isdigit():
             agg[k]["n_plan"] += int(r["num"])
-    headers = ["序号", "院校名称", "所在省", "专业(组内)数", "计划合计(人)"]
+    headers = ["序号", "院校名称", "所在省", "招生专业数", "计划合计(人)"]
     ws.append(headers)
     style_header(ws, len(headers))
     data = sorted(agg.items(), key=lambda kv: -kv[1]["n_plan"])
@@ -138,7 +140,7 @@ def write_readme(wb, plan, n_detail):
         ("一、主表：江苏2026本科招生计划(明细)", SUB_FONT),
         (f"· 收录在江苏招生的全国高校 {plan['school_count_with_plan']} 所、专业明细 {n_detail} 行，"
          f"计划合计约 {total_plan:,} 人。", CELL_FONT),
-        ("· 字段：院校名称 / 院校所在省 / 院校国标代码 / 批次 / 科类(首选历史·物理) / 专业组 / "
+        ("· 字段：院校名称 / 院校所在省 / 院校国标代码 / 批次 / 科类(首选历史·物理) / "
          "选科要求 / 专业名称 / 计划数 / 学制 / 学费 / 备注。", CELL_FONT),
         ("· 覆盖范围：普通类本科（历史等科目类 + 物理等科目类）为主，含少量职业本科。"
          "未包含：艺术类、体育类、强基计划、综合评价、高水平运动队、保送生等特殊类型"
@@ -146,8 +148,11 @@ def write_readme(wb, plan, n_detail):
         ("", None),
         ("二、数据来源与口径", SUB_FONT),
         ("· 来源：掌上高考（中国教育在线）公开数据接口 static-data.gaokao.cn（schoolspecialplan，2026/江苏）。", CELL_FONT),
-        ("· 院校国标代码为教育部 5 位代码（如南京大学 10284），并非江苏志愿填报代码；"
-         "江苏志愿填报院校/专业组/专业代码请以考试院系统为准。", CELL_FONT),
+        ("· 关于“专业组”：本数据源不含江苏官方的院校代号(如南大1101)、院校专业组代号、专业代号，"
+         "其内部分组序号与官方不一致，易误导，故本表不输出专业组号；可据“选科要求”判断能否报考。"
+         "官方院校/专业组/专业代号请以《2026招生计划专刊》及考试院志愿系统为准。",
+         Font(name="微软雅黑", size=10, color="C00000")),
+        ("· 院校国标代码为教育部 5 位代码（如南京大学 10284），并非江苏志愿填报代码。", CELL_FONT),
         ("· 权威口径：以江苏省教育考试院《江苏招生考试2026招生计划专刊》及官方志愿填报系统"
          "（gk.jseea.cn）为准。本表为第三方聚合整理，供检索与初步参考，正式填报务必逐条核对官方数据。", Font(name="微软雅黑", size=10, color="C00000")),
         ("· 官方汇总参考：1620 所高校在江苏安排计划 387657 人，其中本科 268542 人"
