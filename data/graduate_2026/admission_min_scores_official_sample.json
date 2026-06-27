@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T11:18:31+08:00",
+  "updated_at": "2026-06-27T11:22:54+08:00",
   "source_url": "https://yjszs.uir.cn/info/1421/7541.htm",
   "source_type": "招生单位官网拟录取名单",
   "items": [
@@ -5578,6 +5578,74 @@
       "source_url": "https://www.cs.sdu.edu.cn/info/1068/6784.htm",
       "verify_status": "官网来源按专业聚合",
       "notes": "从山东大学拟录取名单与复试成绩 PDF 按考生编号关联后计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "重庆科技大学",
+      "department": "",
+      "specialty_name": "085404 计算机技术",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 264,
+      "final_admission_min_score": 264,
+      "final_admission_max_score": 364,
+      "admission_avg_score": 301.43,
+      "school_retest_min_score": "",
+      "admission_score_raw": "68人，初试分范围 264-364",
+      "source_type": "招生单位官网嵌入PDF拟录取名单",
+      "source_url": "https://yjs.cqust.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=2866&wbtreeid=1015",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从重庆科技大学官网嵌入 PDF 按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "重庆科技大学",
+      "department": "",
+      "specialty_name": "085410 人工智能",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 279,
+      "final_admission_min_score": 279,
+      "final_admission_max_score": 336,
+      "admission_avg_score": 320.29,
+      "school_retest_min_score": "",
+      "admission_score_raw": "14人，初试分范围 279-336",
+      "source_type": "招生单位官网嵌入PDF拟录取名单",
+      "source_url": "https://yjs.cqust.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=2866&wbtreeid=1015",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从重庆科技大学官网嵌入 PDF 按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "重庆科技大学",
+      "department": "",
+      "specialty_name": "085412 网络与信息安全",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 272,
+      "final_admission_min_score": 272,
+      "final_admission_max_score": 322,
+      "admission_avg_score": 309.0,
+      "school_retest_min_score": "",
+      "admission_score_raw": "6人，初试分范围 272-322",
+      "source_type": "招生单位官网嵌入PDF拟录取名单",
+      "source_url": "https://yjs.cqust.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=2866&wbtreeid=1015",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从重庆科技大学官网嵌入 PDF 按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "重庆科技大学",
+      "department": "",
+      "specialty_name": "140500 智能科学与技术",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 266,
+      "final_admission_min_score": 266,
+      "final_admission_max_score": 339,
+      "admission_avg_score": 302.39,
+      "school_retest_min_score": "",
+      "admission_score_raw": "18人，初试分范围 266-339",
+      "source_type": "招生单位官网嵌入PDF拟录取名单",
+      "source_url": "https://yjs.cqust.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=2866&wbtreeid=1015",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从重庆科技大学官网嵌入 PDF 按专业计算初试最低分。"
     }
   ]
 }

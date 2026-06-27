@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T11:18:31+08:00",
+  "updated_at": "2026-06-27T11:22:54+08:00",
   "note": "result_min_score 优先使用可解析的拟录取最低分；第三方来源需回到招生单位官网复核。",
   "items": [
     {
@@ -39,7 +39,7 @@
     },
     {
       "item": "官网拟录取最低分样本",
-      "rows": 328,
+      "rows": 332,
       "file": "admission_min_scores_official_sample.csv"
     }
   ]
