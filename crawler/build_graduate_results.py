@@ -156,17 +156,30 @@ def parse_official_admission_table(url: str, school_name: str) -> list[dict[str,
         if len(rows) < 2:
             continue
         header = [cell.get_text(" ", strip=True).replace(" ", "") for cell in rows[0].find_all(["td", "th"])]
-        specialty_index = score_index = None
+        specialty_index = score_index = admission_status_index = remark_index = None
         for index, header_text in enumerate(header):
             if specialty_index is None and ("专业名称" in header_text or header_text == "专业"):
                 specialty_index = index
             if score_index is None and "初试" in header_text and ("成绩" in header_text or header_text == "初试"):
                 score_index = index
+            if admission_status_index is None and ("是否拟录取" in header_text or header_text in {"录取状态", "拟录取"}):
+                admission_status_index = index
+            if remark_index is None and ("备注" in header_text or "拟录取" in header_text):
+                remark_index = index
         if specialty_index is None or score_index is None:
             continue
         for tr in rows[1:]:
             cells = [cell.get_text(" ", strip=True) for cell in tr.find_all(["td", "th"])]
             if len(cells) <= max(specialty_index, score_index):
+                continue
+            status_text = ""
+            if admission_status_index is not None and len(cells) > admission_status_index:
+                status_text += cells[admission_status_index]
+            if remark_index is not None and len(cells) > remark_index:
+                status_text += cells[remark_index]
+            if status_text and any(text in status_text for text in ["否", "未录取", "不录取", "不合格"]):
+                continue
+            if admission_status_index is not None and "是" not in status_text and "拟录取" not in status_text and "待录取" not in status_text:
                 continue
             specialty = cells[specialty_index]
             scores = [int(score) for score in re.findall(r"\b\d{3}\b", cells[score_index])]
@@ -222,7 +235,7 @@ def parse_official_markdown_table(path: Path, school_name: str, source_url: str)
     grouped: dict[str, list[int]] = {}
     lines = path.read_text(encoding="utf-8").splitlines()
     header: list[str] | None = None
-    specialty_index = score_index = None
+    specialty_index = score_index = admission_status_index = remark_index = None
     for line in lines:
         stripped = line.strip()
         if not stripped.startswith("|") or "---" in stripped:
@@ -231,16 +244,29 @@ def parse_official_markdown_table(path: Path, school_name: str, source_url: str)
         normalized = [cell.replace(" ", "") for cell in cells]
         if any("初试" in cell for cell in normalized) and any(("专业名称" in cell or cell == "专业") for cell in normalized):
             header = normalized
-            specialty_index = score_index = None
+            specialty_index = score_index = admission_status_index = remark_index = None
             for index, header_text in enumerate(header):
                 if specialty_index is None and ("专业名称" in header_text or header_text == "专业"):
                     specialty_index = index
                 if score_index is None and "初试" in header_text and ("成绩" in header_text or header_text == "初试"):
                     score_index = index
+                if admission_status_index is None and ("是否拟录取" in header_text or header_text in {"录取状态", "拟录取"}):
+                    admission_status_index = index
+                if remark_index is None and ("备注" in header_text or "拟录取" in header_text):
+                    remark_index = index
             continue
         if header is None or specialty_index is None or score_index is None:
             continue
         if len(cells) <= max(specialty_index, score_index):
+            continue
+        status_text = ""
+        if admission_status_index is not None and len(cells) > admission_status_index:
+            status_text += cells[admission_status_index]
+        if remark_index is not None and len(cells) > remark_index:
+            status_text += cells[remark_index]
+        if status_text and any(text in status_text for text in ["否", "未录取", "不录取", "不合格"]):
+            continue
+        if admission_status_index is not None and "是" not in status_text and "拟录取" not in status_text and "待录取" not in status_text:
             continue
         specialty = cells[specialty_index]
         scores = [int(score) for score in re.findall(r"\b\d{3}\b", cells[score_index])]
@@ -267,6 +293,41 @@ def parse_official_pdf(url: str, school_name: str) -> list[dict[str, Any]]:
     return official_rows_from_grouped(grouped, school_name, url, "招生单位官网拟录取名单PDF", "从官网 PDF 按专业段落计算初试最低分。")
 
 
+def parse_peking_medical_text(path: Path, source_url: str) -> list[dict[str, Any]]:
+    text = path.read_text(encoding="utf-8")
+    normalized = re.sub(r"[|]", " ", text)
+    normalized = re.sub(r"\s+", " ", normalized)
+    pattern = re.compile(
+        r"(100016\d{9})\s+\S+\s+\d{3}-.+?-(\d{6})-([^\s|]+(?:\s+[^\s|]+){0,3}?)\s+"
+        r"(?:学术学位|专业学位)\s+[^\s]+\s+(\d{3})\s+\d{2,3}\.\d{2}\s+\d{2,3}\.\d{2}"
+    )
+    grouped: dict[str, list[int]] = {}
+    for match in pattern.finditer(normalized):
+        specialty_code = match.group(2)
+        specialty_name = re.sub(r"\s+", "", match.group(3).strip())
+        score = int(match.group(4))
+        key = f"{specialty_code} {specialty_name}"
+        grouped.setdefault(key, []).append(score)
+    return official_rows_from_grouped(grouped, "北京大学医学部", source_url, "招生单位官网拟录取名单PDF(WebFetch文本)", "从北京大学医学部 PDF 文本按专业/方向计算初试最低分。")
+
+
+def parse_ynau_agriculture_text(path: Path, source_url: str) -> list[dict[str, Any]]:
+    text = path.read_text(encoding="utf-8")
+    normalized = re.sub(r"\s+", " ", text)
+    pattern = re.compile(
+        r"\b\d+\s+106766\d+\s+\S+\s+006\s+农学与生物技术学院\s+(\d{6})\s+"
+        r"(.+?)\s+\d{2}\s+(?:全日制|非全日制)\s+(\d{3})\s+.*?待录取"
+    )
+    grouped: dict[str, list[int]] = {}
+    for match in pattern.finditer(normalized):
+        specialty_code = match.group(1)
+        specialty_name = re.sub(r"\s+", "", match.group(2).strip())
+        score = int(match.group(3))
+        key = f"{specialty_code} {specialty_name}"
+        grouped.setdefault(key, []).append(score)
+    return official_rows_from_grouped(grouped, "云南农业大学农学与生物技术学院", source_url, "招生单位官网拟录取名单PDF(WebFetch文本)", "从云南农业大学学院 PDF 文本按专业计算初试最低分。")
+
+
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, Any]]]) -> None:
     wb = Workbook()
     default = wb.active
@@ -291,6 +352,8 @@ def main() -> None:
     parser.add_argument("--official-web-source", action="append", default=[], help="Official web table source as school|url.")
     parser.add_argument("--official-markdown-source", action="append", default=[], help="Official markdown source as school|url|path.")
     parser.add_argument("--official-pdf-source", action="append", default=[], help="Official PDF source as school|url.")
+    parser.add_argument("--peking-medical-text-source", type=Path, help="WebFetch text export of Peking University Health Science Center admitted PDF.")
+    parser.add_argument("--ynau-agriculture-text-source", type=Path, help="WebFetch text export of YNAU agriculture admitted PDF.")
     args = parser.parse_args()
 
     DATA.mkdir(parents=True, exist_ok=True)
@@ -306,6 +369,10 @@ def main() -> None:
     for source in args.official_pdf_source:
         school, url = source.split("|", 1)
         official_rows.extend(parse_official_pdf(url, school))
+    if args.peking_medical_text_source:
+        official_rows.extend(parse_peking_medical_text(args.peking_medical_text_source, "https://yjsy.bjmu.edu.cn/docs/2026-04/296b738c12d741eb8849becb5aafbca0.pdf"))
+    if args.ynau_agriculture_text_source:
+        official_rows.extend(parse_ynau_agriculture_text(args.ynau_agriculture_text_source, "https://yjs.ynau.edu.cn/006nongxueyushengwujishuxueyuan.pdf"))
 
     if third_party_rows:
         write_csv(DATA / "admission_min_scores_third_party.csv", third_party_rows)
