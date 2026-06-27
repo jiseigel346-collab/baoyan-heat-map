@@ -411,6 +411,43 @@ def parse_guangzhou_management_pdf(url: str) -> list[dict[str, Any]]:
     return official_rows_from_grouped(grouped, "广州大学管理学院", url, "招生单位官网调剂待录取名单PDF", "从广州大学管理学院调剂待录取 PDF 按调入专业计算初试最低分。")
 
 
+def parse_ccnu_pdf_attachments(page_url: str) -> list[dict[str, Any]]:
+    response = requests.get(page_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+    response.raise_for_status()
+    response.encoding = response.apparent_encoding or "utf-8"
+    soup = BeautifulSoup(response.text, "html.parser")
+    grouped: dict[str, list[int]] = {}
+    for link in soup.find_all("a", href=True):
+        title = link.get_text(" ", strip=True)
+        if ".pdf" not in title.lower():
+            continue
+        href = requests.compat.urljoin(page_url, link["href"])
+        pdf_response = None
+        for _attempt in range(3):
+            try:
+                pdf_response = requests.get(href, headers={"User-Agent": "Mozilla/5.0", "Referer": page_url}, timeout=45)
+                pdf_response.raise_for_status()
+                break
+            except Exception:
+                pdf_response = None
+        if pdf_response is None:
+            continue
+        reader = PdfReader(io.BytesIO(pdf_response.content))
+        text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
+        pattern = re.compile(
+            r"\b\d{3}\s+[\u4e00-\u9fa5（）()A-Za-z0-9·\s]+?\s+105116\d+\s+\S+\s+"
+            r"(\d{6})\s+(.+?)\s+(?:不区分研究方向|[\u4e00-\u9fa5A-Za-z0-9（）()·]+)\s+"
+            r"(?:全日制|非全日制)\s+(?:非定向|定向)\s+(\d{3})\b"
+        )
+        for match in pattern.finditer(text):
+            specialty_code = match.group(1)
+            specialty_name = re.sub(r"\s+", "", match.group(2).strip())
+            score = int(match.group(3))
+            if specialty_name:
+                grouped.setdefault(f"{specialty_code} {specialty_name}", []).append(score)
+    return official_rows_from_grouped(grouped, "华中师范大学", page_url, "招生单位官网拟录取名单PDF附件", "从华中师范大学各学院 PDF 附件按专业计算初试最低分。")
+
+
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, Any]]]) -> None:
     wb = Workbook()
     default = wb.active
@@ -440,6 +477,7 @@ def main() -> None:
     parser.add_argument("--jlu-nursing-url", help="JLU nursing admitted-list page with PDF attachments.")
     parser.add_argument("--lishui-url", help="Lishui University admitted-list page with PDF attachments.")
     parser.add_argument("--guangzhou-management-pdf", help="Guangzhou University management-school adjustment admitted PDF.")
+    parser.add_argument("--ccnu-url", help="CCNU admitted-list page with PDF attachments.")
     args = parser.parse_args()
 
     DATA.mkdir(parents=True, exist_ok=True)
@@ -465,6 +503,8 @@ def main() -> None:
         official_rows.extend(parse_lishui_pdf_attachments(args.lishui_url))
     if args.guangzhou_management_pdf:
         official_rows.extend(parse_guangzhou_management_pdf(args.guangzhou_management_pdf))
+    if args.ccnu_url:
+        official_rows.extend(parse_ccnu_pdf_attachments(args.ccnu_url))
 
     if third_party_rows:
         write_csv(DATA / "admission_min_scores_third_party.csv", third_party_rows)
