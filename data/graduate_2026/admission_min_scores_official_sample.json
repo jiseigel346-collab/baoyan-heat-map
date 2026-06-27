@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T11:22:54+08:00",
+  "updated_at": "2026-06-27T11:26:55+08:00",
   "source_url": "https://yjszs.uir.cn/info/1421/7541.htm",
   "source_type": "招生单位官网拟录取名单",
   "items": [
@@ -5646,6 +5646,74 @@
       "source_url": "https://yjs.cqust.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=2866&wbtreeid=1015",
       "verify_status": "官网来源按专业聚合",
       "notes": "从重庆科技大学官网嵌入 PDF 按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "山西大学数学科学学院",
+      "department": "",
+      "specialty_name": "071400 统计学",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 279,
+      "final_admission_min_score": 279,
+      "final_admission_max_score": 342,
+      "admission_avg_score": 298.4,
+      "school_retest_min_score": "",
+      "admission_score_raw": "5人，初试分范围 279-342",
+      "source_type": "招生单位官网拟录取名单PDF",
+      "source_url": "http://math.sxu.edu.cn/docs/2026-04/a2b2a8d35b6f4c93b3852fd1f812393e.pdf",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从官网直链 PDF 按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "长江科学院",
+      "department": "",
+      "specialty_name": "081401 岩土工程",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 309,
+      "final_admission_min_score": 309,
+      "final_admission_max_score": 309,
+      "admission_avg_score": 309.0,
+      "school_retest_min_score": "",
+      "admission_score_raw": "1人，初试分范围 309-309",
+      "source_type": "招生单位官网拟录取名单PDF",
+      "source_url": "http://www.crsri.cn/pic/ueditor/1.4.3/net/upload/file/20260402/6391072413959245704063113.pdf",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从官网直链 PDF 按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "长江科学院",
+      "department": "",
+      "specialty_name": "081501 水文学及水资源",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 274,
+      "final_admission_min_score": 274,
+      "final_admission_max_score": 339,
+      "admission_avg_score": 302.0,
+      "school_retest_min_score": "",
+      "admission_score_raw": "7人，初试分范围 274-339",
+      "source_type": "招生单位官网拟录取名单PDF",
+      "source_url": "http://www.crsri.cn/pic/ueditor/1.4.3/net/upload/file/20260402/6391072413959245704063113.pdf",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从官网直链 PDF 按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "长江科学院",
+      "department": "",
+      "specialty_name": "081502 水力学及河流动力学",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 258,
+      "final_admission_min_score": 258,
+      "final_admission_max_score": 358,
+      "admission_avg_score": 297.88,
+      "school_retest_min_score": "",
+      "admission_score_raw": "8人，初试分范围 258-358",
+      "source_type": "招生单位官网拟录取名单PDF",
+      "source_url": "http://www.crsri.cn/pic/ueditor/1.4.3/net/upload/file/20260402/6391072413959245704063113.pdf",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从官网直链 PDF 按专业计算初试最低分。"
     }
   ]
 }

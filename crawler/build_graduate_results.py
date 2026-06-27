@@ -509,6 +509,20 @@ def parse_cqust_embedded_pdf(page_url: str) -> list[dict[str, Any]]:
     return official_rows_from_grouped(grouped, "重庆科技大学", page_url, "招生单位官网嵌入PDF拟录取名单", "从重庆科技大学官网嵌入 PDF 按专业计算初试最低分。")
 
 
+def parse_direct_official_pdf(source: str) -> list[dict[str, Any]]:
+    school_name, url = source.split("|", 1)
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+    response.raise_for_status()
+    reader = PdfReader(io.BytesIO(response.content))
+    text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
+    grouped: dict[str, list[int]] = {}
+    for match in re.finditer(r"\b(\d{6})\s+([\u4e00-\u9fa5A-Za-z（）()]+)\s+\d{12,15}\s+\S+\s+(?:男|女)?\s*(\d{3})\s+\d{2,3}\.\d", text):
+        grouped.setdefault(f"{match.group(1)} {match.group(2)}", []).append(int(match.group(3)))
+    for match in re.finditer(r"\b\d{12,15}\s+\S+\s+(\d{6})\s+([\u4e00-\u9fa5A-Za-z（）()]+)\s+(\d{3})\s+\d{2,3}\.\d{2}.*?(?:同意录取|拟录取|建议录取|一志愿)", text):
+        grouped.setdefault(f"{match.group(1)} {match.group(2)}", []).append(int(match.group(3)))
+    return official_rows_from_grouped(grouped, school_name, url, "招生单位官网拟录取名单PDF", "从官网直链 PDF 按专业计算初试最低分。")
+
+
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, Any]]]) -> None:
     wb = Workbook()
     default = wb.active
@@ -541,6 +555,7 @@ def main() -> None:
     parser.add_argument("--ccnu-url", help="CCNU admitted-list page with PDF attachments.")
     parser.add_argument("--sdu-cs-url", help="SDU CS admitted-list page with admitted and score PDF attachments.")
     parser.add_argument("--cqust-url", help="CQUST admitted-list page with embedded PDF.")
+    parser.add_argument("--direct-official-pdf", action="append", default=[], help="Direct official PDF source as school|url.")
     args = parser.parse_args()
 
     DATA.mkdir(parents=True, exist_ok=True)
@@ -572,6 +587,8 @@ def main() -> None:
         official_rows.extend(parse_sdu_cs_attachments(args.sdu_cs_url))
     if args.cqust_url:
         official_rows.extend(parse_cqust_embedded_pdf(args.cqust_url))
+    for source in args.direct_official_pdf:
+        official_rows.extend(parse_direct_official_pdf(source))
 
     if third_party_rows:
         write_csv(DATA / "admission_min_scores_third_party.csv", third_party_rows)
