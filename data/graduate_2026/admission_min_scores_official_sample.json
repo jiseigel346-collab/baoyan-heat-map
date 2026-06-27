@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T11:09:33+08:00",
+  "updated_at": "2026-06-27T11:18:31+08:00",
   "source_url": "https://yjszs.uir.cn/info/1421/7541.htm",
   "source_type": "招生单位官网拟录取名单",
   "items": [
@@ -5527,6 +5527,57 @@
       "source_url": "https://gs.ccnu.edu.cn/info/1028/6263.htm",
       "verify_status": "官网来源按专业聚合",
       "notes": "从华中师范大学各学院 PDF 附件按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "山东大学计算机科学与技术学院/人工智能学院",
+      "department": "",
+      "specialty_name": "081200 计算机科学与技术",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 312,
+      "final_admission_min_score": 312,
+      "final_admission_max_score": 348,
+      "admission_avg_score": 330.0,
+      "school_retest_min_score": "",
+      "admission_score_raw": "2人，初试分范围 312-348",
+      "source_type": "招生单位官网拟录取名单PDF附件+成绩PDF",
+      "source_url": "https://www.cs.sdu.edu.cn/info/1068/6784.htm",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从山东大学拟录取名单与复试成绩 PDF 按考生编号关联后计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "山东大学计算机科学与技术学院/人工智能学院",
+      "department": "",
+      "specialty_name": "085404 计算机技术",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 358,
+      "final_admission_min_score": 358,
+      "final_admission_max_score": 417,
+      "admission_avg_score": 385.81,
+      "school_retest_min_score": "",
+      "admission_score_raw": "47人，初试分范围 358-417",
+      "source_type": "招生单位官网拟录取名单PDF附件+成绩PDF",
+      "source_url": "https://www.cs.sdu.edu.cn/info/1068/6784.htm",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从山东大学拟录取名单与复试成绩 PDF 按考生编号关联后计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "山东大学计算机科学与技术学院/人工智能学院",
+      "department": "",
+      "specialty_name": "085410 人工智能",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 361,
+      "final_admission_min_score": 361,
+      "final_admission_max_score": 403,
+      "admission_avg_score": 384.25,
+      "school_retest_min_score": "",
+      "admission_score_raw": "16人，初试分范围 361-403",
+      "source_type": "招生单位官网拟录取名单PDF附件+成绩PDF",
+      "source_url": "https://www.cs.sdu.edu.cn/info/1068/6784.htm",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从山东大学拟录取名单与复试成绩 PDF 按考生编号关联后计算初试最低分。"
     }
   ]
 }

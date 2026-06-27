@@ -448,6 +448,44 @@ def parse_ccnu_pdf_attachments(page_url: str) -> list[dict[str, Any]]:
     return official_rows_from_grouped(grouped, "华中师范大学", page_url, "招生单位官网拟录取名单PDF附件", "从华中师范大学各学院 PDF 附件按专业计算初试最低分。")
 
 
+def parse_sdu_cs_attachments(page_url: str) -> list[dict[str, Any]]:
+    response = requests.get(page_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, verify=False)
+    response.raise_for_status()
+    response.encoding = response.apparent_encoding or "utf-8"
+    soup = BeautifulSoup(response.text, "html.parser")
+    admitted_map: dict[str, tuple[str, str]] = {}
+    score_pdf_url = ""
+    for link in soup.find_all("a", href=True):
+        title = link.get_text(" ", strip=True)
+        href = requests.compat.urljoin(page_url, link["href"])
+        if ".pdf" not in title.lower():
+            continue
+        pdf_response = requests.get(href, headers={"User-Agent": "Mozilla/5.0", "Referer": page_url}, timeout=30, verify=False)
+        pdf_response.raise_for_status()
+        reader = PdfReader(io.BytesIO(pdf_response.content))
+        text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
+        if "复试成绩" in title:
+            score_pdf_url = href
+            continue
+        for match in re.finditer(r"\b(104226\d{9})\s+\S+\s+(\d{6})\s+([\u4e00-\u9fa5A-Za-z（）()]+)\s+(?:全日制|非全日制)", text):
+            admitted_map[match.group(1)] = (match.group(2), match.group(3))
+    if not score_pdf_url:
+        return []
+    score_response = requests.get(score_pdf_url, headers={"User-Agent": "Mozilla/5.0", "Referer": page_url}, timeout=30, verify=False)
+    score_response.raise_for_status()
+    reader = PdfReader(io.BytesIO(score_response.content))
+    text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
+    grouped: dict[str, list[int]] = {}
+    for match in re.finditer(r"\b(104226\d{9})\s+\S+\s+(\d{6})\s+([\u4e00-\u9fa5A-Za-z（）()]+)\s+(\d{3})\s+\d{2,3}\.\d{2}\s+\d{2,3}\.\d{2}", text):
+        candidate_id = match.group(1)
+        if candidate_id not in admitted_map:
+            continue
+        specialty_code, specialty_name = admitted_map[candidate_id]
+        score = int(match.group(4))
+        grouped.setdefault(f"{specialty_code} {specialty_name}", []).append(score)
+    return official_rows_from_grouped(grouped, "山东大学计算机科学与技术学院/人工智能学院", page_url, "招生单位官网拟录取名单PDF附件+成绩PDF", "从山东大学拟录取名单与复试成绩 PDF 按考生编号关联后计算初试最低分。")
+
+
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, Any]]]) -> None:
     wb = Workbook()
     default = wb.active
@@ -478,6 +516,7 @@ def main() -> None:
     parser.add_argument("--lishui-url", help="Lishui University admitted-list page with PDF attachments.")
     parser.add_argument("--guangzhou-management-pdf", help="Guangzhou University management-school adjustment admitted PDF.")
     parser.add_argument("--ccnu-url", help="CCNU admitted-list page with PDF attachments.")
+    parser.add_argument("--sdu-cs-url", help="SDU CS admitted-list page with admitted and score PDF attachments.")
     args = parser.parse_args()
 
     DATA.mkdir(parents=True, exist_ok=True)
@@ -505,6 +544,8 @@ def main() -> None:
         official_rows.extend(parse_guangzhou_management_pdf(args.guangzhou_management_pdf))
     if args.ccnu_url:
         official_rows.extend(parse_ccnu_pdf_attachments(args.ccnu_url))
+    if args.sdu_cs_url:
+        official_rows.extend(parse_sdu_cs_attachments(args.sdu_cs_url))
 
     if third_party_rows:
         write_csv(DATA / "admission_min_scores_third_party.csv", third_party_rows)
