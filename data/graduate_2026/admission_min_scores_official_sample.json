@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-27T10:55:16+08:00",
+  "updated_at": "2026-06-27T10:57:33+08:00",
   "source_url": "https://yjszs.uir.cn/info/1421/7541.htm",
   "source_type": "招生单位官网拟录取名单",
   "items": [
@@ -3742,6 +3742,57 @@
       "source_url": "https://yjs.ynau.edu.cn/006nongxueyushengwujishuxueyuan.pdf",
       "verify_status": "官网来源按专业聚合",
       "notes": "从云南农业大学学院 PDF 文本按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "吉林大学护理学院",
+      "department": "",
+      "specialty_name": "1011 护理学",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 315,
+      "final_admission_min_score": 315,
+      "final_admission_max_score": 351,
+      "admission_avg_score": 331.5,
+      "school_retest_min_score": "",
+      "admission_score_raw": "10人，初试分范围 315-351",
+      "source_type": "招生单位官网拟录取名单PDF附件",
+      "source_url": "https://hlxy.jlu.edu.cn/info/1004/2945.htm",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从吉林大学护理学院 PDF 附件按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "吉林大学护理学院",
+      "department": "",
+      "specialty_name": "1054 护理",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 255,
+      "final_admission_min_score": 255,
+      "final_admission_max_score": 376,
+      "admission_avg_score": 327.88,
+      "school_retest_min_score": "",
+      "admission_score_raw": "33人，初试分范围 255-376",
+      "source_type": "招生单位官网拟录取名单PDF附件",
+      "source_url": "https://hlxy.jlu.edu.cn/info/1004/2945.htm",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从吉林大学护理学院 PDF 附件按专业计算初试最低分。"
+    },
+    {
+      "year": "2026",
+      "school_name": "吉林大学护理学院",
+      "department": "",
+      "specialty_name": "1058 医学技术",
+      "score_level": "官网拟录取最低分",
+      "result_min_score": 298,
+      "final_admission_min_score": 298,
+      "final_admission_max_score": 422,
+      "admission_avg_score": 366.43,
+      "school_retest_min_score": "",
+      "admission_score_raw": "14人，初试分范围 298-422",
+      "source_type": "招生单位官网拟录取名单PDF附件",
+      "source_url": "https://hlxy.jlu.edu.cn/info/1004/2945.htm",
+      "verify_status": "官网来源按专业聚合",
+      "notes": "从吉林大学护理学院 PDF 附件按专业计算初试最低分。"
     }
   ]
 }

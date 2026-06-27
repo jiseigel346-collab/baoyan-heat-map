@@ -3,7 +3,7 @@
   "reason": "全国所有硕士招生单位、所有专业的最终录取最低分尚未全部解析。已有全国公告索引，但大量公告需要登录、下载附件、PDF/Excel解析或跳转学校官网后才能计算。",
   "nationwide_notice_rows": 944,
   "nationwide_notice_unique_schools_or_units": 438,
-  "parsed_score_unique_schools": 363,
+  "parsed_score_unique_schools": 364,
   "notice_schools_without_parsed_scores": 371,
   "examples_without_parsed_scores": [
     "三亚学院",
@@ -88,7 +88,7 @@
     "厦门大学中国能源政策研究院"
   ],
   "third_party_min_score_rows": 1808,
-  "official_min_score_sample_rows": 220,
+  "official_min_score_sample_rows": 223,
   "kybang_file_or_directory_index_rows": 2543,
   "kybang_parse_status": "已提取文件名/目录索引；网页未提供公开下载直链，不能直接解析最低分。"
 }

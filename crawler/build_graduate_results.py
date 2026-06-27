@@ -328,6 +328,29 @@ def parse_ynau_agriculture_text(path: Path, source_url: str) -> list[dict[str, A
     return official_rows_from_grouped(grouped, "云南农业大学农学与生物技术学院", source_url, "招生单位官网拟录取名单PDF(WebFetch文本)", "从云南农业大学学院 PDF 文本按专业计算初试最低分。")
 
 
+def parse_jlu_nursing_attachments(page_url: str) -> list[dict[str, Any]]:
+    response = requests.get(page_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+    response.raise_for_status()
+    response.encoding = response.apparent_encoding or "utf-8"
+    soup = BeautifulSoup(response.text, "html.parser")
+    grouped: dict[str, list[int]] = {}
+    for link in soup.find_all("a", href=True):
+        title = link.get_text(" ", strip=True)
+        if ".pdf" not in title.lower():
+            continue
+        href = requests.compat.urljoin(page_url, link["href"])
+        pdf_response = requests.get(href, headers={"User-Agent": "Mozilla/5.0", "Referer": page_url}, timeout=30)
+        pdf_response.raise_for_status()
+        reader = PdfReader(io.BytesIO(pdf_response.content))
+        text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
+        for match in re.finditer(r"\b\d+\s+([\u4e00-\u9fa5]+)\s+(\d{4})\s+\S+\s+(\d{3})\s+\d{2,3}\.\d{2}\s+\d{2,3}\.\d{2}\s+拟录取", text):
+            specialty_name = match.group(1)
+            specialty_code = match.group(2)
+            score = int(match.group(3))
+            grouped.setdefault(f"{specialty_code} {specialty_name}", []).append(score)
+    return official_rows_from_grouped(grouped, "吉林大学护理学院", page_url, "招生单位官网拟录取名单PDF附件", "从吉林大学护理学院 PDF 附件按专业计算初试最低分。")
+
+
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, Any]]]) -> None:
     wb = Workbook()
     default = wb.active
@@ -354,6 +377,7 @@ def main() -> None:
     parser.add_argument("--official-pdf-source", action="append", default=[], help="Official PDF source as school|url.")
     parser.add_argument("--peking-medical-text-source", type=Path, help="WebFetch text export of Peking University Health Science Center admitted PDF.")
     parser.add_argument("--ynau-agriculture-text-source", type=Path, help="WebFetch text export of YNAU agriculture admitted PDF.")
+    parser.add_argument("--jlu-nursing-url", help="JLU nursing admitted-list page with PDF attachments.")
     args = parser.parse_args()
 
     DATA.mkdir(parents=True, exist_ok=True)
@@ -373,6 +397,8 @@ def main() -> None:
         official_rows.extend(parse_peking_medical_text(args.peking_medical_text_source, "https://yjsy.bjmu.edu.cn/docs/2026-04/296b738c12d741eb8849becb5aafbca0.pdf"))
     if args.ynau_agriculture_text_source:
         official_rows.extend(parse_ynau_agriculture_text(args.ynau_agriculture_text_source, "https://yjs.ynau.edu.cn/006nongxueyushengwujishuxueyuan.pdf"))
+    if args.jlu_nursing_url:
+        official_rows.extend(parse_jlu_nursing_attachments(args.jlu_nursing_url))
 
     if third_party_rows:
         write_csv(DATA / "admission_min_scores_third_party.csv", third_party_rows)
