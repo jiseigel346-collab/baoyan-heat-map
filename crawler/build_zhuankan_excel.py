@@ -28,7 +28,7 @@ def head(ws,n):
 
 def detail(wb,rows):
     ws=wb.active; ws.title="江苏2026院校专业组明细"
-    H=["序号","科类","类别","院校代号","院校名称","专业组代号","组号","专业组(选科·备注)",
+    H=["序号","科类","类别","院校代号","院校名称","专业组代号","组号","选科要求","专业组(原文)",
        "专业代号","专业名称","计划数","学制","学费","数据来源页"]
     ws.append(H); head(ws,len(H))
     rows=sorted(rows,key=lambda r:(r.get("km",""),CAT_ORDER.get(r.get("cat",""),9),
@@ -36,15 +36,18 @@ def detail(wb,rows):
                                    str(r.get("sp_code") or "")))
     for i,r in enumerate(rows,1):
         grpno=(r["grp_code"][4:6] if r.get("grp_code") and len(r["grp_code"])>=6 else "")
-        ws.append([i,r.get("km",""),r.get("cat",""),r.get("school_code",""),r.get("school",""),
-                   r.get("grp_code",""),grpno,r.get("grp_name",""),
+        sel=r.get("grp_select") or ""
+        km=r.get("km","")
+        xk=(f"首选{km}，再选{sel}" if sel else (f"首选{km}" if km else ""))
+        ws.append([i,km,r.get("cat",""),r.get("school_code",""),r.get("school",""),
+                   r.get("grp_code",""),grpno,xk,r.get("grp_name",""),
                    r.get("sp_code",""),r.get("sp_name",""),r.get("plan"),r.get("len",""),
                    r.get("fee"),r.get("page","")])
-    leftcols={5,8,10}
+    leftcols={5,9,11}
     for row in ws.iter_rows(min_row=2,max_row=ws.max_row,max_col=len(H)):
         for cell in row:
             cell.font=CFONT; cell.alignment=LEF if cell.column in leftcols else CEN
-    for i,w in enumerate([6,6,12,9,22,11,6,30,8,30,7,6,8,9],1):
+    for i,w in enumerate([6,6,12,9,22,11,6,18,28,8,28,7,6,8,9],1):
         ws.column_dimensions[get_column_letter(i)].width=w
     ws.freeze_panes="A2"; ws.auto_filter.ref=f"A1:{get_column_letter(len(H))}{ws.max_row}"
     return len(rows)

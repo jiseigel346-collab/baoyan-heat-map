@@ -55,14 +55,18 @@ def parse_page(d):
     for side in "LR":
         codes=[]
         for y,x,t,c in sorted(B[(side,"code")]):
-            dg=re.sub(r"\D","",t)
-            if dg: codes.append((y,dg,c))
+            s=t.strip()
+            m=re.match(r"(\d{2,8})(.*)", s)   # 代号列里若“代号+中文名”被合并，拆出前导数字与其余
+            if not m: continue
+            dg=m.group(1); rest=m.group(2).strip()
+            codes.append((y,dg,c,rest))
         names=sorted(B[(side,"name")])
         nums =sorted(B[(side,"num")])
-        for i,(y,code,cc) in enumerate(codes):
+        for i,(y,code,cc,rest) in enumerate(codes):
             ylo=y-16*f
             yhi=codes[i+1][0]-16*f if i+1<len(codes) else 1e9
-            nm=" ".join(t for (yy,xx,t,c) in names if ylo<=yy<yhi).strip()
+            nm_col=" ".join(t for (yy,xx,t,c) in names if ylo<=yy<yhi).strip()
+            nm=(rest+" "+nm_col).strip() if rest else nm_col
             zone=sorted([(xx/f,t) for (yy,xx,t,c) in nums if ylo<=yy<yhi])
             ln=""; fee=""; plan=""
             small=[]   # (nx, value<1000)
@@ -81,6 +85,21 @@ def parse_page(d):
                 plan=str(small[0][1])
             seq.append({"code":code,"name":nm,"plan":plan,"len":ln,"fee":fee,"cc":cc,"flag":""})
     return km, cat, seq
+
+SEL_KW=("不限","化学和生物","化学或生物","化学、生物","化学","物理","生物","思想政治","政治","历史","地理")
+def extract_select(name):
+    if not name: return ""
+    m=re.search(r"专业组[（(]([^（）()]{1,16})[)）]?", name)
+    if m and any(k in m.group(1) for k in SEL_KW):
+        return m.group(1).strip("（）() ")
+    # 兜底：扫描所有括号内容，取含选科关键词的
+    for seg in re.findall(r"[（(]([^（）()]{1,16})[)）]", name):
+        if any(k in seg for k in SEL_KW):
+            return seg.strip()
+    # 再兜底：直接命中关键词
+    for k in SEL_KW:
+        if k in name: return k
+    return ""
 
 def num(s):
     s=re.sub(r"\D","",str(s))
@@ -130,8 +149,7 @@ def main():
                     cur_grp_name=name
                     if len(cur_grp_code)>=6 and not cur_school_code:
                         cur_school_code=cur_grp_code[:4]
-                    m=re.search(r"专业组[（(]([^（）()]*)", name)
-                    cur_grp_select=m.group(1) if m else ""
+                    cur_grp_select=extract_select(name)
                     gk=(cur_km,cur_cat,cur_school_code,cur_grp_code)
                     groups[gk]={"km":cur_km,"cat":cur_cat,"school_code":cur_school_code,
                                 "school":cur_school,"grp_code":cur_grp_code,
