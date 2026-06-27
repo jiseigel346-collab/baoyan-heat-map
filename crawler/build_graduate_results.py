@@ -339,8 +339,16 @@ def parse_jlu_nursing_attachments(page_url: str) -> list[dict[str, Any]]:
         if ".pdf" not in title.lower():
             continue
         href = requests.compat.urljoin(page_url, link["href"])
-        pdf_response = requests.get(href, headers={"User-Agent": "Mozilla/5.0", "Referer": page_url}, timeout=30)
-        pdf_response.raise_for_status()
+        pdf_response = None
+        for _attempt in range(3):
+            try:
+                pdf_response = requests.get(href, headers={"User-Agent": "Mozilla/5.0", "Referer": page_url}, timeout=45)
+                pdf_response.raise_for_status()
+                break
+            except Exception:
+                pdf_response = None
+        if pdf_response is None:
+            continue
         reader = PdfReader(io.BytesIO(pdf_response.content))
         text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
         for match in re.finditer(r"\b\d+\s+([\u4e00-\u9fa5]+)\s+(\d{4})\s+\S+\s+(\d{3})\s+\d{2,3}\.\d{2}\s+\d{2,3}\.\d{2}\s+拟录取", text):
@@ -349,6 +357,58 @@ def parse_jlu_nursing_attachments(page_url: str) -> list[dict[str, Any]]:
             score = int(match.group(3))
             grouped.setdefault(f"{specialty_code} {specialty_name}", []).append(score)
     return official_rows_from_grouped(grouped, "吉林大学护理学院", page_url, "招生单位官网拟录取名单PDF附件", "从吉林大学护理学院 PDF 附件按专业计算初试最低分。")
+
+
+def parse_lishui_pdf_attachments(page_url: str) -> list[dict[str, Any]]:
+    response = requests.get(page_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, verify=False)
+    response.raise_for_status()
+    response.encoding = response.apparent_encoding or "utf-8"
+    soup = BeautifulSoup(response.text, "html.parser")
+    grouped: dict[str, list[int]] = {}
+    for link in soup.find_all("a", href=True):
+        title = link.get_text(" ", strip=True)
+        href = requests.compat.urljoin(page_url, link["href"])
+        if ".pdf" not in (title + href).lower():
+            continue
+        pdf_response = requests.get(href, headers={"User-Agent": "Mozilla/5.0", "Referer": page_url}, timeout=30, verify=False)
+        pdf_response.raise_for_status()
+        reader = PdfReader(io.BytesIO(pdf_response.content))
+        text = re.sub(r"\s+", " ", "\n".join(page.extract_text() or "" for page in reader.pages))
+        code_match = re.search(r"复试专业代码[:：]\s*(\d{6})", text)
+        name_match = re.search(r"复试专业名称[:：]\s*([^◆第序]+?)(?:\s+同等学力|\s+序号|\s+◆|\s+第\s*\d|\s*$)", text)
+        if not code_match:
+            file_match = re.search(r"(\d{6})([^/\\s]+?)(?:一志愿|待录取|拟录取)", title)
+            if not file_match:
+                continue
+            specialty_code = file_match.group(1)
+            specialty_name = file_match.group(2)
+        else:
+            specialty_code = code_match.group(1)
+            specialty_name = name_match.group(1).strip() if name_match else title
+        scores = []
+        for match in re.finditer(r"\b\d+\s+103526\d+\s+\S+\s+(\d{3})(?:\.00)?\s+\d{2,3}\.\d{1,2}\s+\d{2,3}\.\d{1,2}\s+\d+\s+(?:/|[\d\s]+)?\s*(?:是|拟录取)\b", text):
+            scores.append(int(match.group(1)))
+        if scores:
+            clean_name = re.sub(r"\s+", "", specialty_name)
+            grouped.setdefault(f"{specialty_code} {clean_name}", []).extend(scores)
+    return official_rows_from_grouped(grouped, "丽水学院", page_url, "招生单位官网拟录取名单PDF附件", "从丽水学院 PDF 附件按专业计算初试最低分。")
+
+
+def parse_guangzhou_management_pdf(url: str) -> list[dict[str, Any]]:
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+    response.raise_for_status()
+    reader = PdfReader(io.BytesIO(response.content))
+    text = re.sub(r"\s+", " ", " ".join(page.extract_text() or "" for page in reader.pages))
+    known_majors = ["管理科学与工程", "技术经济及管理", "企业管理", "会计学"]
+    grouped: dict[str, list[int]] = {}
+    for match in re.finditer(r"\b\d+\s+\S+\s+(.+?)\s+(\d{3})\.00\s+\d{2,3}\.\d{2}\s+\d{2,3}\.\d{2}\s+\d+\s+是\b", text):
+        prefix = match.group(1)
+        score = int(match.group(2))
+        for major in sorted(known_majors, key=len, reverse=True):
+            if prefix.endswith(major):
+                grouped.setdefault(major, []).append(score)
+                break
+    return official_rows_from_grouped(grouped, "广州大学管理学院", url, "招生单位官网调剂待录取名单PDF", "从广州大学管理学院调剂待录取 PDF 按调入专业计算初试最低分。")
 
 
 def write_workbook(path: Path, sheets: dict[str, list[dict[str, Any]]]) -> None:
@@ -378,6 +438,8 @@ def main() -> None:
     parser.add_argument("--peking-medical-text-source", type=Path, help="WebFetch text export of Peking University Health Science Center admitted PDF.")
     parser.add_argument("--ynau-agriculture-text-source", type=Path, help="WebFetch text export of YNAU agriculture admitted PDF.")
     parser.add_argument("--jlu-nursing-url", help="JLU nursing admitted-list page with PDF attachments.")
+    parser.add_argument("--lishui-url", help="Lishui University admitted-list page with PDF attachments.")
+    parser.add_argument("--guangzhou-management-pdf", help="Guangzhou University management-school adjustment admitted PDF.")
     args = parser.parse_args()
 
     DATA.mkdir(parents=True, exist_ok=True)
@@ -399,6 +461,10 @@ def main() -> None:
         official_rows.extend(parse_ynau_agriculture_text(args.ynau_agriculture_text_source, "https://yjs.ynau.edu.cn/006nongxueyushengwujishuxueyuan.pdf"))
     if args.jlu_nursing_url:
         official_rows.extend(parse_jlu_nursing_attachments(args.jlu_nursing_url))
+    if args.lishui_url:
+        official_rows.extend(parse_lishui_pdf_attachments(args.lishui_url))
+    if args.guangzhou_management_pdf:
+        official_rows.extend(parse_guangzhou_management_pdf(args.guangzhou_management_pdf))
 
     if third_party_rows:
         write_csv(DATA / "admission_min_scores_third_party.csv", third_party_rows)
