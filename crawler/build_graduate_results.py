@@ -328,6 +328,17 @@ def parse_ynau_agriculture_text(path: Path, source_url: str) -> list[dict[str, A
     return official_rows_from_grouped(grouped, "云南农业大学农学与生物技术学院", source_url, "招生单位官网拟录取名单PDF(WebFetch文本)", "从云南农业大学学院 PDF 文本按专业计算初试最低分。")
 
 
+def parse_sichuan_clinical_text(path: Path, source_url: str) -> list[dict[str, Any]]:
+    text = re.sub(r"\s+", " ", path.read_text(encoding="utf-8"))
+    grouped: dict[str, list[int]] = {}
+    for match in re.finditer(r"\b\d{12,15}\s+\S+\s+(\d{6})\s+([^\s]+)\s+(\d{3})\s+\d{2,3}(?:\.\d{1,2})?\s+\d{2,3}\.\d{2}.*?拟录取", text):
+        specialty_code = match.group(1)
+        specialty_name = match.group(2)
+        score = int(match.group(3))
+        grouped.setdefault(f"{specialty_code} {specialty_name}", []).append(score)
+    return official_rows_from_grouped(grouped, "四川大学临床医学院", source_url, "招生单位官网拟录取名单PDF(WebFetch文本)", "从四川大学临床医学院 PDF 文本按专业/方向计算初试最低分。")
+
+
 def parse_jlu_nursing_attachments(page_url: str) -> list[dict[str, Any]]:
     response = requests.get(page_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
     response.raise_for_status()
@@ -549,6 +560,7 @@ def main() -> None:
     parser.add_argument("--official-pdf-source", action="append", default=[], help="Official PDF source as school|url.")
     parser.add_argument("--peking-medical-text-source", type=Path, help="WebFetch text export of Peking University Health Science Center admitted PDF.")
     parser.add_argument("--ynau-agriculture-text-source", type=Path, help="WebFetch text export of YNAU agriculture admitted PDF.")
+    parser.add_argument("--sichuan-clinical-text-source", type=Path, help="WebFetch text export of Sichuan University clinical admitted PDF.")
     parser.add_argument("--jlu-nursing-url", help="JLU nursing admitted-list page with PDF attachments.")
     parser.add_argument("--lishui-url", help="Lishui University admitted-list page with PDF attachments.")
     parser.add_argument("--guangzhou-management-pdf", help="Guangzhou University management-school adjustment admitted PDF.")
@@ -575,6 +587,8 @@ def main() -> None:
         official_rows.extend(parse_peking_medical_text(args.peking_medical_text_source, "https://yjsy.bjmu.edu.cn/docs/2026-04/296b738c12d741eb8849becb5aafbca0.pdf"))
     if args.ynau_agriculture_text_source:
         official_rows.extend(parse_ynau_agriculture_text(args.ynau_agriculture_text_source, "https://yjs.ynau.edu.cn/006nongxueyushengwujishuxueyuan.pdf"))
+    if args.sichuan_clinical_text_source:
+        official_rows.extend(parse_sichuan_clinical_text(args.sichuan_clinical_text_source, "https://yjs.cd120.com/upload/files/2026/4/159fe3d9bf85b8c9.pdf"))
     if args.jlu_nursing_url:
         official_rows.extend(parse_jlu_nursing_attachments(args.jlu_nursing_url))
     if args.lishui_url:
