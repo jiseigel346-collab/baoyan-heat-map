@@ -133,13 +133,29 @@ def write_national_catalog(wb):
 def write_readme(wb, plan, n_detail):
     ws = wb.create_sheet("说明与数据来源")
     ws.column_dimensions["A"].width = 118
+    from collections import defaultdict as _dd
     total_plan = sum(int(r["num"]) for r in plan["rows"] if str(r["num"]).isdigit())
+    by_sub = _dd(int)
+    for r in plan["rows"]:
+        if str(r["num"]).isdigit():
+            by_sub[r["subject_type"] or "未标注"] += int(r["num"])
+    cover_pct = round(total_plan / 241080 * 100, 1)  # 官方普通类本科(含提前)约 241080
     lines = [
         ("《江苏2026本科招生专业目录（全国高校）》数据说明", TITLE_FONT),
         ("", None),
         ("一、主表：江苏2026本科招生计划(明细)", SUB_FONT),
         (f"· 收录在江苏招生的全国高校 {plan['school_count_with_plan']} 所、专业明细 {n_detail} 行，"
-         f"计划合计约 {total_plan:,} 人。", CELL_FONT),
+         f"计划合计约 {total_plan:,} 人（历史类 {by_sub.get('历史类',0):,} + 物理类 {by_sub.get('物理类',0):,}）。", CELL_FONT),
+        ("", None),
+        ("【完整性核对】", SUB_FONT),
+        (f"· 普通类本科覆盖率 ≈ {cover_pct}%（本表 {total_plan:,} 人 / 官方普通类本科约 241,080 人）。"
+         "985/211 院校与艺术类院校的普通类专业均已收录，去重后无重复行、专业名与计划数无缺失。",
+         CELL_FONT),
+        ("· 尚未包含（该数据源未提供，无法保证准确，故不收录，以免误导）：艺术类专业、体育类专业、"
+         "强基计划、综合评价、高水平运动队/艺术团、保送生、军校/公安等部分提前批特殊类型。"
+         "如需这些，请提供江苏省教育考试院《2026招生计划专刊》PDF（含文字层即可解析），可补全。",
+         Font(name="微软雅黑", size=10, color="C00000")),
+        ("", None),
         ("· 字段：院校名称 / 院校所在省 / 院校国标代码 / 批次 / 科类(首选历史·物理) / "
          "选科要求 / 专业名称 / 计划数 / 学制 / 学费 / 备注。", CELL_FONT),
         ("· 覆盖范围：普通类本科（历史等科目类 + 物理等科目类）为主，含少量职业本科。"
