@@ -288,6 +288,7 @@ def main() -> None:
     parser.add_argument("--noobdream-text", type=Path, help="Markdown/text export of N诺择校数据 page.")
     parser.add_argument("--official-sample-url", default=DEFAULT_OFFICIAL_SAMPLE_URL, help="Official admitted list sample URL.")
     parser.add_argument("--official-sample-school", default="国际关系学院", help="School name for the official sample URL.")
+    parser.add_argument("--official-web-source", action="append", default=[], help="Official web table source as school|url.")
     parser.add_argument("--official-markdown-source", action="append", default=[], help="Official markdown source as school|url|path.")
     parser.add_argument("--official-pdf-source", action="append", default=[], help="Official PDF source as school|url.")
     args = parser.parse_args()
@@ -296,6 +297,9 @@ def main() -> None:
     updated_at = now_iso()
     third_party_rows = parse_noobdream_text(args.noobdream_text) if args.noobdream_text else []
     official_rows = parse_official_admission_table(args.official_sample_url, args.official_sample_school) if args.official_sample_url else []
+    for source in args.official_web_source:
+        school, url = source.split("|", 1)
+        official_rows.extend(parse_official_admission_table(url, school))
     for source in args.official_markdown_source:
         school, url, path = source.split("|", 2)
         official_rows.extend(parse_official_markdown_table(Path(path), school, url))
