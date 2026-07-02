@@ -1,0 +1,2236 @@
+{
+  "updated_at": "2026-06-27T01:19:40+08:00",
+  "source_url": "https://yz.chsi.com.cn/zsml/",
+  "items": [
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "01",
+      "category_name": "哲学",
+      "first_discipline_code": "0101",
+      "first_discipline_name": "哲学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0201",
+      "first_discipline_name": "理论经济学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0202",
+      "first_discipline_name": "应用经济学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0270",
+      "first_discipline_name": "统计学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0271",
+      "first_discipline_name": "区域国别学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0301",
+      "first_discipline_name": "法学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0302",
+      "first_discipline_name": "政治学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0303",
+      "first_discipline_name": "社会学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0304",
+      "first_discipline_name": "民族学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0305",
+      "first_discipline_name": "马克思主义理论",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0306",
+      "first_discipline_name": "公安学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0307",
+      "first_discipline_name": "中共党史党建学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0308",
+      "first_discipline_name": "纪检监察学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0370",
+      "first_discipline_name": "国家安全学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0371",
+      "first_discipline_name": "区域国别学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "04",
+      "category_name": "教育学",
+      "first_discipline_code": "0401",
+      "first_discipline_name": "教育学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "04",
+      "category_name": "教育学",
+      "first_discipline_code": "0402",
+      "first_discipline_name": "心理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "04",
+      "category_name": "教育学",
+      "first_discipline_code": "0403",
+      "first_discipline_name": "体育学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "05",
+      "category_name": "文学",
+      "first_discipline_code": "0501",
+      "first_discipline_name": "中国语言文学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "05",
+      "category_name": "文学",
+      "first_discipline_code": "0502",
+      "first_discipline_name": "外国语言文学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "05",
+      "category_name": "文学",
+      "first_discipline_code": "0503",
+      "first_discipline_name": "新闻传播学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "05",
+      "category_name": "文学",
+      "first_discipline_code": "0570",
+      "first_discipline_name": "区域国别学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "06",
+      "category_name": "历史学",
+      "first_discipline_code": "0601",
+      "first_discipline_name": "考古学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "06",
+      "category_name": "历史学",
+      "first_discipline_code": "0602",
+      "first_discipline_name": "中国史",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "06",
+      "category_name": "历史学",
+      "first_discipline_code": "0603",
+      "first_discipline_name": "世界史",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "06",
+      "category_name": "历史学",
+      "first_discipline_code": "0670",
+      "first_discipline_name": "区域国别学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0701",
+      "first_discipline_name": "数学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0702",
+      "first_discipline_name": "物理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0703",
+      "first_discipline_name": "化学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0704",
+      "first_discipline_name": "天文学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0705",
+      "first_discipline_name": "地理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0706",
+      "first_discipline_name": "大气科学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0707",
+      "first_discipline_name": "海洋科学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0708",
+      "first_discipline_name": "地球物理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0709",
+      "first_discipline_name": "地质学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0710",
+      "first_discipline_name": "生物学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0711",
+      "first_discipline_name": "系统科学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0712",
+      "first_discipline_name": "科学技术史",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0713",
+      "first_discipline_name": "生态学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0714",
+      "first_discipline_name": "统计学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0770",
+      "first_discipline_name": "集成电路科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0771",
+      "first_discipline_name": "心理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0772",
+      "first_discipline_name": "力学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0773",
+      "first_discipline_name": "材料科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0774",
+      "first_discipline_name": "电子科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0775",
+      "first_discipline_name": "计算机科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0776",
+      "first_discipline_name": "环境科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0777",
+      "first_discipline_name": "生物医学工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0778",
+      "first_discipline_name": "基础医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0779",
+      "first_discipline_name": "公共卫生与预防医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0780",
+      "first_discipline_name": "药学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0781",
+      "first_discipline_name": "中药学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0783",
+      "first_discipline_name": "护理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0787",
+      "first_discipline_name": "遥感科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0788",
+      "first_discipline_name": "智能科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0789",
+      "first_discipline_name": "纳米科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0801",
+      "first_discipline_name": "力学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0802",
+      "first_discipline_name": "机械工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0803",
+      "first_discipline_name": "光学工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0804",
+      "first_discipline_name": "仪器科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0805",
+      "first_discipline_name": "材料科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0806",
+      "first_discipline_name": "冶金工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0807",
+      "first_discipline_name": "动力工程及工程热物理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0808",
+      "first_discipline_name": "电气工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0809",
+      "first_discipline_name": "电子科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0810",
+      "first_discipline_name": "信息与通信工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0811",
+      "first_discipline_name": "控制科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0812",
+      "first_discipline_name": "计算机科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0813",
+      "first_discipline_name": "建筑学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0814",
+      "first_discipline_name": "土木工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0815",
+      "first_discipline_name": "水利工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0816",
+      "first_discipline_name": "测绘科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0817",
+      "first_discipline_name": "化学工程与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0818",
+      "first_discipline_name": "地质资源与地质工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0819",
+      "first_discipline_name": "矿业工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0820",
+      "first_discipline_name": "石油与天然气工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0821",
+      "first_discipline_name": "纺织科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0822",
+      "first_discipline_name": "轻工技术与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0823",
+      "first_discipline_name": "交通运输工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0824",
+      "first_discipline_name": "船舶与海洋工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0825",
+      "first_discipline_name": "航空宇航科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0826",
+      "first_discipline_name": "兵器科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0827",
+      "first_discipline_name": "核科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0828",
+      "first_discipline_name": "农业工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0829",
+      "first_discipline_name": "林业工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0830",
+      "first_discipline_name": "环境科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0831",
+      "first_discipline_name": "生物医学工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0832",
+      "first_discipline_name": "食品科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0833",
+      "first_discipline_name": "城乡规划学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0835",
+      "first_discipline_name": "软件工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0836",
+      "first_discipline_name": "生物工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0837",
+      "first_discipline_name": "安全科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0838",
+      "first_discipline_name": "公安技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0839",
+      "first_discipline_name": "网络空间安全",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0870",
+      "first_discipline_name": "科学技术史",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0871",
+      "first_discipline_name": "管理科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0872",
+      "first_discipline_name": "设计学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0873",
+      "first_discipline_name": "集成电路科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0874",
+      "first_discipline_name": "国家安全学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0875",
+      "first_discipline_name": "遥感科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0876",
+      "first_discipline_name": "智能科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0877",
+      "first_discipline_name": "纳米科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0901",
+      "first_discipline_name": "作物学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0902",
+      "first_discipline_name": "园艺学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0903",
+      "first_discipline_name": "农业资源与环境",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0904",
+      "first_discipline_name": "植物保护",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0905",
+      "first_discipline_name": "畜牧学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0906",
+      "first_discipline_name": "兽医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0907",
+      "first_discipline_name": "林学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0908",
+      "first_discipline_name": "水产",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0909",
+      "first_discipline_name": "草学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0910",
+      "first_discipline_name": "水土保持与荒漠化防治学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0970",
+      "first_discipline_name": "科学技术史",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0971",
+      "first_discipline_name": "环境科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0972",
+      "first_discipline_name": "食品科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1001",
+      "first_discipline_name": "基础医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1002",
+      "first_discipline_name": "临床医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1003",
+      "first_discipline_name": "口腔医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1004",
+      "first_discipline_name": "公共卫生与预防医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1005",
+      "first_discipline_name": "中医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1006",
+      "first_discipline_name": "中西医结合",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1007",
+      "first_discipline_name": "药学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1008",
+      "first_discipline_name": "中药学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1009",
+      "first_discipline_name": "特种医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1011",
+      "first_discipline_name": "护理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1012",
+      "first_discipline_name": "法医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1071",
+      "first_discipline_name": "科学技术史",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1072",
+      "first_discipline_name": "生物医学工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1101",
+      "first_discipline_name": "军事思想与军事历史",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1102",
+      "first_discipline_name": "战略学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1103",
+      "first_discipline_name": "联合作战学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1104",
+      "first_discipline_name": "军兵种作战学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1105",
+      "first_discipline_name": "军队指挥学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1106",
+      "first_discipline_name": "军队政治工作学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1107",
+      "first_discipline_name": "军事后勤学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1108",
+      "first_discipline_name": "军事装备学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1109",
+      "first_discipline_name": "军事管理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1110",
+      "first_discipline_name": "军事训练学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1111",
+      "first_discipline_name": "军事智能",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1170",
+      "first_discipline_name": "国家安全学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1201",
+      "first_discipline_name": "管理科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1202",
+      "first_discipline_name": "工商管理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1203",
+      "first_discipline_name": "农林经济管理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1204",
+      "first_discipline_name": "公共管理学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1205",
+      "first_discipline_name": "信息资源管理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1270",
+      "first_discipline_name": "安全科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1271",
+      "first_discipline_name": "国家安全学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1301",
+      "first_discipline_name": "艺术学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1370",
+      "first_discipline_name": "设计学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1401",
+      "first_discipline_name": "集成电路科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1402",
+      "first_discipline_name": "国家安全学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1403",
+      "first_discipline_name": "设计学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1404",
+      "first_discipline_name": "遥感科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1405",
+      "first_discipline_name": "智能科学与技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1406",
+      "first_discipline_name": "纳米科学与工程",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "学术学位",
+      "degree_type_code": "xs",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1407",
+      "first_discipline_name": "区域国别学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "01",
+      "category_name": "哲学",
+      "first_discipline_code": "0151",
+      "first_discipline_name": "应用伦理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0251",
+      "first_discipline_name": "金融",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0252",
+      "first_discipline_name": "应用统计",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0253",
+      "first_discipline_name": "税务",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0254",
+      "first_discipline_name": "国际商务",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0255",
+      "first_discipline_name": "保险",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0256",
+      "first_discipline_name": "资产评估",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "02",
+      "category_name": "经济学",
+      "first_discipline_code": "0258",
+      "first_discipline_name": "数字经济",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0351",
+      "first_discipline_name": "法律",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0352",
+      "first_discipline_name": "社会工作",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0353",
+      "first_discipline_name": "警务",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0354",
+      "first_discipline_name": "知识产权",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "03",
+      "category_name": "法学",
+      "first_discipline_code": "0355",
+      "first_discipline_name": "国际事务",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "04",
+      "category_name": "教育学",
+      "first_discipline_code": "0451",
+      "first_discipline_name": "教育",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "04",
+      "category_name": "教育学",
+      "first_discipline_code": "0452",
+      "first_discipline_name": "体育",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "04",
+      "category_name": "教育学",
+      "first_discipline_code": "0453",
+      "first_discipline_name": "国际中文教育",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "04",
+      "category_name": "教育学",
+      "first_discipline_code": "0454",
+      "first_discipline_name": "应用心理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "05",
+      "category_name": "文学",
+      "first_discipline_code": "0551",
+      "first_discipline_name": "翻译",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "05",
+      "category_name": "文学",
+      "first_discipline_code": "0552",
+      "first_discipline_name": "新闻与传播",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "05",
+      "category_name": "文学",
+      "first_discipline_code": "0553",
+      "first_discipline_name": "出版",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "06",
+      "category_name": "历史学",
+      "first_discipline_code": "0651",
+      "first_discipline_name": "博物馆",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "07",
+      "category_name": "理学",
+      "first_discipline_code": "0751",
+      "first_discipline_name": "气象",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0851",
+      "first_discipline_name": "建筑",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0853",
+      "first_discipline_name": "城乡规划",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0854",
+      "first_discipline_name": "电子信息",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0855",
+      "first_discipline_name": "机械",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0856",
+      "first_discipline_name": "材料与化工",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0857",
+      "first_discipline_name": "资源与环境",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0858",
+      "first_discipline_name": "能源动力",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0859",
+      "first_discipline_name": "土木水利",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0860",
+      "first_discipline_name": "生物与医药",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0861",
+      "first_discipline_name": "交通运输",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "08",
+      "category_name": "工学",
+      "first_discipline_code": "0862",
+      "first_discipline_name": "风景园林",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0951",
+      "first_discipline_name": "农业",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0952",
+      "first_discipline_name": "兽医",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0954",
+      "first_discipline_name": "林业",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "09",
+      "category_name": "农学",
+      "first_discipline_code": "0955",
+      "first_discipline_name": "食品与营养",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1051",
+      "first_discipline_name": "临床医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1052",
+      "first_discipline_name": "口腔医学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1053",
+      "first_discipline_name": "公共卫生",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1054",
+      "first_discipline_name": "护理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1055",
+      "first_discipline_name": "药学",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1056",
+      "first_discipline_name": "中药",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1057",
+      "first_discipline_name": "中医",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1058",
+      "first_discipline_name": "医学技术",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "10",
+      "category_name": "医学",
+      "first_discipline_code": "1059",
+      "first_discipline_name": "针灸",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1152",
+      "first_discipline_name": "联合作战指挥",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1153",
+      "first_discipline_name": "军兵种作战指挥",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1154",
+      "first_discipline_name": "作战指挥保障",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1155",
+      "first_discipline_name": "战时政治工作",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1156",
+      "first_discipline_name": "后勤与装备保障",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "11",
+      "category_name": "军事学",
+      "first_discipline_code": "1157",
+      "first_discipline_name": "军事训练与管理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1251",
+      "first_discipline_name": "工商管理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1252",
+      "first_discipline_name": "公共管理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1253",
+      "first_discipline_name": "会计",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1254",
+      "first_discipline_name": "旅游管理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1255",
+      "first_discipline_name": "图书情报",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1256",
+      "first_discipline_name": "工程管理",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "12",
+      "category_name": "管理学",
+      "first_discipline_code": "1257",
+      "first_discipline_name": "审计",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1352",
+      "first_discipline_name": "音乐",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1353",
+      "first_discipline_name": "舞蹈",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1354",
+      "first_discipline_name": "戏剧与影视",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1355",
+      "first_discipline_name": "戏曲与曲艺",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1356",
+      "first_discipline_name": "美术与书法",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "13",
+      "category_name": "艺术学",
+      "first_discipline_code": "1357",
+      "first_discipline_name": "设计",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1451",
+      "first_discipline_name": "文物",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    },
+    {
+      "year": "2026",
+      "degree_type": "专业学位",
+      "degree_type_code": "zyxw",
+      "category_code": "14",
+      "category_name": "交叉学科",
+      "first_discipline_code": "1452",
+      "first_discipline_name": "密码",
+      "source_url": "https://yz.chsi.com.cn/zsml/"
+    }
+  ]
+}

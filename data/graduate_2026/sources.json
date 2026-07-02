@@ -1,0 +1,150 @@
+{
+  "updated_at": "2026-06-27T01:19:40+08:00",
+  "scope": "2026年全国硕士研究生招生考试；14大学科门类；研招网硕士专业目录开设招生单位；国家线自动匹配。",
+  "important_note": "本数据包不把复试线等同于最终录取最低分。final_admission_min_score 留空，需后续逐校采集拟录取名单核验。",
+  "official_sources": {
+    "national_line": "https://yz.chsi.com.cn/kyzx/kp/202602/20260228/2293449093.html",
+    "chsi_specialty_catalog": "https://yz.chsi.com.cn/zsml/",
+    "chsi_retest_topic": "https://yz.chsi.com.cn/kyzx/zt/kyfs.shtml"
+  },
+  "generated_files": {
+    "national_lines": [
+      "data/graduate_2026/national_lines.csv",
+      "data/graduate_2026/national_lines.json"
+    ],
+    "specialty_catalog": [
+      "data/graduate_2026/specialty_catalog.csv",
+      "data/graduate_2026/specialty_catalog.json"
+    ],
+    "discipline_categories": [
+      "data/graduate_2026/discipline_categories.csv",
+      "data/graduate_2026/discipline_categories.json"
+    ],
+    "school_specialty_score_base": [
+      "data/graduate_2026/school_specialty_score_base.csv",
+      "data/graduate_2026/school_specialty_score_base.json"
+    ]
+  },
+  "counts": {
+    "national_line_rows": 22,
+    "discipline_category_rows": 223,
+    "specialties": 88,
+    "school_specialty_rows": 133
+  },
+  "collection_warnings": [
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 01哲学 / 0101哲学",
+      "available_first_page_rows": 10,
+      "reported_total_count": 13,
+      "reported_total_page": 2,
+      "message": "研招网未登录状态通常只允许查看第一页；脚本会尝试翻页，失败则保留此警告。"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 01哲学 / 0101哲学",
+      "page": 2,
+      "message": "请登录"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 02经济学 / 0201理论经济学",
+      "available_first_page_rows": 10,
+      "reported_total_count": 28,
+      "reported_total_page": 3,
+      "message": "研招网未登录状态通常只允许查看第一页；脚本会尝试翻页，失败则保留此警告。"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 02经济学 / 0201理论经济学",
+      "page": 2,
+      "message": "请登录"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 02经济学 / 0202应用经济学",
+      "available_first_page_rows": 10,
+      "reported_total_count": 81,
+      "reported_total_page": 9,
+      "message": "研招网未登录状态通常只允许查看第一页；脚本会尝试翻页，失败则保留此警告。"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 02经济学 / 0202应用经济学",
+      "page": 2,
+      "message": "请登录"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0301法学",
+      "available_first_page_rows": 10,
+      "reported_total_count": 99,
+      "reported_total_page": 10,
+      "message": "研招网未登录状态通常只允许查看第一页；脚本会尝试翻页，失败则保留此警告。"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0301法学",
+      "page": 2,
+      "message": "请登录"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0302政治学",
+      "available_first_page_rows": 10,
+      "reported_total_count": 39,
+      "reported_total_page": 4,
+      "message": "研招网未登录状态通常只允许查看第一页；脚本会尝试翻页，失败则保留此警告。"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0302政治学",
+      "page": 2,
+      "message": "请登录"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0303社会学",
+      "available_first_page_rows": 10,
+      "reported_total_count": 16,
+      "reported_total_page": 2,
+      "message": "研招网未登录状态通常只允许查看第一页；脚本会尝试翻页，失败则保留此警告。"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0303社会学",
+      "page": 2,
+      "message": "请登录"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0305马克思主义理论",
+      "available_first_page_rows": 10,
+      "reported_total_count": 23,
+      "reported_total_page": 3,
+      "message": "研招网未登录状态通常只允许查看第一页；脚本会尝试翻页，失败则保留此警告。"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "学术学位 03法学 / 0305马克思主义理论",
+      "page": 2,
+      "message": "请登录"
+    },
+    {
+      "path": "/zsml/rs/zys.do",
+      "context": "specialty catalog",
+      "message": "按 --max-specialty-queries=12 截断，后续可增量续跑。"
+    },
+    {
+      "path": "/zsml/rs/zydws.do",
+      "context": "school specialty expansion",
+      "message": "按 --max-school-programs=2 截断，后续可增量续跑。"
+    },
+    {
+      "path": "/zsml/rs/zydws.do",
+      "context": "010100哲学 / 53云南",
+      "page": 1,
+      "message": "访问太频繁"
+    }
+  ]
+}

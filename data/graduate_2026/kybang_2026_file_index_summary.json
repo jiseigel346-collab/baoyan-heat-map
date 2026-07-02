@@ -1,0 +1,35 @@
+{
+  "pages": [
+    {
+      "section": "A区院校",
+      "url": "http://www.kybang.com/347/",
+      "items_found": 764,
+      "bytes": 171719
+    },
+    {
+      "section": "B区院校",
+      "url": "http://www.kybang.com/348/",
+      "items_found": 563,
+      "bytes": 155181
+    },
+    {
+      "section": "211院校",
+      "url": "http://www.kybang.com/349/",
+      "items_found": 104,
+      "bytes": 67379
+    },
+    {
+      "section": "985院校",
+      "url": "http://www.kybang.com/350/",
+      "items_found": 894,
+      "bytes": 222658
+    },
+    {
+      "section": "医学医科院校",
+      "url": "http://www.kybang.com/351/",
+      "items_found": 227,
+      "bytes": 89016
+    }
+  ],
+  "rows": 2543
+}
